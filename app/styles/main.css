@@ -211,3 +211,10 @@ html, body {
 .mdl-demo .mdl-menu__container {
   z-index: 99;
 }
+
+/* need to remove all of the aboe */
+
+.mdl-grid.center-items {
+  justify-content: center;
+  text-align: center;
+}
