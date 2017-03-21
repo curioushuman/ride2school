@@ -17,6 +17,10 @@
  *
  */
 
+ // TODO
+ // - make sure the scripts from bower have made it over
+ // - concat your component JS as well (based on scripts task above), maybe app.js already is?
+
 'use strict';
 
 // This gulpfile makes use of new JavaScript features.
@@ -110,8 +114,11 @@ gulp.task('scripts', () =>
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
-      './app/scripts/main.js'
+      './app/scripts/main.js',
       // Other scripts
+      './app/scripts/app.js',
+      './app/views/view1/view1.js',
+      './app/views/view2/view2.js'
     ])
       .pipe($.newer('.tmp/scripts'))
       .pipe($.sourcemaps.init())
@@ -125,6 +132,13 @@ gulp.task('scripts', () =>
       .pipe($.sourcemaps.write('.'))
       .pipe(gulp.dest('dist/scripts'))
       .pipe(gulp.dest('.tmp/scripts'))
+);
+
+// bower
+gulp.task('bower', () =>
+  $.bower()
+    .pipe(gulp.dest('.tmp/scripts/lib'))
+    .pipe(gulp.dest('dist/scripts/lib'))
 );
 
 // scan the views directory for pug files
@@ -165,7 +179,7 @@ gulp.task('html', () => {
 gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/.git'], {dot: true}));
 
 // Watch files for changes & reload
-gulp.task('serve', ['scripts', 'styles', 'views'], () => {
+gulp.task('serve', ['scripts', 'styles', 'views', 'bower'], () => {
   browserSync({
     notify: false,
     // Customize the Browsersync console logging prefix
@@ -207,7 +221,7 @@ gulp.task('serve:dist', ['default'], () =>
 gulp.task('default', ['clean'], cb =>
   runSequence(
     'styles',
-    ['lint', 'views', 'html', 'scripts', 'images', 'copy'],
+    ['lint', 'views', 'html', 'scripts', 'bower', 'images', 'copy'],
     'generate-service-worker',
     cb
   )
