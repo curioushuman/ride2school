@@ -2,7 +2,10 @@
 /* global angular */
 'use strict';
 
-var app_view_1 = angular.module('ride2SchoolApp.view1', ['ngRoute'])
+var app_view_1 = angular.module('ride2SchoolApp.view1', [
+  'ngRoute',
+  'ngMaterial'
+])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
     templateUrl: 'views/view1/view1.html',
