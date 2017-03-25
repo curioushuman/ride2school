@@ -5,8 +5,8 @@
 // Declare app level module which depends on views, and components
 var app = angular.module('ride2SchoolApp', [
   'ngRoute',
-  'ngMaterial'
-  // 'ride2SchoolApp.view1'
+  'ngMaterial',
+  'ride2SchoolApp.index'
 ])
 .config(
   [
@@ -14,7 +14,7 @@ var app = angular.module('ride2SchoolApp', [
     '$routeProvider',
     function($locationProvider, $routeProvider) {
       $locationProvider.hashPrefix('!');
-      $routeProvider.otherwise({redirectTo: '/view1'});
+      $routeProvider.otherwise({redirectTo: '/index'});
     }
   ]
 );

@@ -117,8 +117,7 @@ gulp.task('scripts', () =>
       './app/scripts/main.js',
       // Other scripts
       './app/scripts/app.js',
-      './app/views/view1/view1.js',
-      './app/views/view2/view2.js'
+      './app/views/index/index.js'
     ])
       .pipe($.newer('.tmp/scripts'))
       .pipe($.sourcemaps.init())
@@ -145,9 +144,17 @@ gulp.task('bower', () =>
 gulp.task('views', () =>
   gulp.src('views/**/*.pug')
   .pipe($.pug())
-  // .pipe(gulp.dest('app'))
   .pipe(gulp.dest('dist'))
   .pipe(gulp.dest('.tmp'))
+);
+
+// scan the angular views directory for pug files
+gulp.task('app_views', () =>
+  gulp.src('app/views/**/*.pug')
+  .pipe($.pug())
+  .pipe(gulp.dest(function(file) {
+    return file.base;
+  }))
 );
 
 // Scan your HTML for assets & optimize them
@@ -179,7 +186,7 @@ gulp.task('html', () => {
 gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/.git'], {dot: true}));
 
 // Watch files for changes & reload
-gulp.task('serve', ['scripts', 'styles', 'views', 'bower'], () => {
+gulp.task('serve', ['scripts', 'styles', 'views', 'app_views', 'bower'], () => {
   browserSync({
     notify: false,
     // Customize the Browsersync console logging prefix
@@ -198,6 +205,7 @@ gulp.task('serve', ['scripts', 'styles', 'views', 'bower'], () => {
   gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['app/scripts/**/*.js'], ['lint', 'scripts', reload]);
   gulp.watch(['views/**/*.pug'], ['views', reload]);
+  gulp.watch(['app/views/**/*.pug'], ['views', reload]);
   gulp.watch(['app/images/**/*'], reload);
 });
 
@@ -221,7 +229,7 @@ gulp.task('serve:dist', ['default'], () =>
 gulp.task('default', ['clean'], cb =>
   runSequence(
     'styles',
-    ['lint', 'views', 'html', 'scripts', 'bower', 'images', 'copy'],
+    ['lint', 'views', 'app_views', 'html', 'scripts', 'bower', 'images', 'copy'],
     'generate-service-worker',
     cb
   )
