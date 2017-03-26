@@ -43,7 +43,7 @@ const reload = browserSync.reload;
 
 // Lint JavaScript
 gulp.task('lint', () =>
-  gulp.src(['app/scripts/**/*.js','!node_modules/**'])
+  gulp.src(['app/scripts/**/*.js','app/views/**/*.js','!node_modules/**'])
     .pipe($.eslint())
     .pipe($.eslint.format())
     .pipe($.if(!browserSync.active, $.eslint.failAfterError()))
@@ -116,6 +116,7 @@ gulp.task('scripts', () =>
       //       to be correctly concatenated
       './app/scripts/main.js',
       // Other scripts
+      // './app/scripts/AppController.js',
       './app/scripts/app.js',
       './app/views/index/index.js'
     ])
@@ -204,8 +205,9 @@ gulp.task('serve', ['scripts', 'styles', 'views', 'app_views', 'bower'], () => {
   gulp.watch(['app/**/*.html'], reload);
   gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['app/scripts/**/*.js'], ['lint', 'scripts', reload]);
+  gulp.watch(['app/views/**/*.js'], ['lint', 'scripts', reload]);
   gulp.watch(['views/**/*.pug'], ['views', reload]);
-  gulp.watch(['app/views/**/*.pug'], ['views', reload]);
+  gulp.watch(['app/views/**/*.pug'], ['app_views', reload]);
   gulp.watch(['app/images/**/*'], reload);
 });
 

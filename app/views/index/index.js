@@ -2,7 +2,7 @@
 /* global angular */
 'use strict';
 
-var app_index = angular.module('ride2SchoolApp.index', [
+var appIndex = angular.module('ride2SchoolApp.index', [
   'ngRoute',
   'ngMaterial'
 ])

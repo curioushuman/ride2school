@@ -12,9 +12,22 @@ var app = angular.module('ride2SchoolApp', [
   [
     '$locationProvider',
     '$routeProvider',
-    function($locationProvider, $routeProvider) {
+    '$mdThemingProvider',
+    function($locationProvider, $routeProvider, $mdThemingProvider) {
       $locationProvider.hashPrefix('!');
       $routeProvider.otherwise({redirectTo: '/index'});
+      $mdThemingProvider.theme('default')
+        .primaryPalette('teal')
+        .accentPalette('pink', {
+          'default': 'A400'
+        })
+        .warnPalette('deep-orange')
+        .backgroundPalette('grey');
     }
   ]
-);
+)
+.controller('AppCtrl', function($scope, $mdSidenav) {
+  $scope.openLeftMenu = function() {
+    $mdSidenav('left').toggle();
+  };
+});
