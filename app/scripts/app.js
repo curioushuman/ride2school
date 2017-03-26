@@ -27,7 +27,10 @@ var app = angular.module('ride2SchoolApp', [
   ]
 )
 .controller('AppCtrl', function($scope, $mdSidenav) {
-  $scope.openLeftMenu = function() {
-    $mdSidenav('left').toggle();
+  $scope.openMenuOut = function() {
+    $mdSidenav('left_out').toggle();
+  };
+  $scope.openMenuIn = function() {
+    $mdSidenav('left_in').toggle();
   };
 });
