@@ -37,4 +37,72 @@ block content
             h3 your journey
       //- this is for the gt-xs space on the RHS
       span(flex, show-gt-xs)
+  div.r2s-content
+    md-content(layout-padding, layout='row', layout-xs='column')
+      div(flex-xs, flex-gt-xs='50', layout='column')
+        md-card
+          img.md-card-image(
+            ng-src='/images/active_kids.svg',
+            alt='Illustration of a child on a scooter, one on a bicycle, and one walking'
+          )
+          md-card-title
+            md-card-title-text.md-headline
+              | Active travellers have more fun
+          md-card-content
+            p
+              | Kids love to move and have fun, but research shows they are not
+              | &nbsp;getting enough of their daily dose. By walking, scooting or
+              | &nbsp;cycling to school:
+            ul
+              li Kids build stronger bodies and bones
+              li They sleep better at night
+              li Feel more relaxed and confident
+              li Have more fun on the way to school
+              li And in the classroom
+
+      div(flex-xs, flex-gt-xs='50', layout='column')
+        md-card
+          md-card-title
+            md-card-title-media.md-media-large.card-media
+              img.md-card-image(
+                ng-src='/images/active_kids.svg',
+                alt='Illustration of a child on a scooter, one on a bicycle, and one walking'
+              )
+            md-card-title-text.md-headline
+              | Active travellers have more fun
+          md-card-content
+            p
+              | Kids love to move and have fun, but research shows they are not
+              | &nbsp;getting enough of their daily dose. By walking, scooting or
+              | &nbsp;cycling to school:
+            ul
+              li Kids build stronger bodies and bones
+              li They sleep better at night
+              li Feel more relaxed and confident
+              li Have more fun on the way to school
+              li And in the classroom
+
+        md-card(layout='row')
+          div(flex='50', layout='column', layout-align='start stretch')
+            img(
+              flex,
+              ng-src='/images/active_kids.svg',
+              alt='Illustration of a child on a scooter, one on a bicycle, and one walking'
+            )
+          div(flex)
+            md-card-title
+              md-card-title-text.md-headline
+                | Active travellers have more fun
+            md-card-content
+              p
+                | Kids love to move and have fun, but research shows they are not
+                | &nbsp;getting enough of their daily dose. By walking, scooting or
+                | &nbsp;cycling to school:
+              ul
+                li Kids build stronger bodies and bones
+                li They sleep better at night
+                li Feel more relaxed and confident
+                li Have more fun on the way to school
+                li And in the classroom
+
   div(ng-view)
