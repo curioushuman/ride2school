@@ -1,9 +1,40 @@
 extends layout
 
 block content
-  div(layout='row', md-colors="{background: 'default-primary'}")
-    div(flex='50')
-      img(ng-src='/images/dog.png', alt='Picture of a dog')
-    div(flex)
-      p This is another one
+  div.r2s-onboard-hero(layout='row', layout-xs='column', md-colors="{background: 'default-primary'}")
+    div(hide-gt-xs, flex, layout='row', layout-align='center center')
+      img(
+        ng-src='/images/happy_earth.svg',
+        alt='Animation displaying how active travellers keep the world healthy'
+      )
+    div(hide, show-gt-xs, flex='50', layout='row', layout-align='center center')
+      img(
+        ng-src='/images/happy_earth.svg',
+        alt='Animation displaying how active travellers keep the world healthy'
+      )
+    div(flex, layout='row')
+      div(hide-gt-sm)
+        md-content(layout-padding, md-colors="{background: 'default-primary'}")
+          h1.md-display-1 Active travellers
+          h2.md-headline Keep the world healthy
+          p Kids and teachers across Australia are teaming up to help reduce our
+            | &nbsp;collective carbon footprint, and inspire more active travellers.
+            | &nbsp;By encouraging your class to walk, scoot, or cycle to and from
+            | &nbsp;school we can make both our planet and your school a happier
+            | &nbsp;place to be.
+      div(hide, show-gt-sm, layout='column', flex='75')
+        h1.md-display-2 Active travellers
+        h2.md-display-1 Keep the world healthy
+        p Kids and teachers across Australia are teaming up to help reduce our
+          | &nbsp;collective carbon footprint, and inspire more active travellers.
+          | &nbsp;By encouraging your class to walk, scoot, or cycle to and from
+          | &nbsp;school we can make both our planet and your school a happier,
+          | &nbsp;healthier place to be.
+        md-toolbar
+          .md-toolbar-tools
+            md-button.md-raised.md-accent(aria-label='Begin') Begin
+            md-button.md-raised(aria-label='Resume') Resume
+            h3 your journey
+      //- this is for the gt-xs space on the RHS
+      span(flex, show-gt-xs)
   div(ng-view)

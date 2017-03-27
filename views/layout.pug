@@ -40,13 +40,15 @@ head
   link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
   link(rel='stylesheet', href='styles/main.css')
 
-body(ng-app='ride2SchoolApp', ng-cloak, layout='column', ng-controller='AppCtrl')
+body(ng-app='ride2SchoolApp', ng-cloak, ng-controller='AppCtrl')
 
-  include partials/header
-
-  block content
-
-  include partials/footer
+  div(layout='column', layout-fill)
+    header
+      include partials/header
+    main(flex)
+      block content
+    footer
+      include partials/footer
 
   //- In production use
   script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js')

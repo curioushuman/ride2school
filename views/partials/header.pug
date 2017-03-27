@@ -1,6 +1,6 @@
-md-toolbar
+md-toolbar(md-scroll-shrink)
   .md-toolbar-tools
-    md-button.md-icon-button(aria-label='Menu', ng-click='openMenuIn()')
+    md-button.md-icon-button(aria-label='Menu', ng-click='openMenuOut()')
       md-icon(class='material-icons') menu
     h1(flex, md-truncate) Active Travellers
 
@@ -54,12 +54,12 @@ md-sidenav.md-sidenav-left(
         md-icon.material-icons.md-48 account_circle
         .md-list-item-text
           h3 Login
-          p Enter the game
+          p Resume your journey
       md-list-item.md-2-line(ng-click='null')
         md-icon.material-icons.md-48 info_outline
         .md-list-item-text
           h3 About
-          p Learn why this game is so important
+          p Learn why active travellers are so important
       md-list-item.md-2-line(ng-click='null')
         md-icon.material-icons.md-48 help_outline
         .md-list-item-text
@@ -119,7 +119,7 @@ md-sidenav.md-sidenav-left(
         md-icon.material-icons.md-48 info_outline
         .md-list-item-text
           h3 About
-          p Learn why this game is so important
+          p Learn why active travellers are so important
       md-list-item.md-2-line(ng-click='null')
         md-icon.material-icons.md-48 help_outline
         .md-list-item-text
@@ -129,4 +129,4 @@ md-sidenav.md-sidenav-left(
         md-icon.material-icons.md-48 power_settings_new
         .md-list-item-text
           h3 Logout
-          p Exit the game
+          p Come back soon

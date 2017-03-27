@@ -14,6 +14,29 @@
  * limitations under the License.
  */
 
+
+/* onboarding */
+
+/* header */
+
+/* hero */
+
+.r2s-onboard-hero h1 {
+  margin-bottom: 0px;
+}
+.r2s-onboard-hero h2 {
+  margin-top: 0px;
+}
+
+/* all */
+
+/* footer */
+
+footer h3 {
+
+}
+
+/* Temp styles I won't need later */
 .r2s-img-size-avatar {
   width: 70px;
 }
