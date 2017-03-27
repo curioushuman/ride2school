@@ -28,11 +28,128 @@ block content
   //- Welcome banner
   md-toolbar.md-accent.md-hue-1(ng-if='school')
     .md-toolbar-tools
-      h2 Welcome James cook boys
-      span(flex)
-      md-button.md-raised(aria-label='Begin') Begin
-      md-button.md-raised(aria-label='Resume') Resume
-      h3 your journey
+      h2 Welcome&nbsp;
+        span(hide, show-gt-xs) {{ school.name }}
+      span(flex, hide, show-gt-xs)
+      md-button.md-raised(hide, show-gt-xs, aria-label='Begin') Begin
+      md-button.md-raised(hide, show-gt-xs, aria-label='Resume') Resume
+      h3(hide, show-gt-xs) your journey
+  md-toolbar.md-accent.md-hue-1(hide-gt-xs, ng-if='school')
+    .md-toolbar-tools
+      h3 {{ school.name }}
 
   //- Content
   div.r2s-content
+    md-content(hide, show-sm, layout-padding)
+      div(flex, layout='column')
+        md-card(layout='row')
+          div(flex='50')
+            md-card-title
+              md-card-title-text.md-headline
+                | More fun
+            md-card-content
+              p
+                | Kids love to move and have fun, but research shows they are not
+                | &nbsp;getting enough of their daily dose. By walking, scooting or
+                | &nbsp;cycling to school kids:
+              md-list.md-dense
+                md-list-item(ng-click='null')
+                  md-icon.material-icons done
+                  .md-list-item-text
+                    p Build stronger bodies and bones
+                md-list-item(ng-click='null')
+                  md-icon.material-icons done
+                  .md-list-item-text
+                    p Feel more relaxed and confident
+                md-list-item(ng-click='null')
+                  md-icon.material-icons done
+                  .md-list-item-text
+                    p Have more fun on the way to school, and in class
+          div(flex, layout='column', layout-align='start stretch')
+            img(
+              flex,
+              ng-src='/images/active_kids.svg',
+              alt='Illustration of a child on a scooter, one on a bicycle, and one walking'
+            )
+    md-content(layout-padding, layout='row', layout-xs='column')
+      div(hide-sm, flex, flex-gt-sm='33', layout='column')
+        md-card
+          img.md-card-image(
+            ng-src='/images/active_kids.svg',
+            alt='Illustration of a child on a scooter, one on a bicycle, and one walking'
+          )
+          md-card-title
+            md-card-title-text.md-headline
+              | More fun
+          md-card-content
+            p
+              | Kids love to move and have fun, but research shows they are not
+              | &nbsp;getting enough of their daily dose. By walking, scooting or
+              | &nbsp;cycling to school kids:
+            md-list.md-dense
+              md-list-item(ng-click='null')
+                md-icon.material-icons done
+                .md-list-item-text
+                  p Build stronger bodies and bones
+              md-list-item(ng-click='null')
+                md-icon.material-icons done
+                .md-list-item-text
+                  p Feel more relaxed and confident
+              md-list-item(ng-click='null')
+                md-icon.material-icons done
+                .md-list-item-text
+                  p Have more fun on the way to school, and in class
+      div(flex, flex-sm='50', flex-gt-sm='33', layout='column')
+        md-card
+          img.md-card-image(
+            ng-src='/images/less_cars.svg',
+            alt='Illustration of a child on a scooter, one on a bicycle, and one walking'
+          )
+          md-card-title
+            md-card-title-text.md-headline
+              | Less cars
+          md-card-content
+            p
+              | Australian children are among the most chauffeured young people
+              | &nbsp;in the developed world. Less cars around our schools
+              | &nbsp;means:
+            md-list.md-dense
+              md-list-item(ng-click='null')
+                md-icon.material-icons done
+                .md-list-item-text
+                  p Less traffic in our communities
+              md-list-item(ng-click='null')
+                md-icon.material-icons done
+                .md-list-item-text
+                  p Less pollution across our cities
+              md-list-item(ng-click='null')
+                md-icon.material-icons done
+                .md-list-item-text
+                  p A happier, healhier world
+      div(flex, flex-sm='50', flex-gt-sm='33', layout='column')
+        md-card
+          img.md-card-image(
+            ng-src='/images/more_trees.svg',
+            alt='Illustration of a child on a scooter, one on a bicycle, and one walking'
+          )
+          md-card-title
+            md-card-title-text.md-headline
+              | More trees
+          md-card-content
+            p
+              | For every step you and your school take towards more active
+              | &nbsp;travellers we will plant a tree to supercharge your
+              | &nbsp;efforts. More trees means:
+            md-list.md-dense
+              md-list-item(ng-click='null')
+                md-icon.material-icons done
+                .md-list-item-text
+                  p More carbon filtered from the air
+              md-list-item(ng-click='null')
+                md-icon.material-icons done
+                .md-list-item-text
+                  p More habitat for our animals
+              md-list-item(ng-click='null')
+                md-icon.material-icons done
+                .md-list-item-text
+                  p More trees for us to climb

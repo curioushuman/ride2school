@@ -19,7 +19,10 @@ var app = angular.module('ride2SchoolApp', [
       $mdThemingProvider.theme('default')
         .primaryPalette('teal')
         .accentPalette('pink', {
-          'default': 'A400'
+          'default': 'A400',
+          'hue-1': '400',
+          'hue-2': '300',
+          'hue-3': '200'
         })
         .warnPalette('deep-orange')
         .backgroundPalette('grey');

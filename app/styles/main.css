@@ -31,6 +31,11 @@
 
 /* all */
 
+md-toolbar.md-default-theme.md-hue-1:not(.md-menu-toolbar).md-accent .md-ink-ripple,
+md-toolbar.md-hue-1:not(.md-menu-toolbar).md-accent .md-ink-ripple {
+  color: #000000;
+}
+
 /* md-list dense */
 
 md-list-item.md-dense>div.md-button:first-child,
@@ -40,6 +45,7 @@ md-list-item.md-dense>div.md-button:first-child,
 
 md-list.md-dense md-list-item .md-list-item-inner>md-icon:first-child:not(.md-avatar-icon),
 md-list.md-dense md-list-item>md-icon:first-child:not(.md-avatar-icon) {
+  margin-left: 0px;
   margin-right: 16px;
 }
 
