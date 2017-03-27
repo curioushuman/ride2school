@@ -1,108 +1,38 @@
 extends layout
 
 block content
+  //- Hero
   div.r2s-onboard-hero(layout='row', layout-xs='column', md-colors="{background: 'default-primary'}")
-    div(hide-gt-xs, flex, layout='row', layout-align='center center')
+    //- For non-mobile
+    div(flex-gt-xs='50', flex-xs, layout='row', layout-align='center center')
       img(
         ng-src='/images/happy_earth.svg',
         alt='Animation displaying how active travellers keep the world healthy'
       )
-    div(hide, show-gt-xs, flex='50', layout='row', layout-align='center center')
-      img(
-        ng-src='/images/happy_earth.svg',
-        alt='Animation displaying how active travellers keep the world healthy'
-      )
-    div(flex, layout='row')
-      div(hide-gt-sm)
+    div(flex-gt-xs='50', flex-xs, layout='row')
+      div(flex-gt-xs='75', layout='column')
         md-content(layout-padding, md-colors="{background: 'default-primary'}")
-          h1.md-display-1 Active travellers
-          h2.md-headline Keep the world healthy
+          div(hide, show-gt-sm)
+            h1.md-display-2 Active travellers
+            h2.md-display-1 keep the world healthy
+          div(hide-gt-sm)
+            h1.md-display-1 Active travellers
+            h2.md-headline keep the world healthy
           p Kids and teachers across Australia are teaming up to help reduce our
             | &nbsp;collective carbon footprint, and inspire more active travellers.
             | &nbsp;By encouraging your class to walk, scoot, or cycle to and from
-            | &nbsp;school we can make both our planet and your school a happier
-            | &nbsp;place to be.
-      div(hide, show-gt-sm, layout='column', flex='75')
-        h1.md-display-2 Active travellers
-        h2.md-display-1 Keep the world healthy
-        p Kids and teachers across Australia are teaming up to help reduce our
-          | &nbsp;collective carbon footprint, and inspire more active travellers.
-          | &nbsp;By encouraging your class to walk, scoot, or cycle to and from
-          | &nbsp;school we can make both our planet and your school a happier,
-          | &nbsp;healthier place to be.
-        md-toolbar
-          .md-toolbar-tools
-            md-button.md-raised.md-accent(aria-label='Begin') Begin
-            md-button.md-raised(aria-label='Resume') Resume
-            h3 your journey
-      //- this is for the gt-xs space on the RHS
-      span(flex, show-gt-xs)
+            | &nbsp;school we can make both our planet and your school a happier,
+            | &nbsp;healthier place to be.
+      span(hide, show-gt-xs, flex)
+
+  //- Welcome banner
+  md-toolbar.md-accent.md-hue-1(ng-if='school')
+    .md-toolbar-tools
+      h2 Welcome James cook boys
+      span(flex)
+      md-button.md-raised(aria-label='Begin') Begin
+      md-button.md-raised(aria-label='Resume') Resume
+      h3 your journey
+
+  //- Content
   div.r2s-content
-    md-content(layout-padding, layout='row', layout-xs='column')
-      div(flex-xs, flex-gt-xs='50', layout='column')
-        md-card
-          img.md-card-image(
-            ng-src='/images/active_kids.svg',
-            alt='Illustration of a child on a scooter, one on a bicycle, and one walking'
-          )
-          md-card-title
-            md-card-title-text.md-headline
-              | Active travellers have more fun
-          md-card-content
-            p
-              | Kids love to move and have fun, but research shows they are not
-              | &nbsp;getting enough of their daily dose. By walking, scooting or
-              | &nbsp;cycling to school:
-            ul
-              li Kids build stronger bodies and bones
-              li They sleep better at night
-              li Feel more relaxed and confident
-              li Have more fun on the way to school
-              li And in the classroom
-
-      div(flex-xs, flex-gt-xs='50', layout='column')
-        md-card
-          md-card-title
-            md-card-title-media.md-media-large.card-media
-              img.md-card-image(
-                ng-src='/images/active_kids.svg',
-                alt='Illustration of a child on a scooter, one on a bicycle, and one walking'
-              )
-            md-card-title-text.md-headline
-              | Active travellers have more fun
-          md-card-content
-            p
-              | Kids love to move and have fun, but research shows they are not
-              | &nbsp;getting enough of their daily dose. By walking, scooting or
-              | &nbsp;cycling to school:
-            ul
-              li Kids build stronger bodies and bones
-              li They sleep better at night
-              li Feel more relaxed and confident
-              li Have more fun on the way to school
-              li And in the classroom
-
-        md-card(layout='row')
-          div(flex='50', layout='column', layout-align='start stretch')
-            img(
-              flex,
-              ng-src='/images/active_kids.svg',
-              alt='Illustration of a child on a scooter, one on a bicycle, and one walking'
-            )
-          div(flex)
-            md-card-title
-              md-card-title-text.md-headline
-                | Active travellers have more fun
-            md-card-content
-              p
-                | Kids love to move and have fun, but research shows they are not
-                | &nbsp;getting enough of their daily dose. By walking, scooting or
-                | &nbsp;cycling to school:
-              ul
-                li Kids build stronger bodies and bones
-                li They sleep better at night
-                li Feel more relaxed and confident
-                li Have more fun on the way to school
-                li And in the classroom
-
-  div(ng-view)

@@ -1,0 +1,126 @@
+md-sidenav.md-sidenav-left(
+  md-component-id='left_out',
+  md-whiteframe='4',
+  layout='column',
+  layout-align='space-between stretch'
+)
+  div
+    div(md-colors="{background: 'default-primary'}")
+      md-toolbar
+        h2.md-toolbar-tools Welcome&nbsp;
+          span(ng-if='school') {{ school.name }}
+      div(layout='row')
+        div(flex='50', layout='column' layout-align='center center')
+          //- img.r2s-img-size-avatar(ng-src='/images/student.svg', alt='Student')
+          div
+            i.material-icons.md-light.r2s-icon-size-48 face
+          div
+            | Student
+        div(flex='50', layout='column' layout-align='center center')
+          //- img.r2s-img-size-avatar(ng-src='/images/teacher.svg', alt='Teacher')
+          div
+            i.material-icons.md-light.r2s-icon-size-48 face
+          div
+            | Teacher
+      md-toolbar
+        .md-toolbar-tools
+          md-button.md-raised.md-accent(aria-label='Begin') Begin
+          md-button.md-raised(aria-label='Resume') Resume
+          h3 journey
+    md-list
+      md-subheader.md-no-sticky Would you like to learn more?
+      md-list-item(ng-click='null')
+        .md-list-item-text
+          p Active travellers have more fun
+      md-list-item(ng-click='null')
+        .md-list-item-text
+          p Less cars means happier communities
+      md-list-item(ng-click='null')
+        .md-list-item-text
+          p More trees make everyone happy
+      md-list-item(ng-click='null')
+        .md-list-item-text
+          p How to play
+  div
+    md-list
+      md-divider
+      md-list-item.md-2-line(ng-click='null')
+        md-icon.material-icons.md-48 account_circle
+        .md-list-item-text
+          h3 Login
+          p Resume your journey
+      md-list-item.md-2-line(ng-click='null')
+        md-icon.material-icons.md-48 info_outline
+        .md-list-item-text
+          h3 About
+          p Learn why active travellers are so important
+      md-list-item.md-2-line(ng-click='null')
+        md-icon.material-icons.md-48 help_outline
+        .md-list-item-text
+          h3 Support
+          p We all need some help sometimes
+
+md-sidenav.md-sidenav-left(
+  md-component-id='left_in',
+  md-whiteframe='4',
+  layout='column',
+  layout-align='space-between stretch'
+)
+  div
+    div(md-colors="{background: 'default-primary'}")
+      md-toolbar
+        .md-toolbar-tools
+          h2 Welcome back
+      div(layout='row')
+        div(flex='50', layout='column' layout-align='center center')
+          //- img.r2s-img-size-avatar(ng-src='/images/student.svg', alt='Student')
+          div
+            i.material-icons.md-light.r2s-icon-size-48 face
+          div
+            | James
+        div(flex='50', layout='column' layout-align='center center')
+          //- img.r2s-img-size-avatar(ng-src='/images/teacher.svg', alt='Teacher')
+          div
+            i.material-icons.md-light.r2s-icon-size-48 face
+          div
+            | Mr. Smith
+      md-toolbar
+        .md-toolbar-tools
+          h3 James Cook Boys High School
+    md-list
+      md-subheader.md-no-sticky Your challenges
+      md-list-item(ng-click='null')
+        .md-list-item-text
+          p Current
+      md-list-item(ng-click='null')
+        .md-list-item-text
+          p Bonus
+      md-list-item(ng-click='null')
+        .md-list-item-text
+          p Completed
+      md-list-item(ng-click='null')
+        .md-list-item-text
+          p Upcoming
+  div
+    md-list
+      md-divider
+      md-list-item.md-2-line(ng-click='null')
+        md-icon.material-icons.md-48 account_circle
+        .md-list-item-text
+          h3 Account
+          p Edit your account details
+      md-list-item.md-2-line(ng-click='null')
+        md-icon.material-icons.md-48 info_outline
+        .md-list-item-text
+          h3 About
+          p Learn why active travellers are so important
+      md-list-item.md-2-line(ng-click='null')
+        md-icon.material-icons.md-48 help_outline
+        .md-list-item-text
+          h3 Support
+          p We all need some help sometimes
+      md-list-item.md-2-line(ng-click='null')
+        md-icon.material-icons.md-48 power_settings_new
+        .md-list-item-text
+          h3 Logout
+          p Come back soon

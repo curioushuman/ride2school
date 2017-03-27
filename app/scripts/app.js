@@ -27,6 +27,14 @@ var app = angular.module('ride2SchoolApp', [
   ]
 )
 .controller('AppCtrl', function($scope, $mdSidenav) {
+
+  // whether a new school has been specified or not
+  var temp_school = {
+    name: 'James Cook Boys'
+  };
+  $scope.school = temp_school;
+
+  // sidebar functions
   $scope.openMenuOut = function() {
     $mdSidenav('left_out').toggle();
   };
