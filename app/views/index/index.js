@@ -12,6 +12,17 @@ var appIndex = angular.module('ride2SchoolApp.index', [
     controller: 'IndexCtrl'
   });
 }])
-.controller('IndexCtrl', [function() {
+.controller('IndexCtrl', function($scope) {
 
-}]);
+  // onboarding forms
+  // show and hide the student and teacher begin mini-forms
+  $scope.studentBegun = false;
+  $scope.teacherBegun = false;
+  $scope.beginStudent = function() {
+    $scope.studentBegun = true;
+  }
+  $scope.beginTeacher = function() {
+    $scope.teacherBegun = true;
+  }
+
+});

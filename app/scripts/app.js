@@ -18,19 +18,19 @@ var app = angular.module('ride2SchoolApp', [
       $routeProvider.otherwise({redirectTo: '/index'});
       $mdThemingProvider.theme('default')
         .primaryPalette('teal')
-        .accentPalette('pink', {
-          'default': 'A400',
-          'hue-1': '400',
-          'hue-2': '300',
-          'hue-3': '200'
-        })
+        .accentPalette('pink')
+        // .accentPalette('pink', {
+        //   'default': 'A400',
+        //   'hue-1': '400',
+        //   'hue-2': '300',
+        //   'hue-3': '200'
+        // })
         .warnPalette('deep-orange')
         .backgroundPalette('grey');
     }
   ]
 )
 .controller('AppCtrl', function($scope, $mdSidenav) {
-
 
   // Has a school been passed as a paramater
   // temp (for testing)
@@ -41,6 +41,8 @@ var app = angular.module('ride2SchoolApp', [
 
   // onboarding form
   // schools
+  // TODO - look at the angular phonecat to work out
+  // how to create a service for your schools (using $resource etc)
   var schools = [
     {
       id: 1,
@@ -52,16 +54,6 @@ var app = angular.module('ride2SchoolApp', [
     }
   ];
   $scope.schools = schools;
-
-  // show and hide the student and teacher begin mini-forms
-  $scope.studentBegun = false;
-  $scope.teacherBegun = false;
-  $scope.beginStudent = function() {
-    $scope.studentBegun = true;
-  }
-  $scope.beginTeacher = function() {
-    $scope.teacherBegun = true;
-  }
 
   // sidebar functions
   $scope.openMenuOut = function() {
