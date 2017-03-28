@@ -1,4 +1,4 @@
-div(ng-controller='IndexCtrl')
+div(ng-controller='IntroCtrl')
   //- Hero
   div.r2s-onboard-hero(layout='row', layout-xs='column', md-colors="{background: 'default-primary'}")
     //- For non-mobile
@@ -24,17 +24,17 @@ div(ng-controller='IndexCtrl')
       span(hide, show-gt-xs, flex)
 
   //- Welcome banner
-  md-toolbar.md-accent.md-hue-1(ng-if='current_school')
+  md-toolbar.md-accent.md-hue-1(ng-if='currentSchool')
     .md-toolbar-tools
       h2 Welcome&nbsp;
-        span(hide, show-gt-xs) {{ current_school.name }}
+        span(hide, show-gt-xs) {{ currentSchool.name }}
       span(flex, hide, show-gt-xs)
-      md-button.md-raised(hide, show-gt-xs, aria-label='Begin') Begin
-      md-button.md-raised(hide, show-gt-xs, aria-label='Resume') Resume
+      md-button.md-raised(hide, show-gt-xs, aria-label='Begin', ng-click='beginJourney()') Begin
+      md-button.md-raised(hide, show-gt-xs, aria-label='Resume', ng-click='resumeJourney()') Resume
       h3(hide, show-gt-xs) your journey
-  md-toolbar.md-accent.md-hue-1(hide-gt-xs, ng-if='current_school')
+  md-toolbar.md-accent.md-hue-1(hide-gt-xs, ng-if='currentSchool')
     .md-toolbar-tools
-      h3 {{ current_school.name }}
+      h3 {{ currentSchool.name }}
 
   //- Content
   div.r2s-content
@@ -160,6 +160,7 @@ div(ng-controller='IndexCtrl')
                   p More trees for us to climb
 
     //- Begin form
+    a(name='begin')
     md-content(layout-padding, layout='column')
       md-card
         md-card-title(md-colors="::{backgroundColor: 'default-accent-hue-1'}")

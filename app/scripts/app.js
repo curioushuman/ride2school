@@ -6,7 +6,8 @@
 var app = angular.module('ride2SchoolApp', [
   'ngRoute',
   'ngMaterial',
-  'ride2SchoolApp.index'
+  'ride2SchoolApp.intro',
+  'ride2SchoolApp.play'
 ])
 .config(
   [
@@ -15,7 +16,7 @@ var app = angular.module('ride2SchoolApp', [
     '$mdThemingProvider',
     function($locationProvider, $routeProvider, $mdThemingProvider) {
       $locationProvider.hashPrefix('!');
-      $routeProvider.otherwise({redirectTo: '/index'});
+      $routeProvider.otherwise({redirectTo: '/intro'});
       $mdThemingProvider.theme('default')
         .primaryPalette('teal')
         // .accentPalette('pink')
@@ -30,18 +31,17 @@ var app = angular.module('ride2SchoolApp', [
     }
   ]
 )
-.controller('AppCtrl', function($scope, $mdSidenav) {
-
+.controller('AppCtrl', function($scope, $location, $anchorScroll, $mdSidenav) {
   // Has a school been passed as a paramater
   // temp (for testing)
-  var temp_school = {
+  var tempSchool = {
     name: 'James Cook Boys'
   };
-  $scope.current_school = temp_school;
+  $scope.currentSchool = tempSchool;
 
   // onboarding form
   // schools
-  // TODO - look at the angular phonecat to work out
+  // Look at the angular phonecat to work out
   // how to create a service for your schools (using $resource etc)
   var schools = [
     {
@@ -54,6 +54,17 @@ var app = angular.module('ride2SchoolApp', [
     }
   ];
   $scope.schools = schools;
+
+  // begin / resume
+  $scope.beginJourney = function() {
+    $location.hash('begin');
+    $anchorScroll();
+    $mdSidenav('left_out').close();
+  };
+  // temp resume function for now
+  $scope.resumeJourney = function() {
+    $location.path('/play');
+  };
 
   // sidebar functions
   $scope.openMenuOut = function() {

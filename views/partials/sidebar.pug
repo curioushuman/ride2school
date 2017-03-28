@@ -8,9 +8,9 @@ md-sidenav.md-sidenav-left(
     div(md-colors="{background: 'default-primary'}")
       md-toolbar
         h2.md-toolbar-tools Welcome
-      md-toolbar.md-hue-2(ng-if='current_school')
-        h3.md-toolbar-tools {{ current_school.name }}
-      md-content(layout-padding, layout='row', md-colors="::{backgroundColor: 'default-primary-hue-2'}")
+      md-toolbar.md-hue-2(ng-if='currentSchool')
+        h3.md-toolbar-tools {{ currentSchool.name }}
+      div(layout-padding, layout='row', md-colors="::{backgroundColor: 'default-primary-hue-2'}")
         div(flex='50', layout='column' layout-align='center center')
           //- img.r2s-img-size-avatar(ng-src='/images/student.svg', alt='Student')
           div
@@ -25,8 +25,8 @@ md-sidenav.md-sidenav-left(
             | Teacher
       md-toolbar
         .md-toolbar-tools
-          md-button.md-raised.md-accent(aria-label='Begin') Begin
-          md-button.md-raised(aria-label='Resume') Resume
+          md-button.md-raised.md-accent(aria-label='Begin', ng-click='beginJourney()') Begin
+          md-button.md-raised(aria-label='Resume', ng-click='resumeJourney()') Resume
           h3 journey
     //- md-list
       md-subheader.md-no-sticky Would you like to learn more?
@@ -45,7 +45,7 @@ md-sidenav.md-sidenav-left(
   div
     md-list
       md-divider
-      md-list-item.md-2-line(ng-click='null')
+      md-list-item.md-2-line(ng-click='resumeJourney()')
         md-icon.material-icons.md-48 account_circle
         .md-list-item-text
           h3 Login

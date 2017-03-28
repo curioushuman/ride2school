@@ -2,27 +2,25 @@
 /* global angular */
 'use strict';
 
-var appIndex = angular.module('ride2SchoolApp.index', [
+var appIndex = angular.module('ride2SchoolApp.intro', [
   'ngRoute',
   'ngMaterial'
 ])
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/index', {
-    templateUrl: 'views/index/index.html',
-    controller: 'IndexCtrl'
+  $routeProvider.when('/intro', {
+    templateUrl: 'views/intro/intro.html',
+    controller: 'IntroCtrl'
   });
 }])
-.controller('IndexCtrl', function($scope) {
-
+.controller('IntroCtrl', function($scope) {
   // onboarding forms
   // show and hide the student and teacher begin mini-forms
   $scope.studentBegun = false;
   $scope.teacherBegun = false;
   $scope.beginStudent = function() {
     $scope.studentBegun = true;
-  }
+  };
   $scope.beginTeacher = function() {
     $scope.teacherBegun = true;
-  }
-
+  };
 });
