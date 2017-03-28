@@ -40,6 +40,8 @@ block content
 
   //- Content
   div.r2s-content
+
+    //- Active kids for sm
     md-content(hide, show-sm, layout-padding)
       div(flex, layout='column')
         md-card(layout='row')
@@ -71,6 +73,8 @@ block content
               ng-src='/images/active_kids.svg',
               alt='Illustration of a child on a scooter, one on a bicycle, and one walking'
             )
+
+    //- Active kids
     md-content(layout-padding, layout='row', layout-xs='column')
       div(hide-sm, flex, flex-gt-sm='33', layout='column')
         md-card
@@ -99,6 +103,8 @@ block content
                 md-icon.material-icons done
                 .md-list-item-text
                   p Have more fun on the way to school, and in class
+
+      //- Cars
       div(flex, flex-sm='50', flex-gt-sm='33', layout='column')
         md-card
           img.md-card-image(
@@ -126,6 +132,7 @@ block content
                 md-icon.material-icons done
                 .md-list-item-text
                   p A happier, healhier world
+      //- Trees
       div(flex, flex-sm='50', flex-gt-sm='33', layout='column')
         md-card
           img.md-card-image(
@@ -153,9 +160,11 @@ block content
                 md-icon.material-icons done
                 .md-list-item-text
                   p More trees for us to climb
+
+    //- Begin form
     md-content(layout-padding, layout='column')
-      md-card(md-colors="::{backgroundColor: 'default-accent-hue-1'}")
-        md-card-title
+      md-card
+        md-card-title(md-colors="::{backgroundColor: 'default-accent-hue-1'}")
           md-card-title-text.md-headline
             | Begin your journey
         md-card-content(layout='row', layout-xs='column')
@@ -177,12 +186,31 @@ block content
                   input(ng-model='user.class_count')
           div(flex, layout='row', layout-xs='column')
             div(flex, flex-gt-xs='50', layout='column' layout-align='start center')
-              //- img.r2s-img-size-avatar(ng-src='/images/teacher.svg', alt='Teacher')
               p Student
               i.material-icons.md-light.r2s-icon-size-48 face
-              md-button.md-raised(aria-label='Begin') Begin
+              md-button.md-raised(
+                aria-label='Begin',
+                ng-click='beginStudent()',
+                ng-hide='studentBegun')
+                | Begin
+              div(ng-show='studentBegun', layout='column', layout-align='start center')
+                md-input-container
+                  label Codename
+                  input(ng-model='user.student.codename')
+                md-button.md-raised(aria-label='Confirm') Confirm
             div(flex, flex-gt-xs='50', layout='column' layout-align='start center')
-              //- img.r2s-img-size-avatar(ng-src='/images/teacher.svg', alt='Teacher')
               p Teacher
               i.material-icons.md-light.r2s-icon-size-48 face
-              md-button.md-raised(aria-label='Begin') Begin
+              md-button.md-raised(
+                aria-label='Begin',
+                ng-click='beginTeacher()',
+                ng-hide='teacherBegun')
+                | Begin
+              div(ng-show='teacherBegun', layout='column', layout-align='start center')
+                md-input-container
+                  label Codename
+                  input(ng-model='user.teacher.codename')
+                md-input-container
+                  label Email
+                  input(ng-model='user.teacher.email', type='email')
+                md-button.md-raised(aria-label='Confirm') Confirm

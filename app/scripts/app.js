@@ -31,10 +31,16 @@ var app = angular.module('ride2SchoolApp', [
 )
 .controller('AppCtrl', function($scope, $mdSidenav) {
 
-  // whether a new school has been specified or not
+
+  // Has a school been passed as a paramater
+  // temp (for testing)
   var temp_school = {
     name: 'James Cook Boys'
   };
+  $scope.current_school = temp_school;
+
+  // onboarding form
+  // schools
   var schools = [
     {
       id: 1,
@@ -46,7 +52,16 @@ var app = angular.module('ride2SchoolApp', [
     }
   ];
   $scope.schools = schools;
-  $scope.current_school = temp_school;
+
+  // show and hide the student and teacher begin mini-forms
+  $scope.studentBegun = false;
+  $scope.teacherBegun = false;
+  $scope.beginStudent = function() {
+    $scope.studentBegun = true;
+  }
+  $scope.beginTeacher = function() {
+    $scope.teacherBegun = true;
+  }
 
   // sidebar functions
   $scope.openMenuOut = function() {
