@@ -15,7 +15,7 @@
  */
 
 
-/* onboarding */
+/* intro */
 
 /* header */
 
@@ -34,6 +34,10 @@
 md-toolbar.md-default-theme.md-hue-1:not(.md-menu-toolbar).md-accent .md-ink-ripple,
 md-toolbar.md-hue-1:not(.md-menu-toolbar).md-accent .md-ink-ripple {
   color: #000000;
+}
+
+.md-media-sm img {
+  width: 100%;
 }
 
 /* md-list dense */
@@ -58,6 +62,17 @@ md-list.md-dense md-list-item>md-icon:first-child:not(.md-avatar-icon) {
 
 footer h3 {
 
+}
+
+/* play */
+
+/* challenge cards */
+
+.r2s-challenge_preview md-card-title {
+  padding-bottom: 0px;
+}
+.r2s-challenge_preview md-card-content {
+  padding-bottom: 0px;
 }
 
 /* Temp styles I won't need later */

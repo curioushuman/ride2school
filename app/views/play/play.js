@@ -13,4 +13,8 @@ var appIndex = angular.module('ride2SchoolApp.play', [
   });
 }])
 .controller('PlayCtrl', function($scope) {
+  var tempChallengeCurrent = {
+    progress: 50
+  };
+  $scope.challengeCurrent = tempChallengeCurrent;
 });
