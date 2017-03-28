@@ -35,7 +35,14 @@ var app = angular.module('ride2SchoolApp', [
   // Has a school been passed as a paramater
   // temp (for testing)
   var tempSchool = {
-    name: 'James Cook Boys'
+    name: 'James Cook Boys',
+    student: {
+      name: 'James'
+    },
+    teacher: {
+      name: 'Mr. Brown',
+      email: 'igotcha@uhuh.com'
+    }
   };
   $scope.currentSchool = tempSchool;
 
@@ -55,22 +62,31 @@ var app = angular.module('ride2SchoolApp', [
   ];
   $scope.schools = schools;
 
+  // logged in status
+  // at some point need to replace with reality
+  $scope.loggedIn = false;
+
   // begin / resume
   $scope.beginJourney = function() {
     $location.hash('begin');
     $anchorScroll();
-    $mdSidenav('left_out').close();
+    $mdSidenav('left').close();
   };
   // temp resume function for now
   $scope.resumeJourney = function() {
+    $mdSidenav('left').close();
     $location.path('/play');
+    $scope.loggedIn = true;
+  };
+  // temp logout function
+  $scope.logout = function() {
+    $mdSidenav('left').close();
+    $location.path('/intro');
+    $scope.loggedIn = false;
   };
 
   // sidebar functions
-  $scope.openMenuOut = function() {
-    $mdSidenav('left_out').toggle();
-  };
-  $scope.openMenuIn = function() {
-    $mdSidenav('left_in').toggle();
-  };
+  $scope.openMenu = function() {
+    $mdSidenav('left').toggle();
+  }
 });

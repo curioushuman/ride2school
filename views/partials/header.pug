@@ -1,9 +1,9 @@
 md-toolbar
   .md-toolbar-tools
-    md-button.md-icon-button(aria-label='Menu', ng-click='openMenuOut()')
+    md-button.md-icon-button(aria-label='Menu', ng-click='openMenu()')
       md-icon(class='material-icons') menu
     h1(flex-xs, md-truncate) Active Travellers
-    span(hide, show-gt-xs, flex)
-    md-button.md-raised.md-accent(hide, show-gt-xs, aria-label='Begin', ng-click='beginJourney()') Begin
-    md-button.md-raised(hide, show-gt-xs, aria-label='Resume', ng-click='resumeJourney()') Resume
-    h3(hide, show-gt-xs) your journey
+    span(hide, show-gt-xs, flex, ng-hide='loggedIn')
+    md-button.md-raised.md-accent(hide, show-gt-xs, aria-label='Begin', ng-click='beginJourney()', ng-hide='loggedIn') Begin
+    md-button.md-raised(hide, show-gt-xs, aria-label='Resume', ng-click='resumeJourney()', ng-hide='loggedIn') Resume
+    h3(hide, show-gt-xs, ng-hide='loggedIn') your journey
