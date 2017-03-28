@@ -7,9 +7,10 @@ md-sidenav.md-sidenav-left(
   div
     div(md-colors="{background: 'default-primary'}")
       md-toolbar
-        h2.md-toolbar-tools Welcome&nbsp;
-          span(ng-if='school') {{ school.name }}
-      div(layout='row')
+        h2.md-toolbar-tools Welcome
+      md-toolbar.md-hue-2(ng-if='current_school')
+        h3.md-toolbar-tools {{ current_school.name }}
+      md-content(layout-padding, layout='row', md-colors="::{backgroundColor: 'default-primary-hue-2'}")
         div(flex='50', layout='column' layout-align='center center')
           //- img.r2s-img-size-avatar(ng-src='/images/student.svg', alt='Student')
           div
@@ -27,7 +28,7 @@ md-sidenav.md-sidenav-left(
           md-button.md-raised.md-accent(aria-label='Begin') Begin
           md-button.md-raised(aria-label='Resume') Resume
           h3 journey
-    md-list
+    //- md-list
       md-subheader.md-no-sticky Would you like to learn more?
       md-list-item(ng-click='null')
         .md-list-item-text
@@ -53,7 +54,7 @@ md-sidenav.md-sidenav-left(
         md-icon.material-icons.md-48 info_outline
         .md-list-item-text
           h3 About
-          p Learn why active travellers are so important
+          p Active travellers
       md-list-item.md-2-line(ng-click='null')
         md-icon.material-icons.md-48 help_outline
         .md-list-item-text

@@ -35,7 +35,18 @@ var app = angular.module('ride2SchoolApp', [
   var temp_school = {
     name: 'James Cook Boys'
   };
-  $scope.school = temp_school;
+  var schools = [
+    {
+      id: 1,
+      name: 'James Cook Boys'
+    },
+    {
+      id: 2,
+      name: 'Marsden girls'
+    }
+  ];
+  $scope.schools = schools;
+  $scope.current_school = temp_school;
 
   // sidebar functions
   $scope.openMenuOut = function() {
