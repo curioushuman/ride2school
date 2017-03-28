@@ -18,13 +18,13 @@ var app = angular.module('ride2SchoolApp', [
       $routeProvider.otherwise({redirectTo: '/index'});
       $mdThemingProvider.theme('default')
         .primaryPalette('teal')
-        .accentPalette('pink')
-        // .accentPalette('pink', {
-        //   'default': 'A400',
-        //   'hue-1': '400',
-        //   'hue-2': '300',
-        //   'hue-3': '200'
-        // })
+        // .accentPalette('pink')
+        .accentPalette('pink', {
+          'default': 'A400',
+          'hue-1': '400',
+          'hue-2': '300',
+          'hue-3': '200'
+        })
         .warnPalette('deep-orange')
         .backgroundPalette('grey');
     }

@@ -45,7 +45,7 @@ body(ng-app='ride2SchoolApp', ng-cloak, ng-controller='AppCtrl')
   div(layout='column', layout-fill)
       include partials/header
       md-content(flex)
-        block content
+        div(ng-view)
       include partials/footer
       include partials/sidebar
 
