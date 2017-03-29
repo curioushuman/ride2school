@@ -118,7 +118,8 @@ gulp.task('scripts', () =>
       // Other scripts
       './app/scripts/app.js',
       './app/views/intro/intro.js',
-      './app/views/play/play.js'
+      './app/views/play/play.js',
+      './app/views/about/about.js'
     ])
       .pipe($.newer('.tmp/scripts'))
       .pipe($.sourcemaps.init())

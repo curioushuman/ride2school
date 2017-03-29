@@ -7,7 +7,8 @@ var app = angular.module('ride2SchoolApp', [
   'ngRoute',
   'ngMaterial',
   'ride2SchoolApp.intro',
-  'ride2SchoolApp.play'
+  'ride2SchoolApp.play',
+  'ride2SchoolApp.about'
 ])
 .config(
   [
@@ -86,6 +87,25 @@ var app = angular.module('ride2SchoolApp', [
     $mdSidenav('left').close();
     $location.path('/intro');
     $scope.loggedIn = false;
+  };
+
+  // other nav functions
+  $scope.goAbout = function(hash) {
+    $mdSidenav('left').close();
+    if (hash) {
+      $location.hash(hash);
+    }
+    else {
+      $location.hash('top');
+    }
+    $anchorScroll();
+    $location.path('/about');
+  };
+  $scope.goSupport = function() {
+    $mdSidenav('left').close();
+    $location.hash('top');
+    $anchorScroll();
+    $location.path('/support');
   };
 
   // sidebar functions
