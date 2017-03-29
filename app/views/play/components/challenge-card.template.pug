@@ -1,0 +1,19 @@
+md-card(
+  class='r2s-challenge_preview r2s-challenge-{{ $ctrl.challengeClass }}',
+  md-colors="::{backgroundColor: 'default-{{ $ctrl.backgroundColour }}'}"
+)
+  md-card-title
+    md-card-title-text
+      span.md-headline {{ $ctrl.challenge.name }}
+      span.md-subhead {{ $ctrl.challenge.status }} challenge
+    md-card-title-media
+      //- left empty on purpose, otherwise the subhead changes colour
+  md-card-content(layout='row')
+    div(flex='80', layout='column', layout-padding, layout-align='center end')
+      md-progress-linear.md-primary(md-mode='determinate', value='{{ $ctrl.challenge.progress }}')
+    div(flex='10', layout='column', layout-padding)
+      md-icon.material-icons.r2s-icon-badged settings_input_antenna
+        div.r2s-icon-badge(md-colors="::{backgroundColor: 'default-{{ $ctrl.badgeColour }}'}") {{ $ctrl.challenge.trees }}
+    div(flex, layout='column', layout-padding)
+      md-icon.material-icons.r2s-icon-badged(ng-if="$ctrl.showActiveKids") face
+        div.r2s-icon-badge(md-colors="::{backgroundColor: 'default-{{ $ctrl.badgeColour }}'}") {{ $ctrl.challenge.activeKids }}

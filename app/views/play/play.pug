@@ -7,23 +7,11 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
     layout-padding,
     layout='column'
   )
-    h1.md-display-2 Temporary
+    h1.md-display-2 {{ challengeCurrent.name }}
   //- challenges
   div.r2s-play-challenges(flex-gt-xs='50', flex-xs, layout-padding, layout='column')
     md-content
-      md-card.r2s-challenge_preview(md-colors="::{backgroundColor: 'default-accent-hue-1'}")
-        md-card-title
-          md-card-title-text
-            span.md-headline Complete your first hands up
-            span.md-subhead Current challenge
-          md-card-title-media
-            //- left empty on purpose, otherwise the subhead changes colour
-        md-card-content(layout='row')
-          div(flex='80', layout='column', layout-padding, layout-align='center end')
-            md-progress-linear.md-primary(md-mode='determinate', value='50')
-          div(flex='10', layout='column', layout-padding)
-            md-icon.material-icons.r2s-icon-badged face
-              //- div.r2s-icon-badge(md-colors="::{backgroundColor: 'default-primary'}") 2
-          div(flex, layout='column', layout-padding)
-            md-icon.material-icons.r2s-icon-badged settings_input_antenna
-              div.r2s-icon-badge(md-colors="::{backgroundColor: 'default-warn'}") 2
+      challenge-card(challenge='challengeCurrent')
+      challenge-card(challenge='challengeBonus')
+      challenge-card(ng-repeat='challenge in challengesCompleted', challenge='challenge')
+      challenge-card(ng-repeat='challenge in challengesUpcoming', challenge='challenge')
