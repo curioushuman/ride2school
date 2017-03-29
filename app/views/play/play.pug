@@ -5,7 +5,7 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
     flex-xs,
     layout='column',
     layout-align='start',
-    md-colors="::{backgroundColor: 'default-primary'}",
+    md-colors="::{backgroundColor: 'default-primary-hue-2'}",
     flex-order-gt-xs='2',
     flex-order-xs='1'
   )
@@ -15,7 +15,7 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
       layout='column',
       layout-align='center center'
       layout-padding,
-      md-colors="::{backgroundColor: 'default-primary'}"
+      md-colors="::{backgroundColor: 'default-primary-hue-2'}"
     )
       div(hide, show-gt-sm)
         h2.md-display-1 Keep the world healthy
@@ -30,7 +30,7 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
     div(
       layout='row',
       layout-padding,
-      md-colors="::{backgroundColor: 'default-primary'}"
+      md-colors="::{backgroundColor: 'default-primary-hue-2'}"
     )
       div(flex='20', layout='column', layout-align='center center')
         img(
@@ -46,7 +46,7 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
     div(
       layout='row',
       layout-padding,
-      md-colors="::{backgroundColor: 'default-primary'}"
+      md-colors="::{backgroundColor: 'default-primary-hue-2'}"
     )
       div(flex='20', layout='column', layout-align='center center')
         img(
@@ -62,7 +62,7 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
     div(
       layout='row',
       layout-padding,
-      md-colors="::{backgroundColor: 'default-primary'}"
+      md-colors="::{backgroundColor: 'default-primary-hue-2'}"
     )
       div(flex='20', layout='column', layout-align='center center')
         img(
@@ -76,18 +76,18 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
         md-progress-linear.md-warn(md-mode='determinate', value='60')
 
     div(hide, show-gt-xs)
-      md-toolbar.md-primary
+      md-toolbar.md-primary.md-hue-2
         h3.md-toolbar-tools
           | Review your completed challenges
 
       //- challenges completed
-      md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary'}")
+      md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary-hue-2'}")
         challenge-card(ng-repeat='challenge in challengesCompleted', challenge='challenge')
 
   div(flex-gt-xs='50', flex-xs, layout='column', flex-order-gt-xs='1', flex-order-xs='2')
     md-content(flex)
 
-      md-toolbar.md-primary(layout-padding)
+      md-toolbar.md-primary.md-hue-2(layout-padding)
         .md-toolbar-tools
           md-button.md-fab.md-accent 1
           h3 Complete 1 challenge a month
@@ -96,7 +96,7 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
         p That's all you need to do. Are you ready?
         challenge-card(challenge='challengeCurrent')
 
-      md-toolbar.md-primary(layout-padding)
+      md-toolbar.md-primary.md-hue-2(layout-padding)
         .md-toolbar-tools
           md-button.md-fab.md-accent 2
           h3 Unlock bonus challenges
@@ -105,7 +105,7 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
         p If you complete your challenge early, you can take on a bonus challenge.
         challenge-card(challenge='challengeBonus')
 
-      md-toolbar.md-primary(layout-padding)
+      md-toolbar.md-primary.md-hue-2(layout-padding)
         .md-toolbar-tools
           md-button.md-fab.md-accent 3
           h3 Count your active travellers
@@ -125,14 +125,14 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
             md-button(ng-disabled='true') Count now
 
       div(hide-gt-xs)
-        md-toolbar.md-primary
+        md-toolbar.md-primary.md-hue-2
           h3.md-toolbar-tools
             | Review your completed challenges
 
         md-content(layout-padding)
           challenge-card(ng-repeat='challenge in challengesCompleted', challenge='challenge')
 
-      md-toolbar.md-primary
+      md-toolbar.md-primary.md-hue-2
         h3.md-toolbar-tools
           | See what's coming next
 
