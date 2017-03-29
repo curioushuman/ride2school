@@ -3,7 +3,11 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
   div.r2s-play-dashboard(
     flex-gt-xs='50',
     flex-xs,
-    layout='column'
+    layout='column',
+    layout-align='start',
+    md-colors="::{backgroundColor: 'default-primary'}",
+    flex-order-gt-xs='2',
+    flex-order-xs='1'
   )
 
     //- Happy or sad Earth
@@ -26,7 +30,7 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
     div(
       layout='row',
       layout-padding,
-      md-colors="::{backgroundColor: 'default-primary-hue-2'}"
+      md-colors="::{backgroundColor: 'default-primary'}"
     )
       div(flex='20', layout='column', layout-align='center center')
         img(
@@ -42,7 +46,7 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
     div(
       layout='row',
       layout-padding,
-      md-colors="::{backgroundColor: 'default-primary-hue-2'}"
+      md-colors="::{backgroundColor: 'default-primary'}"
     )
       div(flex='20', layout='column', layout-align='center center')
         img(
@@ -58,7 +62,7 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
     div(
       layout='row',
       layout-padding,
-      md-colors="::{backgroundColor: 'default-primary-hue-2'}"
+      md-colors="::{backgroundColor: 'default-primary'}"
     )
       div(flex='20', layout='column', layout-align='center center')
         img(
@@ -71,8 +75,16 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
         h3.md-subhead Travellers and trees means less CO2
         md-progress-linear.md-warn(md-mode='determinate', value='60')
 
-  //- other challenges
-  div.r2s-play-challenges(flex-gt-xs='50', flex-xs, layout='column')
+    div(hide, show-gt-xs)
+      md-toolbar.md-primary
+        h3.md-toolbar-tools
+          | Review your completed challenges
+
+      //- challenges completed
+      md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary'}")
+        challenge-card(ng-repeat='challenge in challengesCompleted', challenge='challenge')
+
+  div(flex-gt-xs='50', flex-xs, layout='column', flex-order-gt-xs='1', flex-order-xs='2')
     md-content(flex)
 
       md-toolbar.md-primary(layout-padding)
@@ -112,17 +124,17 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
             md-button Learn how
             md-button(ng-disabled='true') Count now
 
-      md-toolbar.md-primary
-        h3.md-toolbar-tools
-          | Review your completed challenges
+      div(hide-gt-xs)
+        md-toolbar.md-primary
+          h3.md-toolbar-tools
+            | Review your completed challenges
 
-      //- challenges completed
-      md-content
-        challenge-card(ng-repeat='challenge in challengesCompleted', challenge='challenge')
+        md-content(layout-padding)
+          challenge-card(ng-repeat='challenge in challengesCompleted', challenge='challenge')
 
       md-toolbar.md-primary
         h3.md-toolbar-tools
           | See what's coming next
 
-      md-content
+      md-content(layout-padding)
         challenge-card(ng-repeat='challenge in challengesUpcoming', challenge='challenge')
