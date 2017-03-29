@@ -1,4 +1,4 @@
-div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
+div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column', layout-wrap)
   //- dashboard
   div.r2s-play-dashboard(
     flex-gt-xs='50',
@@ -24,7 +24,7 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
       img(
         ng-src='/images/happy_earth.svg',
         alt='Animation displaying how active travellers keep the world healthy',
-        width='200px'
+        width='179px'
       )
 
     div(
@@ -87,9 +87,8 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
 
       md-toolbar.md-primary.md-hue-2(layout-padding, ng-show='firstLogin')
         .md-toolbar-tools
-          md-button.md-fab.md-accent(ng-show='firstLogin') 1
-          h3(ng-show='firstLogin') Complete 1 challenge a month
-          h3(ng-hide='firstLogin') This months challenge
+          md-button.md-fab.md-accent 1
+          h3 Complete 1 challenge a month
 
       md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary-hue-2'}")
         p(ng-show='firstLogin') That's all you need to do. Are you ready?
@@ -97,9 +96,8 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
 
       md-toolbar.md-primary.md-hue-2(layout-padding, ng-show='firstLogin')
         .md-toolbar-tools
-          md-button.md-fab.md-accent(ng-show='firstLogin') 2
-          h3(ng-show='firstLogin') Unlock BONUS challenges
-          h3(ng-hide='firstLogin') The BONUS challenge
+          md-button.md-fab.md-accent 2
+          h3 Unlock BONUS challenges
 
       md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary-hue-2'}")
         p(ng-if='firstLogin') If you complete your challenge early, you can take on a bonus challenge.
@@ -107,12 +105,12 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
 
       md-toolbar.md-primary.md-hue-2(layout-padding, ng-show='firstLogin')
         .md-toolbar-tools
-          md-button.md-fab.md-accent(ng-show='firstLogin') 3
+          md-button.md-fab.md-accent 3
           h3 Count your active travellers
 
       //- md-card(md-colors="::{backgroundColor: 'default-accent'}")
       md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary-hue-2'}")
-        p(ng-if='firstLogin') Once a month count how many new active travellers you have.
+        p(ng-show='firstLogin') Once a month count how many new active travellers you have.
         md-card
           md-card-title
             md-card-title-text
@@ -124,19 +122,34 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
             md-button Learn how
             md-button(ng-disabled='true') Count now
 
+  div(
+    flex-gt-xs='50',
+    flex-xs,
+    layout='column',
+    flex-order='3'
+  )
+    md-content(flex)
+
       md-toolbar.md-primary.md-hue-2(layout-padding, ng-show='firstLogin')
         .md-toolbar-tools
-          md-button.md-fab.md-accent(ng-show='firstLogin') 4
-          h3(ng-show='firstLogin') Tackle another challenge next month
-          h3(ng-hide='firstLogin') Upcoming challenges
+          md-button.md-fab.md-accent 4
+          h3 One challenge per month
 
-      md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary-hue-2'}")
+      md-content(layout-padding)
         challenge-card(ng-repeat='challenge in challengesUpcoming', challenge='challenge')
 
-      div(ng-hide='firstLogin')
-        md-toolbar.md-primary.md-hue-2(ng-show='firstLogin')
-          h3.md-toolbar-tools
-            | Completed challenges
+  div(
+    flex-gt-xs='50',
+    flex-xs,
+    layout='column',
+    flex-order='3',
+    ng-hide='firstLogin'
+  )
+    md-content(flex)
 
-        md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary-hue-2'}")
-          challenge-card(ng-repeat='challenge in challengesCompleted', challenge='challenge')
+      //- md-toolbar.md-primary.md-hue-2
+      //-   h3.md-toolbar-tools
+      //-     | Completed challenges
+
+      md-content(layout-padding)
+        challenge-card(ng-repeat='challenge in challengesCompleted', challenge='challenge')
