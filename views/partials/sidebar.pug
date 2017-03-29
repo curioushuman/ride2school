@@ -8,7 +8,7 @@ md-sidenav.md-sidenav-left(
     div(md-colors="{background: 'default-primary'}")
       md-toolbar
         h2.md-toolbar-tools(ng-hide='loggedIn') Welcome
-        h2.md-toolbar-tools(ng-show='loggedIn') Your journey is underway
+        h2.md-toolbar-tools(ng-show='loggedIn') Welcome
       md-toolbar.md-hue-2(ng-if='currentSchool')
         h3.md-toolbar-tools {{ currentSchool.name }}
       div(layout-padding, layout='row', md-colors="::{backgroundColor: 'default-primary-hue-2'}")
@@ -33,20 +33,6 @@ md-sidenav.md-sidenav-left(
           md-button.md-raised.md-accent(aria-label='Begin', ng-click='beginJourney()') Begin
           md-button.md-raised(aria-label='Resume', ng-click='resumeJourney()') Resume
           h3 journey
-      md-list(hide-gt-xs, ng-show='loggedIn')
-        md-subheader.md-no-sticky Your challenges
-        md-list-item(ng-click='null')
-          .md-list-item-text
-            p Current
-        md-list-item(ng-click='null')
-          .md-list-item-text
-            p Bonus
-        md-list-item(ng-click='null')
-          .md-list-item-text
-            p Completed
-        md-list-item(ng-click='null')
-          .md-list-item-text
-            p Upcoming
   div
     md-list
       md-divider

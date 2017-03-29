@@ -71,6 +71,7 @@ var appIndex = angular.module('ride2SchoolApp.play', [
     ctrl.showActiveKids = false;
     ctrl.badgeColour = 'warn';
     ctrl.disable = false;
+    ctrl.progressWidth = 90;
     if (ctrl.challenge.status == 'Current') {
       ctrl.backgroundColour = 'accent-hue-1';
     }
@@ -83,6 +84,7 @@ var appIndex = angular.module('ride2SchoolApp.play', [
       ctrl.disable = true;
     }
     else {
+      ctrl.progressWidth = 80;
       if (ctrl.challenge.activeKids > 0) {
         ctrl.showActiveKids = true;
       }

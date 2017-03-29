@@ -43,11 +43,12 @@ head
 body(ng-app='ride2SchoolApp', ng-cloak, ng-controller='AppCtrl')
 
   div(layout='column', layout-fill)
-      include partials/header
-      md-content(flex)
-        div(ng-view)
-      include partials/footer
-      include partials/sidebar
+    a(name='top')
+    include partials/header
+    md-content(flex)
+      div(ng-view)
+    include partials/footer
+    include partials/sidebar
 
   //- In production use
   script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js')

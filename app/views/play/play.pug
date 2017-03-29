@@ -3,67 +3,126 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
   div.r2s-play-dashboard(
     flex-gt-xs='50',
     flex-xs,
-    layout='column',
-    md-colors="::{backgroundColor: 'default-primary-hue-2'}"
+    layout='column'
   )
+
+    //- Happy or sad Earth
+    div.r2s-play-dashboard-earth(
+      layout='column',
+      layout-align='center center'
+      layout-padding,
+      md-colors="::{backgroundColor: 'default-primary'}"
+    )
+      div(hide, show-gt-sm)
+        h2.md-display-1 Keep the world healthy
+      div(hide-gt-sm)
+        h2.md-headline Keep the world healthy
+      img(
+        ng-src='/images/happy_earth.svg',
+        alt='Animation displaying how active travellers keep the world healthy',
+        width='200px'
+      )
+
     div(
       layout='row',
       layout-padding,
-      md-colors="::{backgroundColor: 'default-primary-hue-3'}"
+      md-colors="::{backgroundColor: 'default-primary-hue-2'}"
     )
-      div(flex='10', layout='column', layout-align='center center')
+      div(flex='20', layout='column', layout-align='center center')
         img(
           flex,
           ng-src='/images/active_kids.svg',
           alt='Illustration of a child on a scooter, one on a bicycle, and one walking',
           width='100%'
         )
-      div(flex, layout='column', layout-align='center center')
+      div(flex, layout='column', layout-align='start start')
+        h3.md-subhead Encourage active travellers
         md-progress-linear.md-accent(md-mode='determinate', value='45')
 
     div(
       layout='row',
       layout-padding,
-      md-colors="::{backgroundColor: 'default-primary-hue-1'}"
+      md-colors="::{backgroundColor: 'default-primary-hue-2'}"
     )
-      div(flex='10', layout='column', layout-align='center center')
+      div(flex='20', layout='column', layout-align='center center')
         img(
           flex,
           ng-src='/images/more_trees.svg',
           alt='Illustration of trees',
           width='100%'
         )
-      div(flex, layout='column', layout-align='center center')
+      div(flex, layout='column', layout-align='start start')
+        h3.md-subhead More travellers means more trees
         md-progress-linear.md-accent(md-mode='determinate', value='80')
 
-    div(
-      layout='column',
-      layout-align='center center'
-      layout-padding,
-      md-colors="::{backgroundColor: 'default-primary'}"
-    )
-      img(
-        ng-src='/images/happy_earth.svg',
-        alt='Animation displaying how active travellers keep the world healthy',
-        width='200px'
-      )
     div(
       layout='row',
       layout-padding,
       md-colors="::{backgroundColor: 'default-primary-hue-2'}"
     )
-      div(flex='10', layout='column', layout-align='center center')
-        span.md-headline CO2
-      div(flex, layout='column', layout-align='center center')
-        md-progress-linear.md-accent(md-mode='determinate', value='60')
-
-    //- challenges completed
-    div(layout-padding)
-      challenge-card(ng-repeat='challenge in challengesCompleted', challenge='challenge')
+      div(flex='20', layout='column', layout-align='center center')
+        img(
+          flex,
+          ng-src='/images/happy_earth.svg',
+          alt='Animation displaying how active travellers keep the world healthy',
+          width='100%'
+        )
+      div(flex, layout='column', layout-align='start start')
+        h3.md-subhead Travellers and trees means less CO2
+        md-progress-linear.md-warn(md-mode='determinate', value='60')
 
   //- other challenges
-  div.r2s-play-challenges(flex-gt-xs='50', flex-xs, layout-padding, layout='column')
-    md-content
-      challenge-card(challenge='challengeCurrent')
-      challenge-card(challenge='challengeBonus')
-      challenge-card(ng-repeat='challenge in challengesUpcoming', challenge='challenge')
+  div.r2s-play-challenges(flex-gt-xs='50', flex-xs, layout='column')
+    md-content(flex)
+
+      md-toolbar.md-primary(layout-padding)
+        .md-toolbar-tools
+          md-button.md-fab.md-accent 1
+          h3 Complete 1 challenge a month
+
+      md-content(layout-padding)
+        p That's all you need to do. Are you ready?
+        challenge-card(challenge='challengeCurrent')
+
+      md-toolbar.md-primary(layout-padding)
+        .md-toolbar-tools
+          md-button.md-fab.md-accent 2
+          h3 Unlock bonus challenges
+
+      md-content(layout-padding)
+        p If you complete your challenge early, you can take on a bonus challenge.
+        challenge-card(challenge='challengeBonus')
+
+      md-toolbar.md-primary(layout-padding)
+        .md-toolbar-tools
+          md-button.md-fab.md-accent 3
+          h3 Count your active travellers
+
+      //- md-card(md-colors="::{backgroundColor: 'default-accent'}")
+      md-content(layout-padding)
+        p Once a month count how many new active travellers you have.
+        md-card
+          md-card-title
+            md-card-title-text
+              span.md-headline 28 days to go
+              span.md-subhead Until you can count again
+            md-card-title-media
+              //- left empty on purpose, otherwise the subhead changes colour
+          md-card-actions(layout='row', layout-align='end center')
+            md-button Learn how
+            md-button(ng-disabled='true') Count now
+
+      md-toolbar.md-primary
+        h3.md-toolbar-tools
+          | Review your completed challenges
+
+      //- challenges completed
+      md-content
+        challenge-card(ng-repeat='challenge in challengesCompleted', challenge='challenge')
+
+      md-toolbar.md-primary
+        h3.md-toolbar-tools
+          | See what's coming next
+
+      md-content
+        challenge-card(ng-repeat='challenge in challengesUpcoming', challenge='challenge')

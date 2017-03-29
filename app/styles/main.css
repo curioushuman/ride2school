@@ -104,6 +104,15 @@ footer h3 {
 .r2s-challenge_preview md-card-content {
   padding-bottom: 0px;
 }
+.r2s-play-dashboard md-card-title .md-headline {
+  font-size: 20px;
+}
+
+/* Dashboard */
+
+.r2s-play-dashboard-earth h2 {
+  margin: 0px;
+}
 
 /* Temp styles I won't need later */
 .r2s-img-size-avatar {

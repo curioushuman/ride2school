@@ -75,6 +75,8 @@ var app = angular.module('ride2SchoolApp', [
   // temp resume function for now
   $scope.resumeJourney = function() {
     $mdSidenav('left').close();
+    $location.hash('top');
+    $anchorScroll();
     $location.path('/play');
     $scope.loggedIn = true;
   };
