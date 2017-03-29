@@ -73,8 +73,8 @@ div(ng-controller='IntroCtrl')
             )
 
     //- Active kids
-    md-content(layout-padding, layout='row', layout-xs='column')
-      div(hide-sm, flex, flex-gt-sm='33', layout='column')
+    md-content(layout-padding, layout='row', layout-wrap, layout-xs='column')
+      div(flex-xs, hide-sm, flex-sm='100', flex-gt-sm='33', layout='column')
         md-card
           img.md-card-image(
             ng-src='/images/active_kids.svg',
