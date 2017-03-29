@@ -75,45 +75,43 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
         h3.md-subhead Travellers and trees means less CO2
         md-progress-linear.md-warn(md-mode='determinate', value='60')
 
-    div(hide, show-gt-xs)
-      md-toolbar.md-primary.md-hue-2
-        h3.md-toolbar-tools
-          | Review your completed challenges
-
-      //- challenges completed
-      md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary-hue-2'}")
-        challenge-card(ng-repeat='challenge in challengesCompleted', challenge='challenge')
-
-  div(flex-gt-xs='50', flex-xs, layout='column', flex-order-gt-xs='1', flex-order-xs='2')
+  div(
+    flex-gt-xs='50',
+    flex-xs,
+    layout='column',
+    flex-order-gt-xs='1',
+    flex-order-xs='2',
+    md-colors="::{backgroundColor: 'default-primary-hue-2'}"
+  )
     md-content(flex)
 
-      md-toolbar.md-primary.md-hue-2(layout-padding)
+      md-toolbar.md-primary.md-hue-2(layout-padding, ng-show='firstLogin')
         .md-toolbar-tools
           md-button.md-fab.md-accent(ng-show='firstLogin') 1
           h3(ng-show='firstLogin') Complete 1 challenge a month
           h3(ng-hide='firstLogin') This months challenge
 
-      md-content(layout-padding)
+      md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary-hue-2'}")
         p(ng-show='firstLogin') That's all you need to do. Are you ready?
         challenge-card(challenge='challengeCurrent')
 
-      md-toolbar.md-primary.md-hue-2(layout-padding)
+      md-toolbar.md-primary.md-hue-2(layout-padding, ng-show='firstLogin')
         .md-toolbar-tools
           md-button.md-fab.md-accent(ng-show='firstLogin') 2
           h3(ng-show='firstLogin') Unlock BONUS challenges
           h3(ng-hide='firstLogin') The BONUS challenge
 
-      md-content(layout-padding)
+      md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary-hue-2'}")
         p(ng-if='firstLogin') If you complete your challenge early, you can take on a bonus challenge.
         challenge-card(challenge='challengeBonus')
 
-      md-toolbar.md-primary.md-hue-2(layout-padding)
+      md-toolbar.md-primary.md-hue-2(layout-padding, ng-show='firstLogin')
         .md-toolbar-tools
           md-button.md-fab.md-accent(ng-show='firstLogin') 3
           h3 Count your active travellers
 
       //- md-card(md-colors="::{backgroundColor: 'default-accent'}")
-      md-content(layout-padding)
+      md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary-hue-2'}")
         p(ng-if='firstLogin') Once a month count how many new active travellers you have.
         md-card
           md-card-title
@@ -126,17 +124,19 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
             md-button Learn how
             md-button(ng-disabled='true') Count now
 
-      div(hide-gt-xs)
-        md-toolbar.md-primary.md-hue-2
-          h3.md-toolbar-tools
-            | Review your completed challenges
+      md-toolbar.md-primary.md-hue-2(layout-padding, ng-show='firstLogin')
+        .md-toolbar-tools
+          md-button.md-fab.md-accent(ng-show='firstLogin') 4
+          h3(ng-show='firstLogin') Tackle another challenge next month
+          h3(ng-hide='firstLogin') Upcoming challenges
 
-        md-content(layout-padding)
-          challenge-card(ng-repeat='challenge in challengesCompleted', challenge='challenge')
-
-      md-toolbar.md-primary.md-hue-2
-        h3.md-toolbar-tools
-          | See what's coming next
-
-      md-content(layout-padding)
+      md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary-hue-2'}")
         challenge-card(ng-repeat='challenge in challengesUpcoming', challenge='challenge')
+
+      div(ng-hide='firstLogin')
+        md-toolbar.md-primary.md-hue-2(ng-show='firstLogin')
+          h3.md-toolbar-tools
+            | Completed challenges
+
+        md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary-hue-2'}")
+          challenge-card(ng-repeat='challenge in challengesCompleted', challenge='challenge')

@@ -19,7 +19,6 @@ md-card(
         md-icon.material-icons.r2s-icon-badged(ng-if="$ctrl.showActiveKids") face
           div.r2s-icon-badge(md-colors="::{backgroundColor: 'default-{{ $ctrl.badgeColour }}'}") {{ $ctrl.challenge.activeKids }}
   md-card-actions(layout='row', layout-align='end center', ng-if="$ctrl.challenge.status == 'Current'")
-    md-button Review
     md-button Accept
   md-card-actions(layout='row', layout-align='end center', ng-if="$ctrl.challenge.status == 'Completed'")
     md-button Review

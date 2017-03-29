@@ -65,7 +65,7 @@ var app = angular.module('ride2SchoolApp', [
   // logged in status
   // at some point need to replace with reality
   $scope.loggedIn = false;
-  $scope.firstLogin = true;
+  $scope.firstLogin = false;
 
   // begin / resume
   $scope.beginJourney = function() {
