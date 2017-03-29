@@ -89,30 +89,32 @@ div.r2s-play(ng-controller='PlayCtrl', layout='row', layout-xs='column')
 
       md-toolbar.md-primary.md-hue-2(layout-padding)
         .md-toolbar-tools
-          md-button.md-fab.md-accent 1
-          h3 Complete 1 challenge a month
+          md-button.md-fab.md-accent(ng-show='firstLogin') 1
+          h3(ng-show='firstLogin') Complete 1 challenge a month
+          h3(ng-hide='firstLogin') This months challenge
 
       md-content(layout-padding)
-        p That's all you need to do. Are you ready?
+        p(ng-show='firstLogin') That's all you need to do. Are you ready?
         challenge-card(challenge='challengeCurrent')
 
       md-toolbar.md-primary.md-hue-2(layout-padding)
         .md-toolbar-tools
-          md-button.md-fab.md-accent 2
-          h3 Unlock bonus challenges
+          md-button.md-fab.md-accent(ng-show='firstLogin') 2
+          h3(ng-show='firstLogin') Unlock BONUS challenges
+          h3(ng-hide='firstLogin') The BONUS challenge
 
       md-content(layout-padding)
-        p If you complete your challenge early, you can take on a bonus challenge.
+        p(ng-if='firstLogin') If you complete your challenge early, you can take on a bonus challenge.
         challenge-card(challenge='challengeBonus')
 
       md-toolbar.md-primary.md-hue-2(layout-padding)
         .md-toolbar-tools
-          md-button.md-fab.md-accent 3
+          md-button.md-fab.md-accent(ng-show='firstLogin') 3
           h3 Count your active travellers
 
       //- md-card(md-colors="::{backgroundColor: 'default-accent'}")
       md-content(layout-padding)
-        p Once a month count how many new active travellers you have.
+        p(ng-if='firstLogin') Once a month count how many new active travellers you have.
         md-card
           md-card-title
             md-card-title-text
