@@ -94,8 +94,7 @@ var app = angular.module('ride2SchoolApp', [
     $mdSidenav('left').close();
     if (hash) {
       $location.hash(hash);
-    }
-    else {
+    } else {
       $location.hash('top');
     }
     $anchorScroll();
@@ -111,5 +110,5 @@ var app = angular.module('ride2SchoolApp', [
   // sidebar functions
   $scope.openMenu = function() {
     $mdSidenav('left').toggle();
-  }
+  };
 });

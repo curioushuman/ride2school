@@ -72,18 +72,15 @@ var appIndex = angular.module('ride2SchoolApp.play', [
     ctrl.badgeColour = 'warn';
     ctrl.disable = false;
     ctrl.progressWidth = 90;
-    if (ctrl.challenge.status == 'Current') {
+    if (ctrl.challenge.status === 'Current') {
       ctrl.backgroundColour = 'accent-hue-1';
-    }
-    else if (ctrl.challenge.status == 'Bonus') {
+    } else if (ctrl.challenge.status === 'Bonus') {
       ctrl.backgroundColour = 'warn-hue-1';
       ctrl.disable = true;
-    }
-    else if (ctrl.challenge.status == 'Upcoming') {
+    } else if (ctrl.challenge.status === 'Upcoming') {
       ctrl.backgroundColour = 'background-hue-3';
       ctrl.disable = true;
-    }
-    else {
+    } else {
       ctrl.progressWidth = 80;
       if (ctrl.challenge.activeKids > 0) {
         ctrl.showActiveKids = true;
