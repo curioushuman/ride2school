@@ -47,7 +47,7 @@ body(ng-app='app', ng-cloak)
     gz-navbar
     md-content(flex)
       div(ng-view)
-    //- include partials/footer
+    gz-footbar
     //- include partials/sidebar
 
   //- In production use
@@ -101,10 +101,11 @@ body(ng-app='app', ng-cloak)
 
   //- layout module
   script(src='scripts/layout/layout.module.js')
+  script(src='scripts/layout/layout.service.js')
   script(src='scripts/layout/directives/hero.directive.js')
   script(src='scripts/layout/directives/welcomeBanner.directive.js')
   script(src='scripts/layout/directives/navbar.directive.js')
-  //- script(src='scripts/layout/navbar.directive.js')
+  script(src='scripts/layout/directives/footbar.directive.js')
 
   //- LEGACY that will need to be removed
   //- script(src='scripts/intro.js')
