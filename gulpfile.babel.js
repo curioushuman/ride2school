@@ -128,7 +128,8 @@ gulp.task('scripts', () =>
       './app/scripts/core/firebaseData.service.js',
       './app/scripts/core/challenge.service.js',
       './app/scripts/core/textMessage.service.js',
-      './app/scripts/layout/layout.module.js'
+      './app/scripts/layout/layout.module.js',
+      './app/scripts/layout/directives/hero.directive.js'
       // './app/views/intro/intro.js',
       // './app/views/play/play.js',
       // './app/views/about/about.js'
