@@ -29,10 +29,13 @@ div.r2s-content
               |  cycling to school kids:
             md-list.md-dense
               //- md-list-item(ng-click='vm.blah()')
-              md-list-item(ng-click="vm.about('active_a')")
+              //- md-list-item(ng-click="vm.about('active_a')")
+              md-list-item
                 md-icon.material-icons done
                 .md-list-item-text
-                  p Build stronger bodies and bones
+                  p
+                    a(href='/#!/about#about_a', title='By walking, scooting or cycling to school kids build stronger bodies and bones')
+                      | Build stronger bodies and bones
               md-list-item(ng-click="vm.about('active_b')")
                 md-icon.material-icons done
                 .md-list-item-text
