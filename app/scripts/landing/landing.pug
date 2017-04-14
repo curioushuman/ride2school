@@ -3,17 +3,7 @@ div
   gz-hero
 
   //- Welcome banner
-  md-toolbar.md-accent.md-hue-1(ng-if='currentSchool')
-    .md-toolbar-tools
-      h2 Welcome&nbsp;
-        span(hide, show-gt-xs) {{ currentSchool.name }}
-      span(flex, hide, show-gt-xs)
-      md-button.md-raised(hide, show-gt-xs, aria-label='Begin', ng-click='beginJourney()') Begin
-      md-button.md-raised(hide, show-gt-xs, aria-label='Resume', ng-click='resumeJourney()') Resume
-      h3(hide, show-gt-xs) your journey
-  md-toolbar.md-accent.md-hue-1(hide-gt-xs, ng-if='currentSchool')
-    .md-toolbar-tools
-      h3 {{ currentSchool.name }}
+  gz-welcome-banner
 
   //- Content
   div.r2s-content
