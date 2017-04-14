@@ -11,6 +11,7 @@
   configFunction.$inject = ['$routeProvider'];
 
   function configFunction($routeProvider) {
+    // @TODO I don't think I need these
     // $routeProvider.when('/register', {
     //   templateUrl: 'scripts/auth/register.html',
     //   controller: 'AuthController',

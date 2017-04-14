@@ -3,29 +3,28 @@
 
   angular
     .module('app.auth')
-    .directive('gzAuthForm', gzAuthForm);
+    .directive('gzBeginForm', gzBeginForm);
 
-  function gzAuthForm() {
+  function gzBeginForm() {
     return {
-      templateUrl: 'app/auth/authForm.html',
+      templateUrl: 'app/directives/auth/beginForm.template.html',
       restrict: 'E',
-      controller: AuthFormController,
+      controller: BeginFormController,
       controllerAs: 'vm',
       bindToController: true,
       scope: {
         error: '=',
-        formTitle: '@',
         submitAction: '&'
       }
     };
   }
 
-  function AuthFormController() {
+  function BeginFormController() {
     var vm = this;
 
     vm.user = {
       email: '',
-      password: ''
+      password: '',
     };
   }
 
