@@ -5,22 +5,24 @@
 
   angular
     .module('app.layout')
-    .directive('gzWelcomeBanner', gzWelcomeBanner);
+    .directive('gzFootbar', gzFootbar);
 
-  function gzWelcomeBanner() {
+  function gzFootbar() {
     return {
-      templateUrl: 'scripts/layout/directives/welcomeBanner.template.html',
-      controller: WelcomeBannerController,
+      templateUrl: 'scripts/layout/directives/footbar.template.html',
+      restrict: 'E',
+      scope: {},
+      controller: FootbarController,
       controllerAs: 'vm'
     };
   }
 
-  WelcomeBannerController.$inject = [
+  FootbarController.$inject = [
     'authService',
     'layoutService'
   ];
 
-  function WelcomeBannerController(
+  function FootbarController(
     authService,
     layoutService
   ) {
