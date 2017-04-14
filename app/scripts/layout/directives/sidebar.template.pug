@@ -7,56 +7,53 @@ md-sidenav.md-sidenav-left(
   div
     div(md-colors="{background: 'default-primary'}")
       md-toolbar
-        h2.md-toolbar-tools(ng-hide='loggedIn') Welcome
-        h2.md-toolbar-tools(ng-show='loggedIn') Welcome
-      md-toolbar.md-hue-2(ng-if='currentSchool')
-        h3.md-toolbar-tools {{ currentSchool.name }}
+        h2.md-toolbar-tools Welcome
+      md-toolbar.md-hue-2
+        h3.md-toolbar-tools TEMP SCHOOL NAME
       div(layout-padding, layout='row', md-colors="::{backgroundColor: 'default-primary-hue-2'}")
         div(flex='50', layout='column' layout-align='center center')
-          //- img.r2s-img-size-avatar(ng-src='/images/student.svg', alt='Student')
           div
             i.material-icons.md-light.r2s-icon-size-48 face
-          div(ng-hide='loggedIn')
+          div(ng-hide='vm.isLoggedIn()')
             | Student
-          div(ng-show='loggedIn')
-            | {{ currentSchool.student.name }}
+          div(ng-show='vm.isLoggedIn()')
+            | TEMP STUDENT NAME
         div(flex='50', layout='column' layout-align='center center')
-          //- img.r2s-img-size-avatar(ng-src='/images/teacher.svg', alt='Teacher')
           div
             i.material-icons.md-light.r2s-icon-size-48 face
-          div(ng-hide='loggedIn')
+          div(ng-hide='vm.isLoggedIn()')
             | Teacher
-          div(ng-show='loggedIn')
-            | {{ currentSchool.teacher.name }}
-      md-toolbar(ng-hide='loggedIn')
+          div(ng-show='vm.isLoggedIn()')
+            | TEMP TEACHER NAME
+      md-toolbar(ng-hide='vm.isLoggedIn()')
         .md-toolbar-tools
-          md-button.md-raised.md-accent(aria-label='Begin', ng-click='beginJourney()') Begin
-          md-button.md-raised(aria-label='Resume', ng-click='resumeJourney()') Resume
+          md-button.md-raised.md-accent(aria-label='Begin', ng-click='vm.begin()') Begin
+          md-button.md-raised(aria-label='Resume', ng-click='vm.resume()') Resume
           h3 journey
   div
     md-list
       md-divider
-      md-list-item.md-2-line(ng-click='goAbout()')
+      md-list-item.md-2-line(ng-click='vm.about()')
         md-icon.material-icons.md-48 info_outline
         .md-list-item-text
           h3 About
           p Active travellers
-      md-list-item.md-2-line(ng-click='goSupport()', ng-show='loggedIn')
+      md-list-item.md-2-line(ng-click='vm.support()', ng-show='vm.isLoggedIn()')
         md-icon.material-icons.md-48 help_outline
         .md-list-item-text
           h3 Support
           p We all need some help sometimes
-      md-list-item.md-2-line(ng-click='resumeJourney()', ng-hide='loggedIn')
+      md-list-item.md-2-line(ng-click='vm.resume()', ng-hide='vm.isLoggedIn()')
         md-icon.material-icons.md-48 account_circle
         .md-list-item-text
           h3 Login
           p Resume your journey
-      md-list-item.md-2-line(ng-click='null', ng-show='loggedIn')
+      md-list-item.md-2-line(ng-click='vm.account()', ng-show='vm.isLoggedIn()')
         md-icon.material-icons.md-48 account_circle
         .md-list-item-text
           h3 Account
           p Edit your account details
-      md-list-item.md-2-line(ng-click='logout()', ng-show='loggedIn')
+      md-list-item.md-2-line(ng-click='vm.logout()', ng-show='vm.isLoggedIn()')
         md-icon.material-icons.md-48 power_settings_new
         .md-list-item-text
           h3 Logout
