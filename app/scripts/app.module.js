@@ -16,9 +16,8 @@
       'app.auth',
       'app.core',
       'app.landing',
+      'app.about',
       'app.layout'
-      // 'app.play',
-      // 'app.about'
     ])
     .config(configFunction)
     .run(runFunction);

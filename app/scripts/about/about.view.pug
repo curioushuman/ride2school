@@ -1,0 +1,106 @@
+//- Hero
+gz-hero
+
+//- Welcome banner
+gz-welcome-banner
+
+//- Content
+div.r2s-content
+
+  md-content(layout-padding, layout='row', layout-wrap, layout-xs='column')
+
+    //- Active kids
+    div(flex-xs, flex-sm='100', flex-gt-sm='100', layout='column')
+      md-card(layout='row', layout-wrap)
+        div(flex-gt-sm='40', flex-sm='30', flex-xs='100', flex-order-xs='1', flex-order-gt-xs='2')
+          img.md-card-image(
+            width='100%',
+            ng-src='/images/active_kids.svg',
+            alt='Illustration of a child on a scooter, one on a bicycle, and one walking'
+          )
+        div(flex-gt-sm='60', flex-sm='70', flex-xs='100', flex-order-xs='2', flex-order-gt-xs='1')
+          a(name='active')
+          md-card-title
+            md-card-title-text.md-display-1
+              | More fun
+          md-card-content
+            p
+              | Kids love to move and have fun, but research shows they are not
+              | &nbsp;getting enough of their daily dose. By walking, scooting or
+              | &nbsp;cycling to school kids:
+            a(name='active_a')
+            h2.md-headline Build stronger bodies and bones
+            p
+              | Bacon ipsum dolor amet filet mignon jerky beef ribs short ribs, pork belly salami short loin porchetta. Ribeye ground round salami, frankfurter t-bone ball tip meatloaf. Swine salami pork, strip steak shank sausage tenderloin cow brisket kevin drumstick flank biltong pork belly. Sirloin filet mignon cow porchetta, jowl ham shoulder. Shank ground round pancetta bresaola bacon. Shoulder bresaola venison boudin. Pig tenderloin hamburger rump strip steak frankfurter sausage.
+            a(name='active_b')
+            h2.md-headline Feel more relaxed and confident
+            p
+              | Spare ribs andouille brisket, sirloin t-bone burgdoggen meatloaf swine cow beef ribs doner pig biltong ham hock chicken. Pig tail brisket, chicken meatloaf shankle shank fatback pork loin short ribs bresaola. Sirloin alcatra capicola biltong. Venison chicken pastrami sirloin shankle beef ribeye cupim kielbasa boudin biltong jerky salami. Ham hock tri-tip leberkas, short ribs bacon pork chop shank andouille shankle biltong. Sausage ball tip meatball t-bone venison. Strip steak salami rump shank, tongue ham hock tail ham.
+            a(name='active_c')
+            h2.md-headline Have more fun on the way to school, and in class
+            p
+              | Flank tenderloin turkey sausage corned beef t-bone. Beef ribs bresaola bacon pork loin, cow shankle beef spare ribs salami doner picanha. Ham beef ribs chuck, alcatra shank shoulder bresaola sausage burgdoggen drumstick chicken. Pig sausage chicken sirloin spare ribs, fatback bresaola.
+
+    //- Cars
+    div(flex-xs, flex-sm='100', flex-gt-sm='100', layout='column')
+      md-card(layout='row', layout-wrap)
+        div(flex-gt-sm='40', flex-sm='30', flex-xs='100', flex-order-xs='1', flex-order-gt-xs='2')
+          img.md-card-image(
+            width='100%',
+            ng-src='/images/less_cars.svg',
+            alt='Illustration of less cars'
+          )
+        div(flex-gt-sm='60', flex-sm='70', flex-xs='100', flex-order-xs='1', flex-order-gt-xs='2')
+          a(name='cars')
+          md-card-title
+            md-card-title-text.md-display-1
+              | Less cars
+          md-card-content
+            p
+              | Australian children are among the most chauffeured young people
+              | &nbsp;in the developed world. Less cars around our schools
+              | &nbsp;means:
+            a(name='cars_a')
+            h2.md-headline Less traffic in our communities
+            p
+              | Bacon ipsum dolor amet filet mignon jerky beef ribs short ribs, pork belly salami short loin porchetta. Ribeye ground round salami, frankfurter t-bone ball tip meatloaf. Swine salami pork, strip steak shank sausage tenderloin cow brisket kevin drumstick flank biltong pork belly. Sirloin filet mignon cow porchetta, jowl ham shoulder. Shank ground round pancetta bresaola bacon. Shoulder bresaola venison boudin. Pig tenderloin hamburger rump strip steak frankfurter sausage.
+            a(name='cars_b')
+            h2.md-headline Less pollution across our cities
+            p
+              | Spare ribs andouille brisket, sirloin t-bone burgdoggen meatloaf swine cow beef ribs doner pig biltong ham hock chicken. Pig tail brisket, chicken meatloaf shankle shank fatback pork loin short ribs bresaola. Sirloin alcatra capicola biltong. Venison chicken pastrami sirloin shankle beef ribeye cupim kielbasa boudin biltong jerky salami. Ham hock tri-tip leberkas, short ribs bacon pork chop shank andouille shankle biltong. Sausage ball tip meatball t-bone venison. Strip steak salami rump shank, tongue ham hock tail ham.
+            a(name='cars_c')
+            h2.md-headline A happier, healhier world
+            p
+              | Flank tenderloin turkey sausage corned beef t-bone. Beef ribs bresaola bacon pork loin, cow shankle beef spare ribs salami doner picanha. Ham beef ribs chuck, alcatra shank shoulder bresaola sausage burgdoggen drumstick chicken. Pig sausage chicken sirloin spare ribs, fatback bresaola.
+
+    //- Trees
+    div(flex-xs, flex-sm='100', flex-gt-sm='100', layout='column')
+      md-card(layout='row', layout-wrap)
+        div(flex-gt-sm='40', flex-sm='30', flex-xs='100', flex-order-xs='1', flex-order-gt-xs='2')
+          img.md-card-image(
+            width='100%',
+            ng-src='/images/more_trees.svg',
+            alt='Illustration of trees'
+          )
+        div(flex-gt-sm='60', flex-sm='70', flex-xs='100', flex-order-xs='2', flex-order-gt-xs='1')
+          a(name='trees')
+          md-card-title
+            md-card-title-text.md-display-1
+              | More trees
+          md-card-content
+            p
+              | For every step you and your school take towards more active
+              | &nbsp;travellers we will plant a tree to supercharge your
+              | &nbsp;efforts. More trees means:
+            a(name='trees_a')
+            h2.md-headline More carbon filtered from the air
+            p
+              | Bacon ipsum dolor amet filet mignon jerky beef ribs short ribs, pork belly salami short loin porchetta. Ribeye ground round salami, frankfurter t-bone ball tip meatloaf. Swine salami pork, strip steak shank sausage tenderloin cow brisket kevin drumstick flank biltong pork belly. Sirloin filet mignon cow porchetta, jowl ham shoulder. Shank ground round pancetta bresaola bacon. Shoulder bresaola venison boudin. Pig tenderloin hamburger rump strip steak frankfurter sausage.
+            a(name='trees_b')
+            h2.md-headline More habitat for our animals
+            p
+              | Spare ribs andouille brisket, sirloin t-bone burgdoggen meatloaf swine cow beef ribs doner pig biltong ham hock chicken. Pig tail brisket, chicken meatloaf shankle shank fatback pork loin short ribs bresaola. Sirloin alcatra capicola biltong. Venison chicken pastrami sirloin shankle beef ribeye cupim kielbasa boudin biltong jerky salami. Ham hock tri-tip leberkas, short ribs bacon pork chop shank andouille shankle biltong. Sausage ball tip meatball t-bone venison. Strip steak salami rump shank, tongue ham hock tail ham.
+            a(name='trees_c')
+            h2.md-headline More trees for us to climb
+            p
+              | Flank tenderloin turkey sausage corned beef t-bone. Beef ribs bresaola bacon pork loin, cow shankle beef spare ribs salami doner picanha. Ham beef ribs chuck, alcatra shank shoulder bresaola sausage burgdoggen drumstick chicken. Pig sausage chicken sirloin spare ribs, fatback bresaola.

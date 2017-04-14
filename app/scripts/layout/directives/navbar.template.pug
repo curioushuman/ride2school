@@ -3,7 +3,7 @@ md-toolbar
     md-button.md-icon-button(aria-label='Menu', ng-click='vm.menu()')
       md-icon(class='material-icons') menu
     h1(flex-xs, md-truncate)
-      a(href='/', title='Active Travellers', ng-hide='vm.isLoggedIn()')
+      a(href='/#!/', title='Active Travellers', ng-hide='vm.isLoggedIn()')
         | Active Travellers
       a(href='/#!/play', title='Active Travellers', ng-show='vm.isLoggedIn()')
         | Active Travellers

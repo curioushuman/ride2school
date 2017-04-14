@@ -54,12 +54,13 @@
     }
 
     function about(hash) {
+      console.log(hash);
       $mdSidenav('left').close();
+      $location.path('/about');
       if (hash) {
         $location.hash(hash);
         $anchorScroll();
       }
-      $location.path('/about');
     }
 
     function support() {
