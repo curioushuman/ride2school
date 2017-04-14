@@ -44,7 +44,7 @@ body(ng-app='app', ng-cloak)
 
   div(layout='column', layout-fill)
     a(name='top')
-    //- include partials/header
+    gz-navbar
     md-content(flex)
       div(ng-view)
     //- include partials/footer
@@ -103,6 +103,7 @@ body(ng-app='app', ng-cloak)
   script(src='scripts/layout/layout.module.js')
   script(src='scripts/layout/directives/hero.directive.js')
   script(src='scripts/layout/directives/welcomeBanner.directive.js')
+  script(src='scripts/layout/directives/navbar.directive.js')
   //- script(src='scripts/layout/navbar.directive.js')
 
   //- LEGACY that will need to be removed

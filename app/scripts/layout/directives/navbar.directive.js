@@ -1,28 +1,32 @@
 /* eslint no-unused-vars: 0 */
 /* global angular */
+
+// @TODO come back to this!
 (function() {
   'use strict';
 
   angular
     .module('app.layout')
-    .directive('gzWelcomeBanner', gzWelcomeBanner);
+    .directive('gzNavbar', gzNavbar);
 
-  function gzWelcomeBanner() {
+  function gzNavbar() {
     return {
-      templateUrl: 'scripts/layout/directives/welcomeBanner.template.html',
-      controller: WelcomeBannerController,
+      templateUrl: 'scripts/layout/directives/navbar.template.html',
+      restrict: 'E',
+      scope: {},
+      controller: NavbarController,
       controllerAs: 'vm'
     };
   }
 
-  WelcomeBannerController.$inject = [
+  NavbarController.$inject = [
     '$location',
     '$mdSidenav',
     '$anchorScroll',
     'authService'
   ];
 
-  function WelcomeBannerController(
+  function NavbarController(
     $location,
     $mdSidenav,
     $anchorScroll,
@@ -31,10 +35,13 @@
     var vm = this;
 
     vm.isLoggedIn = authService.isLoggedIn;
+    vm.menu = menu;
     vm.begin = begin;
     vm.resume = resume;
 
-    // @TODO We need a means to detect not logged in, but school...
+    function menu() {
+      $mdSidenav('left').toggle();
+    }
 
     function begin() {
       $location.hash('begin');
