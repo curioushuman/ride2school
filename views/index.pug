@@ -40,15 +40,15 @@ head
   link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
   link(rel='stylesheet', href='styles/main.css')
 
-body(ng-app='ride2SchoolApp', ng-cloak, ng-controller='AppCtrl')
+body(ng-app='app', ng-cloak)
 
   div(layout='column', layout-fill)
     a(name='top')
-    include partials/header
+    //- include partials/header
     md-content(flex)
       div(ng-view)
-    include partials/footer
-    include partials/sidebar
+    //- include partials/footer
+    //- include partials/sidebar
 
   //- In production use
   script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js')
@@ -57,11 +57,59 @@ body(ng-app='ride2SchoolApp', ng-cloak, ng-controller='AppCtrl')
   script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js')
   script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js')
   script(src='https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js')
-  script(src='scripts/app.js')
-  script(src='scripts/intro.js')
-  script(src='scripts/play.js')
-  script(src='scripts/about.js')
+  script(src='https://www.gstatic.com/firebasejs/3.7.6/firebase.js')
+  script.
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDkeCaUt9fxDgoXNAOI7nMWjpMOhefHS94",
+      authDomain: "ride2school-58e07.firebaseapp.com",
+      databaseURL: "https://ride2school-58e07.firebaseio.com",
+      projectId: "ride2school-58e07",
+      storageBucket: "ride2school-58e07.appspot.com",
+      messagingSenderId: "290394671941"
+    };
+    firebase.initializeApp(config);
+  script(src='https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js')
+
+  //- main app module
+  script(src='scripts/app.module.js')
+
+  //- auth module
+  script(src='scripts/auth/auth.module.js')
+  script(src='scripts/auth/config.route.js')
+  script(src='scripts/auth/auth.controller.js')
+  script(src='scripts/auth/auth.service.js')
+  //- script(src='scripts/auth/authForm.directive.js')
+
+  //- landing module
+  script(src='scripts/landing/landing.module.js')
+  script(src='scripts/landing/config.route.js')
+
+  //- waitlist module (left for you to copy)
+  //- script(src='scripts/waitList/waitList.module.js')
+  //- script(src='scripts/waitList/config.route.js')
+  //- script(src='scripts/waitList/waitList.controller.js')
+  //- script(src='scripts/waitList/directives/partyForm.directive.js')
+  //- script(src='scripts/waitList/directives/partyTable.directive.js')
+
+  //- core module
+  script(src='scripts/core/core.module.js')
+  script(src='scripts/core/constants.js')
+  script(src='scripts/core/firebaseData.service.js')
+  script(src='scripts/core/challenge.service.js')
+  script(src='scripts/core/textMessage.service.js')
+
+  //- layout module
+  script(src='scripts/layout/layout.module.js')
+  //- script(src='scripts/layout/navbar.directive.js')
+
+  //- LEGACY that will need to be removed
+  //- script(src='scripts/intro.js')
+  //- script(src='scripts/play.js')
+  //- script(src='scripts/about.js')
+
   //- use this in production
+  //- if the uglification is working
   //- script(src='scripts/main.min.js')
 
   //- Google Analytics: change UA-XXXXX-X to be your site's ID
