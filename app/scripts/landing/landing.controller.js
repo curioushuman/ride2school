@@ -7,12 +7,13 @@
     .module('app.landing')
     .controller('LandingController', LandingController);
 
-  LandingController.$inject = ['layoutService'];
+  LandingController.$inject = ['layoutService', 'authService'];
 
-  function LandingController(layoutService) {
+  function LandingController(layoutService, authService) {
     var vm = this;
 
     vm.about = layoutService.about;
+    vm.isLoggedIn = authService.isLoggedIn;
     vm.blah = blah;
 
     function blah() {

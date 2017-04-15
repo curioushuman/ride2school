@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-
-/* intro */
-
 /* header */
 
 /* hero */
@@ -28,8 +25,29 @@
   margin-top: 0px;
   margin-bottom: 0px;
 }
+.r2s-onboard-hero h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.r2s-onboard-hero p {
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+
+/* how does this work? */
+
+.r2s-how h2 {
+  margin-top: 0px;
+}
 
 /* all */
+
+/* sidebar */
+
+div.r2s-md-sidenav-left p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 
 /* cards */
 

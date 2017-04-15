@@ -4,50 +4,58 @@ md-sidenav.md-sidenav-left(
   layout='column',
   layout-align='space-between stretch'
 )
-  div
-    div(md-colors="{background: 'default-primary'}")
-      md-toolbar
-        h2.md-toolbar-tools Welcome
-      md-toolbar(md-colors="{background: 'default-accent'}")
-        h3.md-toolbar-tools TEMP SCHOOL NAME
-      div(layout-padding, layout='row', md-colors="::{backgroundColor: 'default-primary-hue-2'}")
-        div(flex='50', layout='column' layout-align='center center')
-          div
-            i.material-icons.md-light.r2s-icon-size-48 face
-          div(ng-hide='vm.isLoggedIn()')
-            | Student
-          div(ng-show='vm.isLoggedIn()')
-            | TEMP STUDENT NAME
-        div(flex='50', layout='column' layout-align='center center')
-          div
-            i.material-icons.md-light.r2s-icon-size-48 face
-          div(ng-hide='vm.isLoggedIn()')
-            | Teacher
-          div(ng-show='vm.isLoggedIn()')
-            | TEMP TEACHER NAME
-      md-toolbar(ng-hide='vm.isLoggedIn()')
-        .md-toolbar-tools
-          md-button.md-raised.md-accent(aria-label='Begin', ng-click='vm.begin()') Begin
-          md-button.md-raised(aria-label='Resume', ng-click='vm.resume()') Resume
-          h3 journey
+  div.r2s-md-sidenav-left
+    md-toolbar
+      h2.md-toolbar-tools Would you like to play?
+    md-toolbar(md-colors="{background: 'default-accent'}")
+      h3.md-toolbar-tools TEMP SCHOOL NAME
+    //- div(layout-padding, layout='row', md-colors="::{backgroundColor: 'default-primary-hue-2'}")
+    div(layout-padding, layout='column')
+        p All you need is 1 teacher, and 1 student who are ready to take on
+          strong  one
+          |  challenge per month, to help you increase the number of active
+          |  travellers, and keep the planet healthy.
+    div(layout-padding, layout='row')
+      div(flex='40', layout='column' layout-align='center center')
+        div
+          i.material-icons.md-light.r2s-icon-size-48 face
+        div(ng-hide='vm.isLoggedIn()')
+          | Student
+        div(ng-show='vm.isLoggedIn()')
+          | TEMP STUDENT NAME
+      div(flex='20', layout='column' layout-align='start center')
+        div
+          i.material-icons.md-light.r2s-icon-size-48 add
+      div(flex='40', layout='column' layout-align='center center')
+        div
+          i.material-icons.md-light.r2s-icon-size-48 face
+        div(ng-hide='vm.isLoggedIn()')
+          | Teacher
+        div(ng-show='vm.isLoggedIn()')
+          | TEMP TEACHER NAME
+    md-toolbar(ng-hide='vm.isLoggedIn()')
+      .md-toolbar-tools
+        span(flex)
+        md-button.md-raised.md-accent(aria-label='Begin', ng-click='vm.begin()') Begin
+        md-button.md-raised(aria-label='Resume', ng-click='vm.resume()') Resume
   div
     md-list
       md-divider
       md-list-item.md-2-line(ng-click='vm.about()')
         md-icon.material-icons.md-48 info_outline
         .md-list-item-text
-          h3 About
-          p Active travellers
+          h3 How does it work?
+          p What do we have to do?
+      md-list-item.md-2-line(ng-click='vm.about()')
+        md-icon.material-icons.md-48 error_outline
+        .md-list-item-text
+          h3 Why active travellers?
+          p How can active travel help?
       md-list-item.md-2-line(ng-click='vm.support()', ng-show='vm.isLoggedIn()')
         md-icon.material-icons.md-48 help_outline
         .md-list-item-text
           h3 Support
           p We all need some help sometimes
-      md-list-item.md-2-line(ng-click='vm.resume()', ng-hide='vm.isLoggedIn()')
-        md-icon.material-icons.md-48 account_circle
-        .md-list-item-text
-          h3 Login
-          p Resume your journey
       md-list-item.md-2-line(ng-click='vm.account()', ng-show='vm.isLoggedIn()')
         md-icon.material-icons.md-48 account_circle
         .md-list-item-text

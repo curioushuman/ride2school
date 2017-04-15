@@ -7,7 +7,3 @@ md-toolbar
         | Active Travellers
       a(href='/#!/play', title='Active Travellers', ng-show='vm.isLoggedIn()')
         | Active Travellers
-    span(hide, show-gt-xs, flex, ng-hide='vm.isLoggedIn()')
-    md-button.md-raised.md-accent(hide, show-gt-xs, aria-label='Begin', ng-click='vm.begin()', ng-hide='vm.isLoggedIn()') Begin
-    md-button.md-raised(hide, show-gt-xs, aria-label='Resume', ng-click='vm.resume()', ng-hide='vm.isLoggedIn()') Resume
-    h3(hide, show-gt-xs, ng-hide='vm.isLoggedIn()') your journey
