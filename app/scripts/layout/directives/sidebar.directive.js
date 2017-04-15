@@ -32,7 +32,7 @@
     vm.menu = layoutService.menu;
     vm.begin = layoutService.begin;
     vm.resume = layoutService.resume;
-    vm.about = layoutService.about;
+    vm.navigate = layoutService.navigate;
     vm.support = layoutService.support;
     vm.account = layoutService.account;
     vm.logout = layoutService.logout;

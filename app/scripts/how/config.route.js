@@ -4,14 +4,14 @@
   'use strict';
 
   angular
-    .module('app.about')
+    .module('app.how')
     .config(configFunction);
 
   configFunction.$inject = ['$routeProvider'];
 
   function configFunction($routeProvider) {
-    $routeProvider.when('/about', {
-      templateUrl: 'scripts/about/about.view.html'
+    $routeProvider.when('/how', {
+      templateUrl: 'scripts/how/how.view.html'
     });
   }
 

@@ -124,8 +124,10 @@ gulp.task('scripts', () =>
       './app/scripts/landing/landing.module.js',
       './app/scripts/landing/config.route.js',
       './app/scripts/landing/landing.controller.js',
-      './app/scripts/about/about.module.js',
-      './app/scripts/about/config.route.js',
+      './app/scripts/how/how.module.js',
+      './app/scripts/how/config.route.js',
+      './app/scripts/why/why.module.js',
+      './app/scripts/why/config.route.js',
       './app/scripts/core/core.module.js',
       './app/scripts/core/constants.js',
       './app/scripts/core/firebaseData.service.js',
@@ -138,9 +140,6 @@ gulp.task('scripts', () =>
       './app/scripts/layout/directives/navbar.directive.js',
       './app/scripts/layout/directives/footbar.directive.js',
       './app/scripts/layout/directives/sidebar.directive.js'
-      // './app/views/intro/intro.js',
-      // './app/views/play/play.js',
-      // './app/views/about/about.js'
     ])
       .pipe($.newer('.tmp/scripts'))
       .pipe($.sourcemaps.init())

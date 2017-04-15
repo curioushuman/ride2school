@@ -28,18 +28,18 @@ div.r2s-content
               |  getting enough of their daily dose. Active travel helps kids:
             md-list.md-dense
               //- md-list-item(ng-click='vm.blah()')
-              //- md-list-item(ng-click="vm.about('active_a')")
+              //- md-list-item(ng-click="vm.navigate('why','active_a')")
               md-list-item
                 md-icon.material-icons done
                 .md-list-item-text
                   p
-                    a(href='/#!/about#about_a', title='By walking, scooting or cycling to school kids build stronger bodies and bones')
+                    a(href='/#!/why#active_a', title='By walking, scooting or cycling to school kids build stronger bodies and bones')
                       | Build stronger bodies and bones
-              md-list-item(ng-click="vm.about('active_b')")
+              md-list-item(ng-click="vm.navigate('why','active_b')")
                 md-icon.material-icons done
                 .md-list-item-text
                   p Feel more relaxed and confident
-              md-list-item(ng-click="vm.about('active_c')")
+              md-list-item(ng-click="vm.navigate('why','active_c')")
                 md-icon.material-icons done
                 .md-list-item-text
                   p Have more fun on the way to school, and in class
@@ -60,15 +60,15 @@ div.r2s-content
             |  in the world. Less cars around our schools
             |  means:
           md-list.md-dense
-            md-list-item(ng-click="vm.about('cars_a')")
+            md-list-item(ng-click="vm.navigate('why','cars_a')")
               md-icon.material-icons done
               .md-list-item-text
                 p Less traffic in our communities
-            md-list-item(ng-click="vm.about('cars_a')")
+            md-list-item(ng-click="vm.navigate('why','cars_a')")
               md-icon.material-icons done
               .md-list-item-text
                 p Less pollution across our cities
-            md-list-item(ng-click="vm.about('cars_a')")
+            md-list-item(ng-click="vm.navigate('why','cars_a')")
               md-icon.material-icons done
               .md-list-item-text
                 p A happier, healthier world
@@ -88,74 +88,21 @@ div.r2s-content
             |  travellers we will plant a tree to supercharge your
             |  efforts. More trees means:
           md-list.md-dense
-            md-list-item(ng-click="vm.about('trees_a')")
+            md-list-item(ng-click="vm.navigate('why','trees_a')")
               md-icon.material-icons done
               .md-list-item-text
                 p More carbon filtered from the air
-            md-list-item(ng-click="vm.about('trees_a')")
+            md-list-item(ng-click="vm.navigate('why','trees_a')")
               md-icon.material-icons done
               .md-list-item-text
                 p More habitat for our animals
-            md-list-item(ng-click="vm.about('trees_a')")
+            md-list-item(ng-click="vm.navigate('why','trees_a')")
               md-icon.material-icons done
               .md-list-item-text
                 p More trees for us to climb
 
-  md-content.r2s-how(flex, layout-padding, layout='row', layout-xs='column', layout-wrap)
-    div(flex, flex-gt-xs='33', layout='row', layout-wrap)
-      div(flex='100', layout='column')
-        h2.md-display-1(hide-sm) How does it work?
-        h2.md-headline(hide, show-sm) How does it work?
-      div(flex='40', layout='column' layout-align='center center')
-        div
-          i.material-icons.md-light.r2s-icon-size-48 face
-        div(ng-hide='vm.isLoggedIn()')
-          | Student
-      div(flex='20', layout='column' layout-align='start center')
-        div
-          i.material-icons.md-light.r2s-icon-size-48 add
-      div(flex='40', layout='column' layout-align='center center')
-        div
-          i.material-icons.md-light.r2s-icon-size-48 face
-        div(ng-hide='vm.isLoggedIn()')
-          | Teacher
-      div(flex='100', layout='column', hide-xs, hide-gt-sm)
-        h3.md-title(hide-gt-sm) Would you like to play?
-    div(flex, flex-gt-xs='66', layout='column')
-      md-list
-        md-list-item.md-2-line(ng-click="vm.how('one')", layout='row', flex)
-          div(flex='18', flex-gt-sm='15', flex-gt-md='10')
-            md-button.md-fab.md-accent 1
-          .md-list-item-text(flex='82', flex-gt-sm='85', flex-gt-md='90')
-            h3
-              span(hide-xs) Complete
-              strong(hide-xs)  one
-              strong(hide, show-xs)  One
-              |  challenge a month
-            p That's all you need to do.
-              span(hide-xs)  Are you ready?
-          md-divider(md-inset)
-        md-list-item.md-2-line(ng-click="vm.how('bonus')", layout='row', flex)
-          div(flex='18', flex-gt-sm='15', flex-gt-md='10')
-            md-button.md-fab.md-accent 2
-          .md-list-item-text(flex='82', flex-gt-sm='85', flex-gt-md='90')
-            h3 Unlock
-              strong  bonus
-              |  challenges
-            p(hide, show-gt-xs) If you complete challenges early, take on a bonus challenge.
-            p(hide, show-xs) If you finish challenges early.
-          md-divider(md-inset)
-        md-list-item.md-2-line(ng-click="vm.how('count')", layout='row', flex)
-          div(flex='18', flex-gt-sm='15', flex-gt-md='10')
-            md-button.md-fab.md-accent 3
-          .md-list-item-text(flex='82', flex-gt-sm='85', flex-gt-md='90')
-            h3
-              strong Count
-              span(hide-xs)  your
-              |  active travellers
-            p(hide, show-gt-xs) Every month celebrate your new active travellers.
-            p(hide, show-xs) Celebrate your victory!
-      h3.md-title(hide, show-xs) Would you like to play?
+  //- How
+  gz-how
 
 //- Welcome banner
 gz-welcome-banner

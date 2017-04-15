@@ -3,5 +3,5 @@
 (function() {
   'use strict';
 
-  angular.module('app.about', []);
+  angular.module('app.how', []);
 })();

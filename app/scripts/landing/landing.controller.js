@@ -12,13 +12,8 @@
   function LandingController(layoutService, authService) {
     var vm = this;
 
-    vm.about = layoutService.about;
+    vm.navigate = layoutService.navigate;
     vm.isLoggedIn = authService.isLoggedIn;
-    vm.blah = blah;
-
-    function blah() {
-      console.log('blah');
-    }
 
   }
 

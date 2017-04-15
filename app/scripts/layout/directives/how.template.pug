@@ -1,0 +1,55 @@
+md-content.r2s-how(flex, layout-padding, layout='row', layout-xs='column', layout-wrap)
+  div(flex, flex-gt-xs='33', layout='row', layout-wrap)
+    div(flex='100', layout='column')
+      h2.md-display-1(hide-sm) How does it work?
+      h2.md-headline(hide, show-sm) How does it work?
+    div(flex='40', layout='column' layout-align='center center')
+      div
+        i.material-icons.md-light.r2s-icon-size-48 face
+      div(ng-hide='vm.isLoggedIn()')
+        | Student
+    div(flex='20', layout='column' layout-align='start center')
+      div
+        i.material-icons.md-light.r2s-icon-size-48 add
+    div(flex='40', layout='column' layout-align='center center')
+      div
+        i.material-icons.md-light.r2s-icon-size-48 face
+      div(ng-hide='vm.isLoggedIn()')
+        | Teacher
+    div(flex='100', layout='column', hide-xs, hide-gt-sm)
+      h3.md-title(hide-gt-sm) Would you like to play?
+  div(flex, flex-gt-xs='66', layout='column')
+    md-list
+      md-list-item.md-2-line(ng-click="vm.how('one')", layout='row', flex)
+        div(flex='18', flex-gt-sm='15', flex-gt-md='10')
+          md-button.md-fab.md-accent 1
+        .md-list-item-text(flex='82', flex-gt-sm='85', flex-gt-md='90')
+          h3
+            span(hide-xs) Complete
+            strong(hide-xs)  one
+            strong(hide, show-xs)  One
+            |  challenge a month
+          p That's all you need to do.
+            span(hide-xs)  Are you ready?
+        md-divider(md-inset)
+      md-list-item.md-2-line(ng-click="vm.how('bonus')", layout='row', flex)
+        div(flex='18', flex-gt-sm='15', flex-gt-md='10')
+          md-button.md-fab.md-accent 2
+        .md-list-item-text(flex='82', flex-gt-sm='85', flex-gt-md='90')
+          h3 Unlock
+            strong  bonus
+            |  challenges
+          p(hide, show-gt-xs) If you complete challenges early, take on a bonus challenge.
+          p(hide, show-xs) If you finish challenges early.
+        md-divider(md-inset)
+      md-list-item.md-2-line(ng-click="vm.how('count')", layout='row', flex)
+        div(flex='18', flex-gt-sm='15', flex-gt-md='10')
+          md-button.md-fab.md-accent 3
+        .md-list-item-text(flex='82', flex-gt-sm='85', flex-gt-md='90')
+          h3
+            strong Count
+            span(hide-xs)  your
+            |  active travellers
+          p(hide, show-gt-xs) Every month celebrate your new active travellers.
+          p(hide, show-xs) Celebrate your victory!
+    h3.md-title(hide, show-xs) Would you like to play?

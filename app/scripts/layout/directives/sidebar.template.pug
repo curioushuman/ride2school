@@ -41,12 +41,12 @@ md-sidenav.md-sidenav-left(
   div
     md-list
       md-divider
-      md-list-item.md-2-line(ng-click='vm.about()')
+      md-list-item.md-2-line(ng-click="vm.navigate('how')")
         md-icon.material-icons.md-48 info_outline
         .md-list-item-text
           h3 How does it work?
           p What do we have to do?
-      md-list-item.md-2-line(ng-click='vm.about()')
+      md-list-item.md-2-line(ng-click="vm.navigate('why')")
         md-icon.material-icons.md-48 error_outline
         .md-list-item-text
           h3 Why active travellers?

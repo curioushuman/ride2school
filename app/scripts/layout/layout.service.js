@@ -25,9 +25,9 @@
       menu,
       begin,
       resume,
-      about,
-      account,
+      navigate,
       support,
+      account,
       logout
     };
 
@@ -53,10 +53,11 @@
       // $location.path('/play');
     }
 
-    function about(hash) {
+    function navigate(view, hash) {
+      console.log(view);
       console.log(hash);
       $mdSidenav('left').close();
-      $location.path('/about');
+      $location.path('/' + view);
       if (hash) {
         $location.hash(hash);
         $anchorScroll();
@@ -72,6 +73,7 @@
     }
 
     function logout() {
+      console.log('logout');
       authService.logout();
       $location.path('/');
     }
