@@ -1,10 +1,9 @@
-md-toolbar.md-accent.md-hue-1(ng-hide='vm.isLoggedIn()')
-  .md-toolbar-tools
-    h2(hide, show-gt-xs)
-      span(hide, show-gt-sm) Would you like to play&nbsp;
-      span(hide, show-gt-xs) TEMP SCHOOL NAME
-      span(hide, show-gt-sm) ?
-    span(flex, hide, show-gt-xs)
+md-toolbar.md-accent(ng-hide='vm.isLoggedIn()')
+  .md-toolbar-tools(layout-align='end center')
+    h2 Would you like to play?
+      //- span(hide, show-gt-sm) Would you like to play
+      //- span(hide, show-gt-xs)  TEMP SCHOOL NAME
+      //- span(hide, show-gt-sm) ?
     md-button.md-raised(hide, show-gt-xs, aria-label='Begin', ng-click="vm.navigate('begin')") Begin
     md-button.md-raised(hide, show-gt-xs, aria-label='Resume', ng-click="vm.navigate('resume')") Resume
-    h3(hide-gt-xs) TEMP SCHOOL NAME
+    //- h3(hide-gt-xs) TEMP SCHOOL NAME

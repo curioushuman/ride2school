@@ -12,9 +12,9 @@ div.r2s-content
     //- Active kids
     div(flex-xs, flex-sm='100', flex-gt-sm='33', layout='column')
       md-card(layout='row', layout-wrap)
-        div(flex-gt-sm='100', flex-xs='100', flex-sm='50', flex-order-sm='2', flex-order-gt-sm='1')
+        div(flex-gt-sm='100', flex-xs='100', flex-sm='50', flex-order-sm='2', flex-order-gt-sm='1', layout='column', layout-align='center center', layout-padding)
           img.md-card-image(
-            width='100%',
+            width='67%',
             ng-src='/images/active_kids.svg',
             alt='Illustration of a child racing to school on her bicycle'
           )
@@ -47,10 +47,11 @@ div.r2s-content
     //- Cars
     div(flex, flex-sm='50', flex-gt-sm='33', layout='column')
       md-card
-        img.md-card-image(
-          ng-src='/images/less_cars.svg',
-          alt='Illustration of a cheeky boy leaving his car behind'
-        )
+        div(layout='column', layout-align='center center', layout-padding)
+          img.md-card-image(
+            ng-src='/images/less_cars.svg',
+            alt='Illustration of a cheeky boy leaving his car behind'
+          )
         md-card-title
           md-card-title-text.md-headline
             | Less cars
@@ -75,10 +76,12 @@ div.r2s-content
     //- Trees
     div(flex, flex-sm='50', flex-gt-sm='33', layout='column')
       md-card
-        img.md-card-image(
-          ng-src='/images/more_trees.svg',
-          alt='Illustration of trees growing out of every step a boy takes on the way to school'
-        )
+        div(layout='column', layout-align='center center', layout-padding)
+          img.md-card-image(
+            width='75%',
+            ng-src='/images/more_trees.svg',
+            alt='Illustration of trees growing out of every step a boy takes on the way to school'
+          )
         md-card-title
           md-card-title-text.md-headline
             | More trees

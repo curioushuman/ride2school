@@ -8,7 +8,7 @@ div.r2s-content
         md-card
           md-card-title
             md-card-title-text(layout-align='center start')
-              span.md-headline Game zone
+              span.md-headline Where will you be playing?
           md-card-content
             md-input-container.md-block(flex)
               label Which school do you represent?
@@ -47,16 +47,15 @@ div.r2s-content
       div(flex-xs, flex-sm='100', flex-gt-sm='33', layout-sm='row', layout='column')
         div(flex, flex-sm='50')
           md-card
-            md-card-title
-              md-card-title-text(layout-align='center start')
+            md-card-header
+              md-card-header-text
                 a(name='student')
                 span.md-headline Player 1 Student
-              md-card-media
-                div.md-media-sm.card-media
-                  img(
-                    ng-src='/images/avatar_student.svg',
-                    alt='Illustration of a students face'
-                  )
+              md-card-avatar
+                img(
+                  ng-src='/images/avatar_student.svg',
+                  alt='Illustration of a students face'
+                )
             md-card-content
               md-input-container.md-block(flex)
                 label First name
@@ -75,16 +74,15 @@ div.r2s-content
 
         div(flex, flex-sm='50')
           md-card
-            md-card-title
-              md-card-title-text(layout-align='center start')
-                a(name='teacher')
+            md-card-header
+              md-card-header-text
+                a(name='student')
                 span.md-headline Player 2 Teacher
-              md-card-media
-                div.md-media-sm.card-media
-                  img(
-                    ng-src='/images/avatar_teacher.svg',
-                    alt='Illustration of a teachers face'
-                  )
+              md-card-avatar
+                img(
+                  ng-src='/images/avatar_teacher.svg',
+                  alt='Illustration of a teachers face'
+                )
             md-card-content
               md-input-container.md-block(flex)
                 label Full name
@@ -118,7 +116,7 @@ div.r2s-content
           md-card-content
             md-input-container.md-block(flex)
               label What is your secret code word?
-              input(ng-model='vm.user.password', name='userPassword', ng-pattern="/^[a-z]+$/" required)
+              input(ng-model='vm.user.password', name='userPassword', ng-pattern="/^[a-z]+$/", minlength='6', required)
               div.hint
                 | Decide together what your code will be.
                 |  You could combine your first names into a silly word.
@@ -129,11 +127,13 @@ div.r2s-content
                   | If you don't have a secret code you can't play the game
                 div(ng-message='pattern')
                   | To help you remember use only one word, and all lowercase
+                div(ng-message='minlength')
+                  | Your secret code should be at least 6 characters
 
     md-toolbar.md-warn(ng-show='vm.error')
       .md-toolbar-tools(layout-align='end center')
         h3(ng-bind='vm.error')
-    md-toolbar.md-accent.md-hue-1
+    md-toolbar.md-accent
       .md-toolbar-tools(layout-align='end center')
         md-progress-circular.md-accent.md-hue-3(ng-show='vm.working', md-mode='indeterminate', md-diameter='20px')
         md-button.md-raised(aria-label='Begin', type='submit', ng-disabled='vm.working') Begin

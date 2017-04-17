@@ -48,13 +48,28 @@
         'hue-2': 'A200',
         'hue-3': 'A100'
       })
-      .accentPalette('yellow', {
+      // Fitz recommend
+      // .accentPalette('yellow', {
+      //   'default': 'A700',
+      //   'hue-1': 'A400',
+      //   'hue-2': 'A200',
+      //   'hue-3': 'A100'
+      // })
+      // .warnPalette('green', {
+      //   'default': 'A700',
+      //   'hue-1': 'A400',
+      //   'hue-2': 'A200',
+      //   'hue-3': 'A100'
+      // })
+      // simply flipping didn't work
+      // i've changed green to be accent and added orange as warn
+      .accentPalette('green', {
         'default': 'A700',
         'hue-1': 'A400',
         'hue-2': 'A200',
         'hue-3': 'A100'
       })
-      .warnPalette('green', {
+      .warnPalette('orange', {
         'default': 'A700',
         'hue-1': 'A400',
         'hue-2': 'A200',

@@ -9,19 +9,19 @@ md-sidenav.md-sidenav-left(
       h2.md-toolbar-tools Would you like to play?
     md-toolbar(ng-show='vm.isLoggedIn()')
       h2.md-toolbar-tools Game on
-    md-toolbar(md-colors="{background: 'default-accent'}", ng-hide='vm.isLoggedIn()')
-      h3.md-toolbar-tools TEMP SCHOOL NAME
+    //- md-toolbar(md-colors="{background: 'default-accent'}", ng-hide='vm.isLoggedIn()')
+    //-   h3.md-toolbar-tools TEMP SCHOOL NAME
     md-toolbar(md-colors="{background: 'default-accent'}", ng-show='vm.isLoggedIn()')
       h3.md-toolbar-tools {{ vm.school.name }}
     //- div(layout-padding, layout='row', md-colors="::{backgroundColor: 'default-primary-hue-2'}")
     div(layout-padding, layout='column', ng-hide='vm.isLoggedIn()')
-        p All you need is 1 teacher, and 1 student who are ready to take on
-          strong  one
-          |  challenge per month, to help you increase the number of active
+        p All you need is one teacher, and one student who are ready to take on
+          |  a challenge per month, to help you increase the number of active
           |  travellers, and keep the planet healthy.
     div(layout-padding, layout='row', ng-hide='vm.isLoggedIn()')
       div(flex='40', layout='column' layout-align='center center')
         img(
+          width='70%',
           ng-src='/images/avatar_student.svg',
           alt='Illustration of a students face'
         )
@@ -30,6 +30,7 @@ md-sidenav.md-sidenav-left(
         i.material-icons.md-light.r2s-icon-size-48 add
       div(flex='40', layout='column' layout-align='center center')
         img(
+          width='70%',
           ng-src='/images/avatar_teacher.svg',
           alt='Illustration of a teachers face'
         )
@@ -47,10 +48,10 @@ md-sidenav.md-sidenav-left(
           ng-show="vm.player=='teacher'"
         )
         p {{ vm.player.codename }}
-    md-toolbar(ng-hide='vm.isLoggedIn()')
+    md-toolbar.md-accent(ng-hide='vm.isLoggedIn()')
       .md-toolbar-tools
         span(flex)
-        md-button.md-raised.md-accent(aria-label='Begin', ng-click="vm.navigate('begin')") Begin
+        md-button.md-raised(aria-label='Begin', ng-click="vm.navigate('begin')") Begin
         md-button.md-raised(aria-label='Resume', ng-click="vm.navigate('resume')") Resume
   div
     md-list

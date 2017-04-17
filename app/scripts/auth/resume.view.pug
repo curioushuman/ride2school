@@ -8,7 +8,7 @@ div.r2s-content
         md-card
           md-card-title
             md-card-title-text(layout-align='center start')
-              span.md-headline Game zone
+              span.md-headline Where are you playing?
           md-card-content
             md-input-container.md-block(flex)
               label Which school do you represent?
@@ -91,7 +91,7 @@ div.r2s-content
     md-toolbar.md-warn(ng-show='vm.error')
       .md-toolbar-tools(layout-align='end center')
         h3(ng-bind='vm.error')
-    md-toolbar.md-accent.md-hue-1
+    md-toolbar.md-accent
       .md-toolbar-tools(layout-align='end center')
         md-progress-circular.md-accent.md-hue-3(ng-show='vm.working', md-mode='indeterminate', md-diameter='20px')
         md-button.md-raised(aria-label='Begin', type='submit', ng-disabled='vm.working') Resume
