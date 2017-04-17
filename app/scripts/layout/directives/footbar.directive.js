@@ -18,20 +18,32 @@
   }
 
   FootbarController.$inject = [
+    '$location',
     'authService',
     'layoutService'
   ];
 
   function FootbarController(
+    $location,
     authService,
     layoutService
   ) {
     var vm = this;
 
     vm.isLoggedIn = authService.isLoggedIn;
+    vm.hide = false;
     vm.menu = layoutService.menu;
-    vm.begin = layoutService.begin;
-    vm.resume = layoutService.resume;
+    vm.navigate = layoutService.navigate;
+
+    vm.hideMenu = false;
+    var currentPath = $location.path();
+    if (
+      currentPath.indexOf('begin') > -1
+      || currentPath.indexOf('resume') > -1
+      || authService.isLoggedIn()
+    ) {
+      vm.hideMenu = true;
+    }
 
   }
 

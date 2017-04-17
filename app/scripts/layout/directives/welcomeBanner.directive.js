@@ -28,8 +28,7 @@
 
     vm.isLoggedIn = authService.isLoggedIn;
     vm.menu = layoutService.menu;
-    vm.begin = layoutService.begin;
-    vm.resume = layoutService.resume;
+    vm.navigate = layoutService.navigate;
 
   }
 

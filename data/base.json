@@ -1,0 +1,42 @@
+{
+  "schools": {
+    "jamescookboyshighschool": {
+      "name": "James Cook Boys High School",
+      "schoolclasses": {
+        "3m": true
+      }
+    },
+    "marsdengirlshighschool": {
+      "name": "Marsden Girls High School"
+    }
+  },
+  "schoolclasses": {
+    "jamescookboyshighschool3m": {
+      "name": "3M",
+      "school": "jamescookboyshighschool",
+      "teacher": "jamesbrown",
+      "student": "totoro",
+      "uid": ""
+    }
+  },
+  "teachers": {
+    "jamesbrown": {
+      "codename": "James Brown",
+      "name": "Mr. Brown",
+      "school": "jamescookboyshighschool",
+      "schoolclass": "3m",
+      "student": "totoro",
+      "uid": ""
+    }
+  },
+  "students": {
+    "totoro": {
+      "codename": "totoro",
+      "name": "Louise",
+      "school": "jamescookboyshighschool",
+      "schoolclass": "3m",
+      "teacher": "jamesbrown",
+      "uid": ""
+    }
+  }
+}

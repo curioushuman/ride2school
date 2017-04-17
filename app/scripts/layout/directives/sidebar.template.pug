@@ -36,8 +36,8 @@ md-sidenav.md-sidenav-left(
     md-toolbar(ng-hide='vm.isLoggedIn()')
       .md-toolbar-tools
         span(flex)
-        md-button.md-raised.md-accent(aria-label='Begin', ng-click='vm.begin()') Begin
-        md-button.md-raised(aria-label='Resume', ng-click='vm.resume()') Resume
+        md-button.md-raised.md-accent(aria-label='Begin', ng-click="vm.navigate('begin')") Begin
+        md-button.md-raised(aria-label='Resume', ng-click="vm.navigate('resume')") Resume
   div
     md-list
       md-divider
@@ -51,12 +51,12 @@ md-sidenav.md-sidenav-left(
         .md-list-item-text
           h3 Why active travellers?
           p How can active travel help?
-      md-list-item.md-2-line(ng-click='vm.support()', ng-show='vm.isLoggedIn()')
+      md-list-item.md-2-line(ng-click="vm.navigate('support')", ng-show='vm.isLoggedIn()')
         md-icon.material-icons.md-48 help_outline
         .md-list-item-text
           h3 Support
           p We all need some help sometimes
-      md-list-item.md-2-line(ng-click='vm.account()', ng-show='vm.isLoggedIn()')
+      md-list-item.md-2-line(ng-click="vm.navigate('account')", ng-show='vm.isLoggedIn()')
         md-icon.material-icons.md-48 account_circle
         .md-list-item-text
           h3 Account

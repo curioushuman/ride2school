@@ -132,6 +132,29 @@ footer h3 {
   margin: 0px;
 }
 
+/* forms */
+div.hint {
+  font-size: 12px;
+  line-height: 20px;
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  color: grey;
+}
+
+/* bug fixes */
+
+/* a dirty hack because the errors won't autohide */
+md-input-container .md-input-messages-animation .md-input-message-animation:not(.ng-animate) {
+  display: none;
+}
+md-input-container.md-input-invalid .md-input-messages-animation .md-input-message-animation:not(.ng-animate) {
+  display: block;
+}
+
+/* has no value */
+.md-errors-spacer {
+  display: none;
+}
+
 /* Temp styles I won't need later */
 .r2s-img-size-avatar {
   width: 70px;

@@ -1,0 +1,132 @@
+//- Content
+div.r2s-content
+
+  form(name='beginForm', ng-submit='beginForm.$valid && vm.begin()')
+    md-content(flex, layout-padding, layout='row', layout-wrap, layout-xs='column')
+
+      div(flex-xs, flex-sm='100', flex-gt-sm='33')
+        md-card
+          md-card-title
+            md-card-title-text(layout-align='center start')
+              span.md-headline Game zone
+          md-card-content
+            md-input-container.md-block(flex)
+              label Which school do you represent?
+              md-select(ng-model='vm.school.id', name='schoolId', required)
+                md-option(ng-repeat='school in vm.schools', value='{{ school.$id }}')
+                  | {{ school.name }}
+              div(ng-messages='beginForm.schoolId.$error', role='alert')
+                div(ng-message='required')
+                  | We need to know which school is doing great work
+            md-input-container.md-block(flex)
+              label What is the name of your class?
+              input(ng-model='vm.schoolclass.name', name='schoolclassName', required)
+              div(ng-messages='beginForm.schoolclassName.$error', role='alert')
+                div(ng-message='required')
+                  | We need to know which class is doing great work
+            md-input-container.md-block(flex)
+              label What year are you in?
+              md-select(ng-model='vm.schoolclass.year', name='schoolclassYear', required)
+                md-option(ng-repeat='n in [2,3,4,5,6,7,8,9,10,11,12]', value='{{ n }}')
+                  | {{ n }}
+              div(ng-messages='beginForm.schoolclassYear.$error', role='alert')
+                div(ng-message='required')
+                  | To track performance across all schools we need to know which year you are in
+            md-input-container.md-block(flex)
+              label How many kids in your class?
+              input(ng-model='vm.schoolclass.count', name='schoolclassCount', required, ng-pattern="/^[0-9]+$/")
+              div(ng-messages='beginForm.schoolclassCount.$error', role='alert')
+                div(ng-message='required')
+                  | To see how well you're doing, we need to know how many kids are in your class
+                div(ng-message='pattern')
+                  | This field needs to be in the form of a number e.g. 30
+          md-card-actions(hide-gt-xs, layout='row', layout-align='end center')
+            md-button(ng-click="vm.navigate('begin','student')") Next
+
+      div(flex-xs, flex-sm='100', flex-gt-sm='33', layout-sm='row', layout='column')
+        div(flex, flex-sm='50')
+          md-card
+            md-card-title
+              md-card-title-text(layout-align='center start')
+                a(name='student')
+                span.md-headline Player 1 Student
+              md-card-media
+                div.md-media-sm.card-media
+                  i.material-icons.md-light.r2s-icon-size-48 face
+            md-card-content
+              md-input-container.md-block(flex)
+                label First name
+                input(ng-model='vm.student.name', name='studentName', required)
+                div(ng-messages='beginForm.studentName.$error', role='alert')
+                  div(ng-message='required')
+                    | We need to know who's playing the game
+              md-input-container.md-block(flex)
+                label Codename
+                input(ng-model='vm.student.codename', name='studentCodename', required)
+                div(ng-messages='beginForm.studentCodename.$error', role='alert')
+                  div(ng-message='required')
+                    | Every player needs a codename
+            md-card-actions(hide-gt-xs, layout='row', layout-align='end center')
+              md-button(ng-click="vm.navigate('begin','teacher')") Next
+
+        div(flex, flex-sm='50')
+          md-card
+            md-card-title
+              md-card-title-text(layout-align='center start')
+                a(name='teacher')
+                span.md-headline Player 2 Teacher
+              md-card-media
+                div.md-media-sm.card-media
+                  i.material-icons.md-light.r2s-icon-size-48 face
+            md-card-content
+              md-input-container.md-block(flex)
+                label Full name
+                input(ng-model='vm.teacher.name', name='teacherName', required)
+                div(ng-messages='beginForm.teacherName.$error', role='alert')
+                  div(ng-message='required')
+                    | We need to know who's playing the game
+              md-input-container.md-block(flex)
+                label Codename
+                input(ng-model='vm.teacher.codename', name='teacherCodename', required)
+                div(ng-messages='beginForm.teacherCodename.$error', role='alert')
+                  div(ng-message='required')
+                    | Every player needs a codename
+              md-input-container.md-block(flex)
+                label Email
+                input(required, type='email', name='userEmail', ng-model='vm.user.email', minlength='10', maxlength='155', ng-pattern="/^.+@.+\..+$/")
+                div.hint
+                  | Player 2, you will be the main contact person
+                div(ng-messages='beginForm.userEmail.$error', role='alert')
+                  div(ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']")
+                    | Your email must be between 10 and 100 characters long and look like an e-mail address.
+            md-card-actions(hide-gt-xs, layout='row', layout-align='end center')
+              md-button(ng-click="vm.navigate('begin','code')") Next
+
+      div(flex-xs, flex-sm='100', flex-gt-sm='33')
+        md-card
+          md-card-title
+            md-card-title-text(layout-align='center start')
+              a(name='code')
+              span.md-headline Your secret code
+          md-card-content
+            md-input-container.md-block(flex)
+              label What is your secret code word?
+              input(ng-model='vm.user.password', name='userPassword', ng-pattern="/^[a-z]+$/" required)
+              div.hint
+                | Decide together what your code will be.
+                |  You could combine your first names into a silly word.
+                |  You could pick a movie character you both like.
+                |  Or what about your favourite subject?
+              div(ng-messages='beginForm.userPassword.$error', role='alert')
+                div(ng-message='required')
+                  | If you don't have a secret code you can't play the game
+                div(ng-message='pattern')
+                  | To help you remember use only one word, and all lowercase
+
+    md-toolbar.md-warn(ng-show='vm.error')
+      .md-toolbar-tools(layout-align='end center')
+        h3(ng-bind='vm.error')
+    md-toolbar.md-accent.md-hue-1
+      .md-toolbar-tools(layout-align='end center')
+        md-progress-circular.md-accent.md-hue-3(ng-show='vm.working', md-mode='indeterminate', md-diameter='20px')
+        md-button.md-raised(aria-label='Begin', type='submit', ng-disabled='vm.working') Begin

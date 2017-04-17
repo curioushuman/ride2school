@@ -11,6 +11,7 @@
 
   function authService($firebaseAuth, firebaseDataService, challengeService) {
     var firebaseAuthObject = $firebaseAuth();
+    var newUser = true;
 
     var service = {
       firebaseAuthObject: firebaseAuthObject,

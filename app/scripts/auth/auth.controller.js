@@ -7,33 +7,133 @@
     .module('app.auth')
     .controller('AuthController', AuthController);
 
-  AuthController.$inject = ['$location', 'authService'];
+  AuthController.$inject = [
+    '$location',
+    'authService',
+    'schoolService',
+    'schoolclassService',
+    'studentService',
+    'teacherService',
+    'layoutService',
+    'firebaseDataService'
+  ];
 
-  function AuthController($location, authService) {
+  function AuthController(
+    $location,
+    authService,
+    schoolService,
+    schoolclassService,
+    studentService,
+    teacherService,
+    layoutService,
+    firebaseDataService
+  ) {
     var vm = this;
 
     vm.error = null;
+    vm.debug = false;
 
-    vm.register = register;
-    vm.login = login;
+    vm.begin = begin;
+    vm.resume = resume;
+    vm.navigate = layoutService.navigate;
 
-    function register(user) {
-      return authService.register(user)
-        .then(function() {
-          return vm.login(user);
+    vm.school = schoolService.School();
+    vm.schoolclass = schoolclassService.Schoolclass();
+    vm.schools = schoolService.getSchools();
+    vm.schools.$loaded()
+      .then(function(schools) {
+        console.log(vm.schools);
+      });
+
+    vm.teacher = teacherService.Teacher();
+    vm.student = studentService.Student();
+    vm.user = {
+      email: '',
+      password: ''
+    };
+
+    vm.working = false;
+
+    if (vm.debug) {
+      authService.logout();
+      // vm.school.id = 'jamescookboyshighschool';
+      vm.schoolclass.name = 'Test class';
+      // vm.schoolclass.year = 3;
+      vm.schoolclass.count = 30;
+      vm.teacher.name = 'John brown';
+      vm.teacher.codename = 'johnnie';
+      vm.student.name = 'Susie';
+      vm.student.codename = 'thezue';
+      vm.user.email = 'john@brown.com';
+      vm.user.password = 'johnjohn';
+    }
+
+    function begin() {
+
+      vm.working = true;
+
+      // process class
+      vm.schoolclass.key = firebaseDataService.createKey();
+
+      // process school
+      var school = vm.schools.$getRecord(vm.school.id);
+      if (!school.schoolclasses) {
+        school.schoolclasses = {};
+      }
+      school.schoolclasses[vm.schoolclass.key] = true;
+
+      // update the student information
+      vm.student.key = firebaseDataService.createKey();
+      vm.student.school = school.$id;
+      vm.student.schoolclass = vm.schoolclass.key;
+
+      // update teacher information
+      vm.teacher.key = firebaseDataService.createKey();
+      vm.teacher.school = school.$id;
+      vm.teacher.schoolclass = vm.schoolclass.key;
+
+      // relate teacher and student
+      vm.student.teacher = vm.teacher.key;
+      vm.teacher.student = vm.student.key
+
+      var result = authService.register(vm.user)
+        .then(function(authData) {
+          vm.schoolclass.uid = authData.uid;
+          vm.teacher.uid = authData.uid;
+          vm.student.uid = authData.uid;
+          return authService.login(vm.user);
         })
         .then(function() {
-          return authService.sendWelcomeEmail(user.email);
+          return schoolclassService.save(vm.schoolclass);
         })
+        .then(function() {
+          return teacherService.save(vm.teacher);
+        })
+        .then(function() {
+          return studentService.save(vm.student);
+        })
+        .then(function() {
+          return vm.schools.$save(school);
+        })
+        .then(function() {
+          vm.working = false;
+          $location.path('/play');
+        })
+        // .then(function() {
+        //   return authService.sendWelcomeEmail(user.email);
+        // })
         .catch(function(error) {
+          console.log(error);
           vm.error = error;
+          vm.working = false;
         });
     }
 
-    function login(user) {
+    function resume(user) {
       return authService.login(user)
         .then(function() {
-          $location.path('/play');
+          // $location.path('/play');
+console.log('logged in bitches');
         })
         .catch(function(error) {
           vm.error = error;

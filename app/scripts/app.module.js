@@ -16,7 +16,8 @@
       'app.auth',
       'app.core',
       'app.landing',
-      'app.about',
+      'app.why',
+      'app.how',
       'app.layout'
     ])
     .config(configFunction)
@@ -54,11 +55,11 @@
   runFunction.$inject = ['$rootScope', '$location'];
 
   function runFunction($rootScope, $location) {
-    // $rootScope.$on('$routeChangeError', function(event, next, previous, error) {
-    //   if (error === "AUTH_REQUIRED") {
-    //     $location.path('/');
-    //   }
-    // });
+    $rootScope.$on('$routeChangeError', function(event, next, previous, error) {
+      if (error === "AUTH_REQUIRED") {
+        $location.path('/');
+      }
+    });
   }
 
 })();

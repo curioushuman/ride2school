@@ -23,11 +23,7 @@
 
     var service = {
       menu,
-      begin,
-      resume,
       navigate,
-      support,
-      account,
       logout
     };
 
@@ -39,37 +35,13 @@
       $mdSidenav('left').toggle();
     }
 
-    function begin() {
-      $location.hash('begin');
-      $anchorScroll();
-      $mdSidenav('left').close();
-    }
-
-    function resume() {
-      console.log('resume');
-      // this essentially needs to go to login flow
-      // for reference only
-      $mdSidenav('left').close();
-      // $location.path('/play');
-    }
-
     function navigate(view, hash) {
-      console.log(view);
-      console.log(hash);
       $mdSidenav('left').close();
       $location.path('/' + view);
       if (hash) {
         $location.hash(hash);
         $anchorScroll();
       }
-    }
-
-    function support() {
-      console.log('support');
-    }
-
-    function account() {
-      console.log('account');
     }
 
     function logout() {
