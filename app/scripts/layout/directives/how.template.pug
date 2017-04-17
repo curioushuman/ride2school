@@ -5,7 +5,10 @@ md-content.r2s-how(flex, layout-padding, layout='row', layout-xs='column', layou
       h2.md-headline(hide, show-sm) How does it work?
     div(flex='40', layout='column' layout-align='center center')
       div
-        i.material-icons.md-light.r2s-icon-size-48 face
+        img(
+          ng-src='/images/avatar_student.svg',
+          alt='Illustration of a students face'
+        )
       div(ng-hide='vm.isLoggedIn()')
         | Student
     div(flex='20', layout='column' layout-align='start center')
@@ -13,7 +16,10 @@ md-content.r2s-how(flex, layout-padding, layout='row', layout-xs='column', layou
         i.material-icons.md-light.r2s-icon-size-48 add
     div(flex='40', layout='column' layout-align='center center')
       div
-        i.material-icons.md-light.r2s-icon-size-48 face
+        img(
+          ng-src='/images/avatar_teacher.svg',
+          alt='Illustration of a teachers face'
+        )
       div(ng-hide='vm.isLoggedIn()')
         | Teacher
     div(flex='100', layout='column', hide-xs, hide-gt-sm)

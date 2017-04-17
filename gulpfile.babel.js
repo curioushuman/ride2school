@@ -43,7 +43,7 @@ const reload = browserSync.reload;
 
 // Lint JavaScript
 gulp.task('lint', () =>
-  gulp.src(['app/scripts/**/*.js','app/views/**/*.js','!node_modules/**'])
+  gulp.src(['app/scripts/**/*.js','!node_modules/**'])
     .pipe($.eslint())
     .pipe($.eslint.format())
     .pipe($.if(!browserSync.active, $.eslint.failAfterError()))
@@ -189,16 +189,6 @@ gulp.task('pug_core', () =>
   .pipe(gulp.dest('.tmp'))
 );
 
-// scan the angular views directory for pug files
-// @TODO This will probably need to be removed eventually
-gulp.task('pug_views', () =>
-  gulp.src('app/views/**/*.pug')
-  .pipe($.pug())
-  .pipe(gulp.dest(function(file) {
-    return file.base;
-  }))
-);
-
 // scan the angular directories for pug files
 gulp.task('pug_angular', () =>
   gulp.src('app/scripts/**/*.pug')
@@ -237,7 +227,7 @@ gulp.task('html', () => {
 gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/.git'], {dot: true}));
 
 // Watch files for changes & reload
-gulp.task('serve', ['scripts', 'styles', 'pug_core', 'pug_views', 'pug_angular', 'bower'], () => {
+gulp.task('serve', ['scripts', 'styles', 'pug_core', 'pug_angular', 'bower'], () => {
   browserSync({
     notify: false,
     // Customize the Browsersync console logging prefix
@@ -255,9 +245,7 @@ gulp.task('serve', ['scripts', 'styles', 'pug_core', 'pug_views', 'pug_angular',
   gulp.watch(['app/**/*.html'], reload);
   gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['app/scripts/**/*.js'], ['lint', 'scripts', reload]);
-  gulp.watch(['app/views/**/*.js'], ['lint', 'scripts', reload]);
   gulp.watch(['views/**/*.pug'], ['pug_core', reload]);
-  gulp.watch(['app/views/**/*.pug'], ['pug_views', reload]);
   gulp.watch(['app/scripts/**/*.pug'], ['pug_angular', reload]);
   gulp.watch(['app/images/**/*'], reload);
 });
@@ -282,7 +270,7 @@ gulp.task('serve:dist', ['default'], () =>
 gulp.task('default', ['clean'], cb =>
   runSequence(
     'styles',
-    ['lint', 'pug_core', 'pug_views', 'pug_angular', 'html', 'scripts', 'bower', 'images', 'copy'],
+    ['lint', 'pug_core', 'pug_angular', 'html', 'scripts', 'bower', 'images', 'copy'],
     'generate-service-worker',
     cb
   )

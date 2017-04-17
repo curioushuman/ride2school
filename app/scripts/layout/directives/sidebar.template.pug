@@ -21,16 +21,31 @@ md-sidenav.md-sidenav-left(
           |  travellers, and keep the planet healthy.
     div(layout-padding, layout='row', ng-hide='vm.isLoggedIn()')
       div(flex='40', layout='column' layout-align='center center')
-        i.material-icons.md-light.r2s-icon-size-48 face
+        img(
+          ng-src='/images/avatar_student.svg',
+          alt='Illustration of a students face'
+        )
         p Student
       div(flex='20', layout='column' layout-align='start center')
         i.material-icons.md-light.r2s-icon-size-48 add
       div(flex='40', layout='column' layout-align='center center')
-        i.material-icons.md-light.r2s-icon-size-48 face
+        img(
+          ng-src='/images/avatar_teacher.svg',
+          alt='Illustration of a teachers face'
+        )
         p Teacher
     div(layout-padding, layout='column', ng-show='vm.isLoggedIn()')
       div(flex, layout='column' layout-align='center center')
-        i.material-icons.md-light.r2s-icon-size-48 face
+        img(
+          ng-src='/images/avatar_student.svg',
+          alt='Illustration of a students face',
+          ng-show="vm.player=='student'"
+        )
+        img(
+          ng-src='/images/avatar_teacher.svg',
+          alt='Illustration of a teachers face',
+          ng-show="vm.player=='teacher'"
+        )
         p {{ vm.player.codename }}
     md-toolbar(ng-hide='vm.isLoggedIn()')
       .md-toolbar-tools

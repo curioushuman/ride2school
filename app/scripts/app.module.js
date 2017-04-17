@@ -42,14 +42,24 @@
       redirectTo: '/'
     });
     $mdThemingProvider.theme('default')
-      .primaryPalette('teal')
-      .accentPalette('pink', {
-        'default': 'A400',
-        'hue-1': '400',
-        'hue-2': '300',
-        'hue-3': '200'
+      .primaryPalette('blue', {
+        'default': 'A700',
+        'hue-1': 'A400',
+        'hue-2': 'A200',
+        'hue-3': 'A100'
       })
-      .warnPalette('deep-orange')
+      .accentPalette('yellow', {
+        'default': 'A700',
+        'hue-1': 'A400',
+        'hue-2': 'A200',
+        'hue-3': 'A100'
+      })
+      .warnPalette('green', {
+        'default': 'A700',
+        'hue-1': 'A400',
+        'hue-2': 'A200',
+        'hue-3': 'A100'
+      })
       .backgroundPalette('grey');
   }
 
