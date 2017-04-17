@@ -37,7 +37,9 @@
 
     function navigate(view, hash) {
       $mdSidenav('left').close();
-      $location.path('/' + view);
+      if (view) {
+        $location.path('/' + view);
+      }
       if (hash) {
         $location.hash(hash);
         $anchorScroll();

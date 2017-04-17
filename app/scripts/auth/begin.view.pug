@@ -12,7 +12,8 @@ div.r2s-content
           md-card-content
             md-input-container.md-block(flex)
               label Which school do you represent?
-              md-select(ng-model='vm.school.id', name='schoolId', required)
+              md-progress-circular.md-primary.md-hue-3(ng-show='vm.schoolsLoading', md-mode='indeterminate', md-diameter='20px')
+              md-select(ng-model='vm.school.id', name='schoolId', required, ng-disabled='vm.schoolsLoading')
                 md-option(ng-repeat='school in vm.schools', value='{{ school.$id }}')
                   | {{ school.name }}
               div(ng-messages='beginForm.schoolId.$error', role='alert')
@@ -41,7 +42,7 @@ div.r2s-content
                 div(ng-message='pattern')
                   | This field needs to be in the form of a number e.g. 30
           md-card-actions(hide-gt-xs, layout='row', layout-align='end center')
-            md-button(ng-click="vm.navigate('begin','student')") Next
+            md-button(ng-click="vm.navigate(null,'student')") Next
 
       div(flex-xs, flex-sm='100', flex-gt-sm='33', layout-sm='row', layout='column')
         div(flex, flex-sm='50')
@@ -67,7 +68,7 @@ div.r2s-content
                   div(ng-message='required')
                     | Every player needs a codename
             md-card-actions(hide-gt-xs, layout='row', layout-align='end center')
-              md-button(ng-click="vm.navigate('begin','teacher')") Next
+              md-button(ng-click="vm.navigate(null,'teacher')") Next
 
         div(flex, flex-sm='50')
           md-card
@@ -100,7 +101,7 @@ div.r2s-content
                   div(ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']")
                     | Your email must be between 10 and 100 characters long and look like an e-mail address.
             md-card-actions(hide-gt-xs, layout='row', layout-align='end center')
-              md-button(ng-click="vm.navigate('begin','code')") Next
+              md-button(ng-click="vm.navigate(null,'code')") Next
 
       div(flex-xs, flex-sm='100', flex-gt-sm='33')
         md-card

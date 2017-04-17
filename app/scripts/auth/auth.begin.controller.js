@@ -5,9 +5,9 @@
 
   angular
     .module('app.auth')
-    .controller('AuthController', AuthController);
+    .controller('AuthBeginController', AuthBeginController);
 
-  AuthController.$inject = [
+  AuthBeginController.$inject = [
     '$location',
     'authService',
     'schoolService',
@@ -18,7 +18,7 @@
     'firebaseDataService'
   ];
 
-  function AuthController(
+  function AuthBeginController(
     $location,
     authService,
     schoolService,
@@ -34,15 +34,15 @@
     vm.debug = false;
 
     vm.begin = begin;
-    vm.resume = resume;
     vm.navigate = layoutService.navigate;
 
     vm.school = schoolService.School();
     vm.schoolclass = schoolclassService.Schoolclass();
     vm.schools = schoolService.getSchools();
+    vm.schoolsLoading = true;
     vm.schools.$loaded()
       .then(function(schools) {
-        console.log(vm.schools);
+        vm.schoolsLoading = false;
       });
 
     vm.teacher = teacherService.Teacher();
@@ -126,17 +126,6 @@
           console.log(error);
           vm.error = error;
           vm.working = false;
-        });
-    }
-
-    function resume(user) {
-      return authService.login(user)
-        .then(function() {
-          // $location.path('/play');
-console.log('logged in bitches');
-        })
-        .catch(function(error) {
-          vm.error = error;
         });
     }
   }

@@ -13,12 +13,12 @@
   function configFunction($routeProvider) {
     $routeProvider.when('/begin', {
       templateUrl: 'scripts/auth/begin.view.html',
-      controller: 'AuthController',
+      controller: 'AuthBeginController',
       controllerAs: 'vm'
     });
     $routeProvider.when('/resume', {
       templateUrl: 'scripts/auth/resume.view.html',
-      controller: 'AuthController',
+      controller: 'AuthResumeController',
       controllerAs: 'vm'
     });
   }
