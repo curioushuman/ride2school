@@ -6,5 +6,4 @@
   angular
     .module('app.core')
     .constant('PROTECTED_PATHS', ['/play']);
-
 })();

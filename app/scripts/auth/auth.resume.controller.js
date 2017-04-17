@@ -1,4 +1,5 @@
 /* eslint no-unused-vars: 0 */
+/* eslint require-jsdoc: 0 */
 /* global angular */
 (function() {
   'use strict';
@@ -36,8 +37,8 @@
     vm.resume = resume;
     vm.navigate = layoutService.navigate;
 
-    vm.school = schoolService.School();
-    vm.schoolclass = schoolclassService.Schoolclass();
+    vm.school = new schoolService.School();
+    vm.schoolclass = new schoolclassService.Schoolclass();
     vm.schools = schoolService.getSchools();
     vm.schoolsLoading = true;
     vm.schools.$loaded()
@@ -65,12 +66,13 @@
     }
 
     function resume(user) {
-
       vm.working = true;
 
       // first we want to find records that match this information
       // search by classname
-      var schoolclasses = schoolclassService.getSchoolsByClassname(vm.schoolclass.name);
+      var schoolclasses = schoolclassService.getSchoolsByClassname(
+        vm.schoolclass.name
+      );
       var schoolclass = null;
       schoolclasses.$loaded()
         .then(function() {
@@ -98,15 +100,18 @@
           vm.working = false;
           sessionService.player(vm.player);
           sessionService.schoolclass(schoolclass);
-          return schoolService.School(schoolclass.school).$loaded();
+          var school = new schoolService.School(schoolclass.school);
+          return school.$loaded();
         })
         .then(function(obj) {
           sessionService.school(obj);
-          return teacherService.Teacher(schoolclass.teacher).$loaded();
+          var teacher = new teacherService.Teacher(schoolclass.teacher);
+          return teacher.$loaded();
         })
         .then(function(obj) {
           sessionService.teacher(obj);
-          return studentService.Student(schoolclass.student).$loaded();
+          var student = new studentService.Student(schoolclass.student);
+          return student.$loaded();
         })
         .then(function(obj) {
           sessionService.student(obj);
@@ -119,5 +124,4 @@
         });
     }
   }
-
 })();

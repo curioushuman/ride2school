@@ -1,5 +1,7 @@
 /* eslint no-unused-vars: 0 */
+/* eslint require-jsdoc: 0 */
 /* global angular */
+/* global firebase */
 (function() {
   'use strict';
 
@@ -22,27 +24,23 @@
 
     return service;
 
-    ////////////
-
     function createKey(val) {
-      if (!val) {
-        return randomKey();
-      } else {
-        var key = val.replace(' ', '').toLowerCase();
-        return key;
+      var key = randomKey();
+      if (val) {
+        key = val.replace(' ', '').toLowerCase();
       }
+      return key;
     }
 
     function randomKey() {
       var key = '';
       var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
-      for( var i=0; i < 10; i++ ) {
+      for (var i = 0; i < 10; i++) {
         key += possible.charAt(Math.floor(Math.random() * possible.length));
       }
 
       return key;
     }
   }
-
 })();

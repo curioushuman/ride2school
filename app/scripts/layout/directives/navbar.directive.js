@@ -1,4 +1,5 @@
 /* eslint no-unused-vars: 0 */
+/* eslint require-jsdoc: 0 */
 /* global angular */
 (function() {
   'use strict';
@@ -31,7 +32,5 @@
     vm.isLoggedIn = authService.isLoggedIn;
     vm.menu = layoutService.menu;
     vm.navigate = layoutService.navigate;
-
   }
-
 })();

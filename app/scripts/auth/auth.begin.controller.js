@@ -1,4 +1,5 @@
 /* eslint no-unused-vars: 0 */
+/* eslint require-jsdoc: 0 */
 /* global angular */
 (function() {
   'use strict';
@@ -43,9 +44,9 @@
         vm.schoolsLoading = false;
       });
 
-    vm.schoolclass = schoolclassService.Schoolclass();
-    vm.teacher = teacherService.Teacher();
-    vm.student = studentService.Student();
+    vm.schoolclass = new schoolclassService.Schoolclass();
+    vm.teacher = new teacherService.Teacher();
+    vm.student = new studentService.Student();
     vm.user = {
       email: '',
       password: ''
@@ -68,7 +69,6 @@
     }
 
     function begin() {
-
       vm.working = true;
 
       // process class
@@ -138,5 +138,4 @@
         });
     }
   }
-
 })();

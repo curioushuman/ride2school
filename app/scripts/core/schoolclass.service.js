@@ -1,4 +1,6 @@
 /* eslint no-unused-vars: 0 */
+/* eslint require-jsdoc: 0 */
+/* eslint no-else-return: 0 */
 /* global angular */
 (function() {
   'use strict';
@@ -18,7 +20,6 @@
     $firebaseObject,
     firebaseDataService
   ) {
-
     var schoolclasses = null;
     var SchoolclassesObject = null;
 
@@ -32,14 +33,14 @@
 
     return service;
 
-    ////////////
-
     function Schoolclass(key) {
       if (key) {
         return $firebaseObject(firebaseDataService.schoolclasses.child(key));
       } else {
         if (!SchoolclassesObject) {
-          SchoolclassesObject = $firebaseObject(firebaseDataService.schoolclasses);
+          SchoolclassesObject = $firebaseObject(
+            firebaseDataService.schoolclasses
+          );
         }
         return {
           name: '',
@@ -87,7 +88,5 @@
         SchoolclassesObject = null;
       }
     }
-
   }
-
 })();

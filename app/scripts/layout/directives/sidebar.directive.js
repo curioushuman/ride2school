@@ -1,4 +1,5 @@
 /* eslint no-unused-vars: 0 */
+/* eslint require-jsdoc: 0 */
 /* global angular */
 (function() {
   'use strict';
@@ -49,7 +50,5 @@
     } else {
       vm.player.codename = vm.teacher.codename;
     }
-
   }
-
 })();

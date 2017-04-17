@@ -1,4 +1,5 @@
 /* eslint no-unused-vars: 0 */
+/* eslint require-jsdoc: 0 */
 /* global angular */
 (function() {
   'use strict';
@@ -70,7 +71,5 @@
     vm.challengesUpcoming = upcomingChallenges;
 
     vm.firstLogin = true;
-
   }
-
 })();

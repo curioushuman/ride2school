@@ -1,4 +1,5 @@
 /* eslint no-unused-vars: 0 */
+/* eslint require-jsdoc: 0 */
 /* global angular */
 (function() {
   'use strict';
@@ -36,7 +37,6 @@
     $routeProvider,
     $mdThemingProvider
   ) {
-
     $locationProvider.hashPrefix('!');
     $routeProvider.otherwise({
       redirectTo: '/'
@@ -51,17 +51,15 @@
       })
       .warnPalette('deep-orange')
       .backgroundPalette('grey');
-
   }
 
   runFunction.$inject = ['$rootScope', '$location'];
 
   function runFunction($rootScope, $location) {
     $rootScope.$on('$routeChangeError', function(event, next, previous, error) {
-      if (error === "AUTH_REQUIRED") {
+      if (error === 'AUTH_REQUIRED') {
         $location.path('/');
       }
     });
   }
-
 })();

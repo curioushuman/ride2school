@@ -1,4 +1,5 @@
 /* eslint no-unused-vars: 0 */
+/* eslint require-jsdoc: 0 */
 /* global angular */
 (function() {
   'use strict';
@@ -28,7 +29,7 @@
     layoutService
   ) {
     var vm = this;
-console.log(vm.challenge);
+    console.log(vm.challenge);
     // legacy code that needs to be modified
     vm.showActiveKids = false;
     vm.badgeColour = 'warn';
@@ -54,7 +55,5 @@ console.log(vm.challenge);
     if (vm.disable === true) {
       vm.challengeClass = 'disable';
     }
-
   }
-
 })();

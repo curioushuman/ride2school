@@ -1,4 +1,5 @@
 /* eslint no-unused-vars: 0 */
+/* eslint require-jsdoc: 0 */
 /* global angular */
 (function() {
   'use strict';
@@ -10,7 +11,6 @@
   challengeService.$inject = ['$firebaseArray', 'firebaseDataService'];
 
   function challengeService($firebaseArray, firebaseDataService) {
-
     var challenges = null;
 
     var service = {
@@ -20,8 +20,6 @@
     };
 
     return service;
-
-    ////////////
 
     function Challenge() {
       this.name = '';
@@ -33,7 +31,9 @@
 
     function getChallengesByUser(uid) {
       if (!challenges) {
-        challenges = $firebaseArray(firebaseDataService.users.child(uid).child('challenges'));
+        challenges = $firebaseArray(
+          firebaseDataService.users.child(uid).child('challenges')
+        );
       }
       return challenges;
     }
@@ -44,7 +44,5 @@
         challenges = null;
       }
     }
-
   }
-
 })();

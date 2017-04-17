@@ -1,4 +1,5 @@
 /* eslint no-unused-vars: 0 */
+/* eslint require-jsdoc: 0 */
 /* global angular */
 (function() {
   'use strict';
@@ -20,7 +21,6 @@
     $anchorScroll,
     authService
   ) {
-
     var service = {
       menu,
       navigate,
@@ -28,8 +28,6 @@
     };
 
     return service;
-
-    ////////////
 
     function menu() {
       $mdSidenav('left').toggle();
@@ -52,7 +50,5 @@
       authService.logout();
       $location.path('/');
     }
-
   }
-
 })();

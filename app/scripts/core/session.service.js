@@ -1,4 +1,6 @@
 /* eslint no-unused-vars: 0 */
+/* eslint require-jsdoc: 0 */
+/* eslint no-else-return: 0 */
 /* global angular */
 (function() {
   'use strict';
@@ -24,7 +26,6 @@
     schoolclassService,
     challengeService
   ) {
-
     var service = {
       player: player,
       schoolclass: schoolclass,
@@ -34,8 +35,6 @@
     };
 
     return service;
-
-    ////////////
 
     function player(player) {
       if (player) {
@@ -76,7 +75,5 @@
         return $cookies.getObject('student');
       }
     }
-
   }
-
 })();

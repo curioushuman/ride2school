@@ -1,4 +1,5 @@
 /* eslint no-unused-vars: 0 */
+/* eslint require-jsdoc: 0 */
 /* global angular */
 (function() {
   'use strict';
@@ -26,7 +27,6 @@
   runFunction.$inject = ['$location', 'authService', 'PROTECTED_PATHS'];
 
   function runFunction($location, authService, PROTECTED_PATHS) {
-
     authService.firebaseAuthObject.$onAuthStateChanged(function(authData) {
       if (!authData && pathIsProtected($location.path())) {
         authService.logout();
@@ -39,5 +39,4 @@
       return PROTECTED_PATHS.indexOf(path) !== -1;
     }
   }
-
 })();

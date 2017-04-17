@@ -1,4 +1,5 @@
 /* eslint no-unused-vars: 0 */
+/* eslint require-jsdoc: 0 */
 /* global angular */
 (function() {
   'use strict';
@@ -41,14 +42,18 @@
 
     return service;
 
-    ////////////
-
     function register(user) {
-      return firebaseAuthObject.$createUserWithEmailAndPassword(user.email, user.password);
+      return firebaseAuthObject.$createUserWithEmailAndPassword(
+        user.email,
+        user.password
+      );
     }
 
     function login(user) {
-      return firebaseAuthObject.$signInWithEmailAndPassword(user.email, user.password);
+      return firebaseAuthObject.$signInWithEmailAndPassword(
+        user.email,
+        user.password
+      );
     }
 
     function logout() {
@@ -69,7 +74,5 @@
         emailAddress: emailAddress
       });
     }
-
   }
-
 })();

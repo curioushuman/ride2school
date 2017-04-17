@@ -1,4 +1,5 @@
 /* eslint no-unused-vars: 0 */
+/* eslint require-jsdoc: 0 */
 /* global angular */
 (function() {
   'use strict';
@@ -16,8 +17,6 @@
 
     return service;
 
-    ////////////
-
     function sendTextMessage(party, parties) {
       var newTextMessage = {
         phoneNumber: party.phone,
@@ -29,5 +28,4 @@
       parties.$save(party);
     }
   }
-
 })();

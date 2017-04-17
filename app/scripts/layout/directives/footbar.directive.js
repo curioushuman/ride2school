@@ -1,4 +1,5 @@
 /* eslint no-unused-vars: 0 */
+/* eslint require-jsdoc: 0 */
 /* global angular */
 (function() {
   'use strict';
@@ -38,13 +39,11 @@
     vm.hideMenu = false;
     var currentPath = $location.path();
     if (
-      currentPath.indexOf('begin') > -1
-      || currentPath.indexOf('resume') > -1
-      || authService.isLoggedIn()
+      currentPath.indexOf('begin') > -1 ||
+      currentPath.indexOf('resume') > -1 ||
+      authService.isLoggedIn()
     ) {
       vm.hideMenu = true;
     }
-
   }
-
 })();

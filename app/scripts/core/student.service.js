@@ -1,4 +1,6 @@
 /* eslint no-unused-vars: 0 */
+/* eslint require-jsdoc: 0 */
+/* eslint no-else-return: 0 */
 /* global angular */
 (function() {
   'use strict';
@@ -18,7 +20,6 @@
     $firebaseObject,
     firebaseDataService
   ) {
-
     var students = null;
     var StudentsObject = null;
 
@@ -30,8 +31,6 @@
     };
 
     return service;
-
-    ////////////
 
     function Student(key) {
       if (key) {
@@ -79,7 +78,5 @@
         StudentsObject = null;
       }
     }
-
   }
-
 })();
