@@ -5,34 +5,33 @@ md-sidenav.md-sidenav-left(
   layout-align='space-between stretch'
 )
   div.r2s-md-sidenav-left
-    md-toolbar
+    md-toolbar(ng-hide='vm.isLoggedIn()')
       h2.md-toolbar-tools Would you like to play?
-    md-toolbar(md-colors="{background: 'default-accent'}")
+    md-toolbar(ng-show='vm.isLoggedIn()')
+      h2.md-toolbar-tools Game on
+    md-toolbar(md-colors="{background: 'default-accent'}", ng-hide='vm.isLoggedIn()')
       h3.md-toolbar-tools TEMP SCHOOL NAME
+    md-toolbar(md-colors="{background: 'default-accent'}", ng-show='vm.isLoggedIn()')
+      h3.md-toolbar-tools {{ vm.school.name }}
     //- div(layout-padding, layout='row', md-colors="::{backgroundColor: 'default-primary-hue-2'}")
-    div(layout-padding, layout='column')
+    div(layout-padding, layout='column', ng-hide='vm.isLoggedIn()')
         p All you need is 1 teacher, and 1 student who are ready to take on
           strong  one
           |  challenge per month, to help you increase the number of active
           |  travellers, and keep the planet healthy.
-    div(layout-padding, layout='row')
+    div(layout-padding, layout='row', ng-hide='vm.isLoggedIn()')
       div(flex='40', layout='column' layout-align='center center')
-        div
-          i.material-icons.md-light.r2s-icon-size-48 face
-        div(ng-hide='vm.isLoggedIn()')
-          | Student
-        div(ng-show='vm.isLoggedIn()')
-          | TEMP STUDENT NAME
+        i.material-icons.md-light.r2s-icon-size-48 face
+        p Student
       div(flex='20', layout='column' layout-align='start center')
-        div
-          i.material-icons.md-light.r2s-icon-size-48 add
+        i.material-icons.md-light.r2s-icon-size-48 add
       div(flex='40', layout='column' layout-align='center center')
-        div
-          i.material-icons.md-light.r2s-icon-size-48 face
-        div(ng-hide='vm.isLoggedIn()')
-          | Teacher
-        div(ng-show='vm.isLoggedIn()')
-          | TEMP TEACHER NAME
+        i.material-icons.md-light.r2s-icon-size-48 face
+        p Teacher
+    div(layout-padding, layout='column', ng-show='vm.isLoggedIn()')
+      div(flex, layout='column' layout-align='center center')
+        i.material-icons.md-light.r2s-icon-size-48 face
+        p {{ vm.player.codename }}
     md-toolbar(ng-hide='vm.isLoggedIn()')
       .md-toolbar-tools
         span(flex)

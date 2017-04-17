@@ -29,14 +29,12 @@
     challengeService
   ) {
     var firebaseAuthObject = $firebaseAuth();
-    var newUser = true;
 
     var service = {
       firebaseAuthObject: firebaseAuthObject,
       register: register,
       login: login,
       logout: logout,
-      player: player,
       isLoggedIn: isLoggedIn,
       sendWelcomeEmail: sendWelcomeEmail
     };
@@ -54,20 +52,12 @@
     }
 
     function logout() {
-      challengeService.reset();
-      studentService.reset();
-      teacherService.reset();
-      schoolService.reset();
-      schoolclassService.reset();
+      // challengeService.reset();
+      // studentService.reset();
+      // teacherService.reset();
+      // schoolService.reset();
+      // schoolclassService.reset();
       firebaseAuthObject.$signOut();
-    }
-
-    function player(player) {
-      if (player) {
-        return $cookies.put('player', player);
-      } else {
-        return $cookies.get('player');
-      }
     }
 
     function isLoggedIn() {

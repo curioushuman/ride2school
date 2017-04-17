@@ -10,7 +10,10 @@
   AuthResumeController.$inject = [
     '$location',
     'authService',
+    'sessionService',
     'schoolService',
+    'studentService',
+    'teacherService',
     'schoolclassService',
     'layoutService'
   ];
@@ -18,7 +21,10 @@
   function AuthResumeController(
     $location,
     authService,
+    sessionService,
     schoolService,
+    studentService,
+    teacherService,
     schoolclassService,
     layoutService
   ) {
@@ -90,7 +96,20 @@
         })
         .then(function() {
           vm.working = false;
-          authService.player(vm.player);
+          sessionService.player(vm.player);
+          sessionService.schoolclass(schoolclass);
+          return schoolService.School(schoolclass.school).$loaded();
+        })
+        .then(function(obj) {
+          sessionService.school(obj);
+          return teacherService.Teacher(schoolclass.teacher).$loaded();
+        })
+        .then(function(obj) {
+          sessionService.teacher(obj);
+          return studentService.Student(schoolclass.student).$loaded();
+        })
+        .then(function(obj) {
+          sessionService.student(obj);
           $location.path('/play');
         })
         .catch(function(error) {

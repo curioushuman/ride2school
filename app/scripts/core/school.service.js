@@ -86,6 +86,10 @@
         schools.$destroy();
         schools = null;
       }
+      if (SchoolsObject) {
+        SchoolsObject.$destroy();
+        SchoolsObject = null;
+      }
     }
 
   }

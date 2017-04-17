@@ -19,12 +19,14 @@
 
   SidebarController.$inject = [
     'authService',
-    'layoutService'
+    'layoutService',
+    'sessionService'
   ];
 
   function SidebarController(
     authService,
-    layoutService
+    layoutService,
+    sessionService
   ) {
     var vm = this;
 
@@ -34,6 +36,19 @@
     vm.support = layoutService.support;
     vm.account = layoutService.account;
     vm.logout = layoutService.logout;
+
+    vm.teacher = sessionService.teacher();
+    vm.student = sessionService.student();
+    vm.school = sessionService.school();
+    vm.schoolclass = sessionService.schoolclass();
+    vm.player = {
+      type: sessionService.player()
+    };
+    if (vm.player.type === 'student') {
+      vm.player.codename = vm.student.codename;
+    } else {
+      vm.player.codename = vm.teacher.codename;
+    }
 
   }
 

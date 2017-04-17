@@ -54,8 +54,10 @@ div.r2s-content
             md-radio-group(ng-model='vm.player', layout='row')
               md-radio-button(value='student', aria-label='Student', flex='50')
                 i.material-icons.md-light.r2s-icon-size-48 face
+                p Student
               md-radio-button(value='teacher', aria-label='Teacher', flex='50')
                 i.material-icons.md-light.r2s-icon-size-48 face
+                p Teacher
           md-card-actions(hide-gt-xs, layout='row', layout-align='end center')
             md-button(ng-click="vm.navigate(null,'code')") Next
 
