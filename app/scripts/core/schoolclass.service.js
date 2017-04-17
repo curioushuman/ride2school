@@ -25,7 +25,9 @@
     var service = {
       Schoolclass: Schoolclass,
       save: save,
-      getSchoolclasses: getSchoolclasses
+      getSchoolsByClassname: getSchoolsByClassname,
+      getSchoolclasses: getSchoolclasses,
+      reset: reset
     };
 
     return service;
@@ -66,6 +68,24 @@
         schoolclasses = $firebaseArray(firebaseDataService.schoolclasses);
       }
       return schoolclasses;
+    }
+
+    function getSchoolsByClassname(schoolclassName) {
+      var query = firebaseDataService.schoolclasses
+        .orderByChild('name')
+        .equalTo(schoolclassName);
+      return $firebaseArray(query);
+    }
+
+    function reset() {
+      if (schoolclasses) {
+        schoolclasses.$destroy();
+        schoolclasses = null;
+      }
+      if (SchoolclassesObject) {
+        SchoolclassesObject.$destroy();
+        SchoolclassesObject = null;
+      }
     }
 
   }

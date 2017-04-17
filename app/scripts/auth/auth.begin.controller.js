@@ -31,13 +31,11 @@
     var vm = this;
 
     vm.error = null;
-    vm.debug = false;
+    vm.debug = true;
 
     vm.begin = begin;
     vm.navigate = layoutService.navigate;
 
-    vm.school = schoolService.School();
-    vm.schoolclass = schoolclassService.Schoolclass();
     vm.schools = schoolService.getSchools();
     vm.schoolsLoading = true;
     vm.schools.$loaded()
@@ -45,6 +43,7 @@
         vm.schoolsLoading = false;
       });
 
+    vm.schoolclass = schoolclassService.Schoolclass();
     vm.teacher = teacherService.Teacher();
     vm.student = studentService.Student();
     vm.user = {
@@ -56,7 +55,7 @@
 
     if (vm.debug) {
       authService.logout();
-      // vm.school.id = 'jamescookboyshighschool';
+      // vm.schoolclass.school = 'jamescookboyshighschool';
       vm.schoolclass.name = 'Test class';
       // vm.schoolclass.year = 3;
       vm.schoolclass.count = 30;
@@ -64,7 +63,7 @@
       vm.teacher.codename = 'johnnie';
       vm.student.name = 'Susie';
       vm.student.codename = 'thezue';
-      vm.user.email = 'john@brown.com';
+      vm.teacher.email = 'john@brown.com';
       vm.user.password = 'johnjohn';
     }
 
@@ -75,8 +74,13 @@
       // process class
       vm.schoolclass.key = firebaseDataService.createKey();
 
+      // we use a fake email for the logging in
+      vm.user.email = vm.schoolclass.key + '@notanactualemail.com';
+      // uncertain as to whether or not we need it here.
+      vm.schoolclass.email = vm.user.email;
+
       // process school
-      var school = vm.schools.$getRecord(vm.school.id);
+      var school = vm.schools.$getRecord(vm.schoolclass.school);
       if (!school.schoolclasses) {
         school.schoolclasses = {};
       }
@@ -94,7 +98,12 @@
 
       // relate teacher and student
       vm.student.teacher = vm.teacher.key;
-      vm.teacher.student = vm.student.key
+      vm.teacher.student = vm.student.key;
+
+      // update class relevant info
+      vm.schoolclass.school = school.$id;
+      vm.schoolclass.teacher = vm.teacher.key;
+      vm.schoolclass.student = vm.student.key;
 
       var result = authService.register(vm.user)
         .then(function(authData) {

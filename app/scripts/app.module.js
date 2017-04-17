@@ -8,6 +8,7 @@
       // Angular modules.
       'ngRoute',
       'ngMaterial',
+      'ngCookies',
 
       // Third party modules.
       'firebase',

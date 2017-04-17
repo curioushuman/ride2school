@@ -25,8 +25,8 @@
     var service = {
       Student: Student,
       save: save,
-      getStudentByCodename: getStudentByCodename,
-      getStudents: getStudents
+      getStudents: getStudents,
+      reset: reset
     };
 
     return service;
@@ -62,15 +62,22 @@
       }
     }
 
-    function getStudentByCodename(codename) {
-      return $firebaseObject(firebaseDataService.students.child(codename));
-    }
-
     function getStudents() {
       if (!students) {
         students = $firebaseArray(firebaseDataService.students);
       }
       return students;
+    }
+
+    function reset() {
+      if (students) {
+        students.$destroy();
+        students = null;
+      }
+      if (StudentsObject) {
+        StudentsObject.$destroy();
+        StudentsObject = null;
+      }
     }
 
   }

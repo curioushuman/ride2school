@@ -13,6 +13,7 @@
   "schoolclasses": {
     "jamescookboyshighschool3m": {
       "name": "3M",
+      "email": "fake@email.com",
       "school": "jamescookboyshighschool",
       "teacher": "jamesbrown",
       "student": "totoro",
@@ -23,6 +24,7 @@
     "jamesbrown": {
       "codename": "James Brown",
       "name": "Mr. Brown",
+      "email": "james@brown.com",
       "school": "jamescookboyshighschool",
       "schoolclass": "3m",
       "student": "totoro",

@@ -26,7 +26,8 @@
       School: School,
       save: save,
       getSchools: getSchools,
-      getDefaultSchools: getDefaultSchools
+      getDefaultSchools: getDefaultSchools,
+      reset: reset
     };
 
     return service;
@@ -78,6 +79,13 @@
         ];
       }
       return schools;
+    }
+
+    function reset() {
+      if (schools) {
+        schools.$destroy();
+        schools = null;
+      }
     }
 
   }

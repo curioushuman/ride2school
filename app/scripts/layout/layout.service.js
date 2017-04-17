@@ -47,6 +47,7 @@
     }
 
     function logout() {
+      $mdSidenav('left').close();
       console.log('logout');
       authService.logout();
       $location.path('/');

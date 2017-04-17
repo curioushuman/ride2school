@@ -13,10 +13,10 @@ div.r2s-content
             md-input-container.md-block(flex)
               label Which school do you represent?
               md-progress-circular.md-primary.md-hue-3(ng-show='vm.schoolsLoading', md-mode='indeterminate', md-diameter='20px')
-              md-select(ng-model='vm.school.id', name='schoolId', required, ng-disabled='vm.schoolsLoading')
+              md-select(ng-model='vm.schoolclass.school', name='schoolclassSchool', required, ng-disabled='vm.schoolsLoading')
                 md-option(ng-repeat='school in vm.schools', value='{{ school.$id }}')
                   | {{ school.name }}
-              div(ng-messages='beginForm.schoolId.$error', role='alert')
+              div(ng-messages='beginForm.schoolclassSchool.$error', role='alert')
                 div(ng-message='required')
                   | We need to know which school is doing great work
             md-input-container.md-block(flex)
@@ -94,10 +94,10 @@ div.r2s-content
                     | Every player needs a codename
               md-input-container.md-block(flex)
                 label Email
-                input(required, type='email', name='userEmail', ng-model='vm.user.email', minlength='10', maxlength='155', ng-pattern="/^.+@.+\..+$/")
+                input(required, type='email', name='teacherEmail', ng-model='vm.teacher.email', minlength='10', maxlength='155', ng-pattern="/^.+@.+\..+$/")
                 div.hint
                   | Player 2, you will be the main contact person
-                div(ng-messages='beginForm.userEmail.$error', role='alert')
+                div(ng-messages='beginForm.teacherEmail.$error', role='alert')
                   div(ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']")
                     | Your email must be between 10 and 100 characters long and look like an e-mail address.
             md-card-actions(hide-gt-xs, layout='row', layout-align='end center')
