@@ -19,6 +19,7 @@
       'app.landing',
       'app.why',
       'app.how',
+      'app.play',
       'app.layout'
     ])
     .config(configFunction)

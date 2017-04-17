@@ -1,0 +1,28 @@
+md-card(
+  class='r2s-challenge_preview r2s-challenge-{{ vm.challengeClass }}',
+  md-colors="::{backgroundColor: 'default-{{ vm.backgroundColour }}'}"
+)
+  md-card-title
+    md-card-title-text
+      span.md-headline {{ vm.challenge.name }}
+      span.md-subhead {{ vm.challenge.status }} challenge
+    md-card-title-media
+      //- left empty on purpose, otherwise the subhead changes colour
+  md-card-content
+    div(layout='row')
+      div(flex='{{ vm.progressWidth }}', layout='column', layout-padding, layout-align='center end')
+        md-progress-linear.md-primary(md-mode='determinate', value='{{ vm.challenge.progress }}')
+      div(flex='10', layout='column', layout-padding)
+        md-icon.material-icons.r2s-icon-badged settings_input_antenna
+          div.r2s-icon-badge(md-colors="::{backgroundColor: 'default-{{ vm.badgeColour }}'}") {{ vm.challenge.trees }}
+      div(flex, layout='column', layout-padding)
+        md-icon.material-icons.r2s-icon-badged(ng-if="vm.showActiveKids") face
+          div.r2s-icon-badge(md-colors="::{backgroundColor: 'default-{{ vm.badgeColour }}'}") {{ vm.challenge.activeKids }}
+  md-card-actions(layout='row', layout-align='end center', ng-if="vm.challenge.status == 'Current'")
+    md-button Accept
+  md-card-actions(layout='row', layout-align='end center', ng-if="vm.challenge.status == 'Completed'")
+    md-button Review
+  md-card-actions(layout='row', layout-align='end center', ng-if="vm.challenge.status == 'Bonus'")
+    md-button(ng-disabled='true')
+      md-icon.material-icons lock_outline
+      span(flex) Locked

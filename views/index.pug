@@ -95,6 +95,12 @@ body(ng-app='app', ng-cloak)
   script(src='scripts/why/why.module.js')
   script(src='scripts/why/config.route.js')
 
+  //- play module
+  script(src='scripts/play/play.module.js')
+  script(src='scripts/play/config.route.js')
+  script(src='scripts/play/play.controller.js')
+  script(src='scripts/play/components/challengeCard.component.js')
+
   //- core module
   script(src='scripts/core/core.module.js')
   script(src='scripts/core/constants.js')
@@ -116,11 +122,6 @@ body(ng-app='app', ng-cloak)
   script(src='scripts/layout/directives/navbar.directive.js')
   script(src='scripts/layout/directives/footbar.directive.js')
   script(src='scripts/layout/directives/sidebar.directive.js')
-
-  //- LEGACY that will need to be removed
-  //- script(src='scripts/intro.js')
-  //- script(src='scripts/play.js')
-  //- script(src='scripts/about.js')
 
   //- use this in production
   //- if the uglification is working
