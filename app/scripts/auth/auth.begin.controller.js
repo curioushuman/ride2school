@@ -32,7 +32,7 @@
     var vm = this;
 
     vm.error = null;
-    vm.debug = true;
+    vm.debug = false;
 
     vm.begin = begin;
     vm.navigate = layoutService.navigate;
