@@ -22,9 +22,9 @@
     authService
   ) {
     var service = {
-      menu,
-      navigate,
-      logout
+      menu: menu,
+      navigate: navigate,
+      logout: logout
     };
 
     return service;

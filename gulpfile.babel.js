@@ -117,26 +117,44 @@ gulp.task('scripts', () =>
       './app/scripts/main.js',
       // Other scripts
       './app/scripts/app.module.js',
+
       './app/scripts/auth/auth.module.js',
       './app/scripts/auth/config.route.js',
-      './app/scripts/auth/auth.controller.js',
+      './app/scripts/auth/auth.begin.controller.js',
+      './app/scripts/auth/auth.resume.controller.js',
       './app/scripts/auth/auth.service.js',
+
       './app/scripts/landing/landing.module.js',
       './app/scripts/landing/config.route.js',
       './app/scripts/landing/landing.controller.js',
+
       './app/scripts/how/how.module.js',
       './app/scripts/how/config.route.js',
+
       './app/scripts/why/why.module.js',
       './app/scripts/why/config.route.js',
+
+      './app/scripts/play/play.module.js',
+      './app/scripts/play/config.route.js',
+      './app/scripts/play/play.controller.js',
+      './app/scripts/play/components/challengeCard.component.js',
+
       './app/scripts/core/core.module.js',
       './app/scripts/core/constants.js',
       './app/scripts/core/firebaseData.service.js',
+      './app/scripts/core/session.service.js',
       './app/scripts/core/challenge.service.js',
+      './app/scripts/core/school.service.js',
+      './app/scripts/core/schoolclass.service.js',
+      './app/scripts/core/teacher.service.js',
+      './app/scripts/core/student.service.js',
       './app/scripts/core/textMessage.service.js',
+
       './app/scripts/layout/layout.module.js',
-      './app/scripts/layout/layout.controller.js',
+      './app/scripts/layout/layout.service.js',
       './app/scripts/layout/directives/hero.directive.js',
       './app/scripts/layout/directives/welcomeBanner.directive.js',
+      './app/scripts/layout/directives/how.directive.js',
       './app/scripts/layout/directives/navbar.directive.js',
       './app/scripts/layout/directives/footbar.directive.js',
       './app/scripts/layout/directives/sidebar.directive.js'
