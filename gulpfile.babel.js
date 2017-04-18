@@ -154,7 +154,7 @@ gulp.task('scripts', () =>
       './app/scripts/layout/layout.service.js',
       './app/scripts/layout/directives/hero.directive.js',
       './app/scripts/layout/directives/welcomeBanner.directive.js',
-      './app/scripts/layout/directives/how.directive.js',
+      './app/scripts/layout/directives/howBanner.directive.js',
       './app/scripts/layout/directives/navbar.directive.js',
       './app/scripts/layout/directives/footbar.directive.js',
       './app/scripts/layout/directives/sidebar.directive.js'

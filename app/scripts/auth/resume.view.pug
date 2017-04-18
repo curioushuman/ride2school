@@ -11,7 +11,7 @@ div.r2s-content
               span.md-headline Where are you playing?
           md-card-content
             md-input-container.md-block(flex)
-              label Which school do you represent?
+              label Which school?
               md-progress-circular.md-primary.md-hue-3(ng-show='vm.schoolsLoading', md-mode='indeterminate', md-diameter='20px')
               md-select(ng-model='vm.schoolclass.school', name='schoolclassSchool', required, ng-disabled='vm.schoolsLoading')
                 md-option(ng-repeat='school in vm.schools', value='{{ school.$id }}')
@@ -20,13 +20,13 @@ div.r2s-content
                 div(ng-message='required')
                   | We need to know which school is logging in
             md-input-container.md-block(flex)
-              label What is the name of your class?
+              label Which class?
               input(ng-model='vm.schoolclass.name', name='schoolclassName', required)
               div(ng-messages='beginForm.schoolclassName.$error', role='alert')
                 div(ng-message='required')
                   | We need to know which class is logging in
             md-input-container.md-block(flex)
-              label What year are you in?
+              label Which year?
               md-select(ng-model='vm.schoolclass.year', name='schoolclassYear', required)
                 md-option(ng-repeat='n in [2,3,4,5,6,7,8,9,10,11,12]', value='{{ n }}')
                   | {{ n }}
@@ -49,7 +49,7 @@ div.r2s-content
           md-card-title
             md-card-title-text(layout-align='center start')
               a(name='player')
-              span.md-headline Who is playing?
+              span.md-headline Who is playing today?
           md-card-content
             md-radio-group(ng-model='vm.player', layout='row')
               md-radio-button(value='student', aria-label='Student', flex='50')
