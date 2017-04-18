@@ -107,21 +107,40 @@
 
       var result = authService.register(vm.user)
         .then(function(authData) {
+          // console.log('1');
+          // console.log(authData);
+          // console.log(authData.uid);
+          // console.log('2');
+          // console.log(vm.user);
           vm.schoolclass.uid = authData.uid;
           vm.teacher.uid = authData.uid;
           vm.student.uid = authData.uid;
           return authService.login(vm.user);
         })
-        .then(function() {
+        .then(function(authData) {
+          // console.log('3');
+          // console.log(authData);
+          // console.log(authData.uid);
+          // console.log('4');
+          // console.log(vm.user);
+          // console.log('logged in as ' + vm.user.email);
+          // console.log('saving');
+          // console.log(vm.schoolclass);
           return schoolclassService.save(vm.schoolclass);
         })
         .then(function() {
+          // console.log('saving');
+          // console.log(vm.teacher);
           return teacherService.save(vm.teacher);
         })
         .then(function() {
+          // console.log('saving');
+          // console.log(vm.student);
           return studentService.save(vm.student);
         })
         .then(function() {
+          // console.log('saving');
+          // console.log(school);
           return vm.schools.$save(school);
         })
         .then(function() {

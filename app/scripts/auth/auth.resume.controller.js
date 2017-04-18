@@ -98,22 +98,35 @@
         })
         .then(function() {
           vm.working = false;
+          console.log(vm.player);
           sessionService.player(vm.player);
           sessionService.schoolclass(schoolclass);
           var school = new schoolService.School(schoolclass.school);
+          // console.log('school');
+          // console.log(school);
           return school.$loaded();
         })
         .then(function(obj) {
+          // console.log('obj');
+          // console.log(obj);
           sessionService.school(obj);
           var teacher = new teacherService.Teacher(schoolclass.teacher);
+          // console.log('teacher');
+          // console.log(teacher);
           return teacher.$loaded();
         })
         .then(function(obj) {
+          // console.log('obj');
+          // console.log(obj);
           sessionService.teacher(obj);
           var student = new studentService.Student(schoolclass.student);
+          // console.log('student');
+          // console.log(student);
           return student.$loaded();
         })
         .then(function(obj) {
+          // console.log('obj');
+          // console.log(obj);
           sessionService.student(obj);
           $location.path('/play');
         })

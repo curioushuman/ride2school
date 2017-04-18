@@ -7,3 +7,19 @@ md-toolbar
         | Active Travellers
       a(href='/#!/play', title='Active Travellers', ng-show='vm.isLoggedIn()')
         | Active Travellers
+    span(flex, ng-show='vm.isLoggedIn()')
+    div(ng-show='vm.isLoggedIn()', layout='row', layout-align='end center')
+      md-button(ng-click="vm.navigate('account')", aria-label='{{ vm.player.codename }} account')
+        | {{ vm.player.codename }}
+        img(
+          height='40px',
+          ng-src='/images/avatar_student.svg',
+          alt='Illustration of a students face',
+          ng-show="vm.player.type=='student'"
+        )
+        img(
+          height='40px',
+          ng-src='/images/avatar_teacher.svg',
+          alt='Illustration of a teachers face',
+          ng-show="vm.player.type=='teacher'"
+        )

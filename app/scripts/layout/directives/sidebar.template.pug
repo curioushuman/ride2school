@@ -37,17 +37,20 @@ md-sidenav.md-sidenav-left(
         p Teacher
     div(layout-padding, layout='column', ng-show='vm.isLoggedIn()')
       div(flex, layout='column' layout-align='center center')
-        img(
-          ng-src='/images/avatar_student.svg',
-          alt='Illustration of a students face',
-          ng-show="vm.player=='student'"
-        )
-        img(
-          ng-src='/images/avatar_teacher.svg',
-          alt='Illustration of a teachers face',
-          ng-show="vm.player=='teacher'"
-        )
-        p {{ vm.player.codename }}
+        md-button(ng-click="vm.navigate('account')", aria-label='{{ vm.player.codename }} account')
+          img(
+            width='100px',
+            ng-src='/images/avatar_student.svg',
+            alt='Illustration of a students face',
+            ng-show="vm.player.type=='student'"
+          )
+          img(
+            width='100px',
+            ng-src='/images/avatar_teacher.svg',
+            alt='Illustration of a teachers face',
+            ng-show="vm.player.type=='teacher'"
+          )
+          span {{ vm.player.codename }}
     md-toolbar.md-accent(ng-hide='vm.isLoggedIn()')
       .md-toolbar-tools
         span(flex)
