@@ -57,14 +57,14 @@
     }
 
     function setSchool(obj) {
-      this.school.key = obj.key;
-      this.school.name = obj.name;
+      school.key = obj.key;
+      school.name = obj.name;
       return sessionService.school(this.school);
     }
 
     function setSchoolclass(obj, type) {
-      this.schoolclass.key = obj.key;
-      this.schoolclass.name = obj.name;
+      schoolclass.key = obj.key;
+      schoolclass.name = obj.name;
       return sessionService.schoolclass(this.schoolclass);
     }
 

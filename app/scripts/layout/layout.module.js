@@ -13,7 +13,7 @@
   function runFunction(layoutService, sessionService) {
     var player = sessionService.player();
     if (player) {
-      layoutService.setPlayer(player);
+      layoutService.setPlayer(player, player.type);
     }
     var school = sessionService.school();
     if (school) {
