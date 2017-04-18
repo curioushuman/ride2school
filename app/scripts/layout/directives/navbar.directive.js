@@ -18,7 +18,7 @@
       restrict: 'E',
       controller: NavbarController,
       controllerAs: 'vm',
-      link: function (scope) {
+      link: function(scope) {
         scope.player = layoutService.player;
       }
     };

@@ -25,22 +25,12 @@
 
     var service = {
       Teacher: Teacher,
-      Teach: Teach,
       save: save,
       getTeachers: getTeachers,
       reset: reset
     };
 
     return service;
-
-    function Teach() {
-      this.name = '';
-      this.codename = '';
-      this.school = null;
-      this.schoolclass = null;
-      this.student = null;
-      this.uid = null;
-    }
 
     function Teacher(key) {
       if (key) {

@@ -18,7 +18,7 @@
       restrict: 'E',
       controller: SidebarController,
       controllerAs: 'vm',
-      link: function (scope) {
+      link: function(scope) {
         scope.player = layoutService.player;
         scope.school = layoutService.school;
         scope.schoolclass = layoutService.schoolclass;
