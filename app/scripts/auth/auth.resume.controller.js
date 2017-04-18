@@ -11,7 +11,6 @@
   AuthResumeController.$inject = [
     '$location',
     'authService',
-    'sessionService',
     'schoolService',
     'studentService',
     'teacherService',
@@ -22,7 +21,6 @@
   function AuthResumeController(
     $location,
     authService,
-    sessionService,
     schoolService,
     studentService,
     teacherService,
@@ -76,6 +74,7 @@
       var schoolclass = null;
       schoolclasses.$loaded()
         .then(function() {
+          vm.matchScore = 0;
           if (schoolclasses[0]) {
             schoolclass = schoolclasses[0];
             vm.matchScore++;
@@ -90,6 +89,7 @@
             }
           }
           if (vm.matchScore < 4) {
+            vm.working = false;
             vm.error = 'We could not match the information you have provided';
           } else {
             vm.user.email = schoolclass.email;
@@ -97,38 +97,36 @@
           }
         })
         .then(function() {
-          vm.working = false;
-          console.log(vm.player);
-          sessionService.player(vm.player);
-          sessionService.schoolclass(schoolclass);
-          var school = new schoolService.School(schoolclass.school);
-          // console.log('school');
-          // console.log(school);
-          return school.$loaded();
+          if (vm.error === null) {
+            vm.working = false;
+            layoutService.setSchoolclass(schoolclass);
+            var school = new schoolService.School(schoolclass.school);
+            return school.$loaded();
+          }
         })
         .then(function(obj) {
-          // console.log('obj');
-          // console.log(obj);
-          sessionService.school(obj);
-          var teacher = new teacherService.Teacher(schoolclass.teacher);
-          // console.log('teacher');
-          // console.log(teacher);
-          return teacher.$loaded();
+          if (vm.error === null) {
+            layoutService.setSchool(obj);
+            var teacher = new teacherService.Teacher(schoolclass.teacher);
+            return teacher.$loaded();
+          }
         })
         .then(function(obj) {
-          // console.log('obj');
-          // console.log(obj);
-          sessionService.teacher(obj);
-          var student = new studentService.Student(schoolclass.student);
-          // console.log('student');
-          // console.log(student);
-          return student.$loaded();
+          if (vm.error === null) {
+            if (vm.player === 'teacher') {
+              layoutService.setPlayer(obj, vm.player);
+            }
+            var student = new studentService.Student(schoolclass.student);
+            return student.$loaded();
+          }
         })
         .then(function(obj) {
-          // console.log('obj');
-          // console.log(obj);
-          sessionService.student(obj);
-          $location.path('/play');
+          if (vm.error === null) {
+            if (vm.player === 'student') {
+              layoutService.setPlayer(obj, vm.player);
+            }
+            $location.path('/play');
+          }
         })
         .catch(function(error) {
           vm.working = false;

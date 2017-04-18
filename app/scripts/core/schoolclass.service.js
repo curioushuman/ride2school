@@ -57,9 +57,7 @@
       if (schoolclass.$save) {
         return schoolclass.$save();
       } else {
-        var key = schoolclass.key;
-        delete schoolclass.key;
-        SchoolclassesObject[key] = schoolclass;
+        SchoolclassesObject[schoolclass.key] = schoolclass;
         return SchoolclassesObject.$save();
       }
     }

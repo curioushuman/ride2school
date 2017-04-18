@@ -11,8 +11,8 @@ md-sidenav.md-sidenav-left(
       h2.md-toolbar-tools Game on
     //- md-toolbar(md-colors="{background: 'default-accent'}", ng-hide='vm.isLoggedIn()')
     //-   h3.md-toolbar-tools TEMP SCHOOL NAME
-    md-toolbar(md-colors="{background: 'default-accent'}", ng-show='vm.isLoggedIn()')
-      h3.md-toolbar-tools {{ vm.school.name }}
+    md-toolbar(md-colors="{background: 'default-accent'}", ng-show='vm.isLoggedIn()', ng-model='school')
+      h3.md-toolbar-tools {{ school.name }}
     //- div(layout-padding, layout='row', md-colors="::{backgroundColor: 'default-primary-hue-2'}")
     div(layout-padding, layout='column', ng-hide='vm.isLoggedIn()')
         p All you need is one teacher, and one student who are ready to take on
@@ -35,22 +35,22 @@ md-sidenav.md-sidenav-left(
           alt='Illustration of a teachers face'
         )
         p Teacher
-    div(layout-padding, layout='column', ng-show='vm.isLoggedIn()')
+    div(layout-padding, layout='column', ng-show='vm.isLoggedIn()', ng-model='player')
       div(flex, layout='column' layout-align='center center')
-        md-button(ng-click="vm.navigate('account')", aria-label='{{ vm.player.codename }} account')
+        md-button(ng-click="vm.navigate('account')", aria-label='{{ player.codename }} account')
           img(
             width='100px',
             ng-src='/images/avatar_student.svg',
             alt='Illustration of a students face',
-            ng-show="vm.player.type=='student'"
+            ng-show="player.type=='student'"
           )
           img(
             width='100px',
             ng-src='/images/avatar_teacher.svg',
             alt='Illustration of a teachers face',
-            ng-show="vm.player.type=='teacher'"
+            ng-show="player.type=='teacher'"
           )
-          span {{ vm.player.codename }}
+          span {{ player.codename }}
     md-toolbar.md-accent(ng-hide='vm.isLoggedIn()')
       .md-toolbar-tools
         span(flex)

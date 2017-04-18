@@ -8,9 +8,17 @@
     .module('app.landing')
     .controller('LandingController', LandingController);
 
-  LandingController.$inject = ['$location', 'layoutService', 'authService'];
+  LandingController.$inject = [
+    '$location',
+    'layoutService',
+    'authService'
+  ];
 
-  function LandingController($location, layoutService, authService) {
+  function LandingController(
+    $location,
+    layoutService,
+    authService
+  ) {
     var vm = this;
 
     vm.navigate = layoutService.navigate;

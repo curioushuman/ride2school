@@ -29,6 +29,7 @@
   function runFunction($location, authService, PROTECTED_PATHS) {
     authService.firebaseAuthObject.$onAuthStateChanged(function(authData) {
       if (!authData && pathIsProtected($location.path())) {
+        console.log('in the wrong place');
         authService.logout();
         // you might want to flash a message at this point as well
         $location.path('/');

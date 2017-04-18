@@ -49,9 +49,7 @@
       if (school.$save) {
         return school.$save();
       } else {
-        var key = school.key;
-        delete school.key;
-        SchoolsObject[key] = school;
+        SchoolsObject[school.key] = school;
         return SchoolsObject.$save();
       }
     }

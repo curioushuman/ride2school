@@ -3,5 +3,24 @@
 (function() {
   'use strict';
 
-  angular.module('app.layout', []);
+  angular
+    .module('app.layout', [])
+    .run(runFunction);
+
+  runFunction.$inject = ['layoutService', 'sessionService'];
+
+  function runFunction(layoutService, sessionService) {
+    var player = sessionService.player();
+    if (player) {
+      layoutService.setPlayer(player);
+    }
+    var school = sessionService.school();
+    if (school) {
+      layoutService.setSchool(school);
+    }
+    var schoolclass = sessionService.schoolclass();
+    if (schoolclass) {
+      layoutService.setSchoolclass(schoolclass);
+    }
+  }
 })();

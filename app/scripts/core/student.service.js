@@ -54,9 +54,7 @@
       if (student.$save) {
         return student.$save();
       } else {
-        var key = student.key;
-        delete student.key;
-        StudentsObject[key] = student;
+        StudentsObject[student.key] = student;
         return StudentsObject.$save();
       }
     }

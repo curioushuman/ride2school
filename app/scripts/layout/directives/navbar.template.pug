@@ -9,17 +9,17 @@ md-toolbar
         | Active Travellers
     span(flex, ng-show='vm.isLoggedIn()')
     div(ng-show='vm.isLoggedIn()', layout='row', layout-align='end center')
-      md-button(ng-click="vm.navigate('account')", aria-label='{{ vm.player.codename }} account')
-        | {{ vm.player.codename }}
+      md-button(ng-click="navigate('account')", aria-label='{{ player.codename }} account')
+        | {{ player.codename }}
         img(
           height='40px',
           ng-src='/images/avatar_student.svg',
           alt='Illustration of a students face',
-          ng-show="vm.player.type=='student'"
+          ng-show="player.type=='student'"
         )
         img(
           height='40px',
           ng-src='/images/avatar_teacher.svg',
           alt='Illustration of a teachers face',
-          ng-show="vm.player.type=='teacher'"
+          ng-show="player.type=='teacher'"
         )

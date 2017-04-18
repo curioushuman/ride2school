@@ -8,47 +8,38 @@
     .module('app.layout')
     .directive('gzSidebar', gzSidebar);
 
-  function gzSidebar() {
+  gzSidebar.$inject = [
+    'layoutService'
+  ];
+
+  function gzSidebar(layoutService) {
     return {
       templateUrl: 'scripts/layout/directives/sidebar.template.html',
       restrict: 'E',
-      scope: {},
       controller: SidebarController,
-      controllerAs: 'vm'
+      controllerAs: 'vm',
+      link: function (scope) {
+        scope.player = layoutService.player;
+        scope.school = layoutService.school;
+        scope.schoolclass = layoutService.schoolclass;
+      }
     };
   }
 
   SidebarController.$inject = [
     'authService',
-    'layoutService',
-    'sessionService'
+    'layoutService'
   ];
 
   function SidebarController(
     authService,
-    layoutService,
-    sessionService
+    layoutService
   ) {
     var vm = this;
 
     vm.isLoggedIn = authService.isLoggedIn;
     vm.menu = layoutService.menu;
     vm.navigate = layoutService.navigate;
-    vm.support = layoutService.support;
-    vm.account = layoutService.account;
     vm.logout = layoutService.logout;
-
-    vm.teacher = sessionService.teacher();
-    vm.student = sessionService.student();
-    vm.school = sessionService.school();
-    vm.schoolclass = sessionService.schoolclass();
-    vm.player = {
-      type: sessionService.player()
-    };
-    if (vm.player.type === 'student') {
-      vm.player.codename = vm.student.codename;
-    } else {
-      vm.player.codename = vm.teacher.codename;
-    }
   }
 })();

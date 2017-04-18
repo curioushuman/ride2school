@@ -25,12 +25,22 @@
 
     var service = {
       Teacher: Teacher,
+      Teach: Teach,
       save: save,
       getTeachers: getTeachers,
       reset: reset
     };
 
     return service;
+
+    function Teach() {
+      this.name = '';
+      this.codename = '';
+      this.school = null;
+      this.schoolclass = null;
+      this.student = null;
+      this.uid = null;
+    }
 
     function Teacher(key) {
       if (key) {
@@ -54,9 +64,7 @@
       if (teacher.$save) {
         return teacher.$save();
       } else {
-        var key = teacher.key;
-        delete teacher.key;
-        TeachersObject[key] = teacher;
+        TeachersObject[teacher.key] = teacher;
         return TeachersObject.$save();
       }
     }

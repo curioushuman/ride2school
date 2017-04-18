@@ -12,22 +12,61 @@
     '$location',
     '$mdSidenav',
     '$anchorScroll',
-    'authService'
+    'authService',
+    'studentService',
+    'schoolService',
+    'schoolclassService',
+    'sessionService'
   ];
 
   function layoutService(
     $location,
     $mdSidenav,
     $anchorScroll,
-    authService
+    authService,
+    studentService,
+    schoolService,
+    schoolclassService,
+    sessionService
   ) {
+    var player = new studentService.Student();
+    var school = new schoolService.School();
+    var schoolclass = new schoolclassService.Schoolclass();
+
     var service = {
+      player: player,
+      setPlayer: setPlayer,
+      school: school,
+      setSchool: setSchool,
+      schoolclass: schoolclass,
+      setSchoolclass: setSchoolclass,
       menu: menu,
       navigate: navigate,
-      logout: logout
+      logout: logout,
+      reset: reset
     };
 
     return service;
+
+    function setPlayer(obj, type) {
+      player.type = type;
+      player.key = obj.key;
+      player.name = obj.name;
+      player.codename = obj.codename;
+      return sessionService.player(player);
+    }
+
+    function setSchool(obj) {
+      this.school.key = obj.key;
+      this.school.name = obj.name;
+      return sessionService.school(this.school);
+    }
+
+    function setSchoolclass(obj, type) {
+      this.schoolclass.key = obj.key;
+      this.schoolclass.name = obj.name;
+      return sessionService.schoolclass(this.schoolclass);
+    }
 
     function menu() {
       $mdSidenav('left').toggle();
@@ -44,9 +83,16 @@
       }
     }
 
+    function reset() {
+      this.player = new studentService.Student();
+      this.school = new schoolService.School();
+      this.schoolclass = new schoolclassService.Schoolclass();
+    }
+
     function logout() {
       $mdSidenav('left').close();
-      console.log('logout');
+      service.reset();
+      sessionService.reset();
       authService.logout();
       $location.path('/');
     }

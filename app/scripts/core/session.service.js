@@ -10,37 +10,26 @@
     .factory('sessionService', sessionService);
 
   sessionService.$inject = [
-    '$cookies',
-    'studentService',
-    'teacherService',
-    'schoolService',
-    'schoolclassService',
-    'challengeService'
+    '$cookies'
   ];
 
   function sessionService(
-    $cookies,
-    studentService,
-    teacherService,
-    schoolService,
-    schoolclassService,
-    challengeService
+    $cookies
   ) {
     var service = {
       player: player,
       schoolclass: schoolclass,
       school: school,
-      student: student,
-      teacher: teacher
+      reset: reset
     };
 
     return service;
 
     function player(player) {
       if (player) {
-        return $cookies.put('player', player);
+        return $cookies.putObject('player', player);
       } else {
-        return $cookies.get('player');
+        return $cookies.getObject('player');
       }
     }
 
@@ -60,20 +49,10 @@
       }
     }
 
-    function teacher(teacher) {
-      if (teacher) {
-        return $cookies.putObject('teacher', teacher);
-      } else {
-        return $cookies.getObject('teacher');
-      }
-    }
-
-    function student(student) {
-      if (student) {
-        return $cookies.putObject('student', student);
-      } else {
-        return $cookies.getObject('student');
-      }
+    function reset() {
+      $cookies.remove('player');
+      $cookies.remove('school');
+      $cookies.remove('schoolclass');
     }
   }
 })();
