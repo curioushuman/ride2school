@@ -35,6 +35,17 @@
 // console.log(vm.challenge);
 // console.log(challenge);
 console.log(this.challenge);
+
+    if (this.challenge === undefined) {
+      this.challenge = {
+        progress: 80,
+        name: 'Complete your first hands up',
+        status: 'Current',
+        trees: 1,
+        activeKids: 0
+      };
+    }
+
     // legacy code that needs to be modified
     vm.showActiveKids = false;
     vm.badgeColour = 'warn';

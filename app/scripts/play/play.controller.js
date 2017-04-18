@@ -5,7 +5,7 @@
   'use strict';
 
   angular
-    .module('app.auth')
+    .module('app.play')
     .controller('PlayController', PlayController);
 
   PlayController.$inject = [
@@ -69,7 +69,7 @@
     vm.challengeBonus = tempChallengeBonus;
     vm.challengesCompleted = completedChallenges;
     vm.challengesUpcoming = upcomingChallenges;
-
+console.log(vm);
     vm.firstLogin = true;
   }
 })();
