@@ -32,9 +32,9 @@
     layoutService
   ) {
     var vm = this;
-// console.log(vm.challenge);
-// console.log(challenge);
-console.log(this.challenge);
+    // console.log(vm.challenge);
+    // console.log(challenge);
+    console.log(this.challenge);
 
     if (this.challenge === undefined) {
       this.challenge = {

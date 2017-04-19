@@ -137,7 +137,8 @@ gulp.task('scripts', () =>
       './app/scripts/play/play.module.js',
       './app/scripts/play/config.route.js',
       './app/scripts/play/play.controller.js',
-      './app/scripts/play/components/challengeCard.component.js',
+      // './app/scripts/play/components/challengeCard.component.js',
+      './app/scripts/play/directives/challengeCard.directive.js',
 
       './app/scripts/core/core.module.js',
       './app/scripts/core/constants.js',

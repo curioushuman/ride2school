@@ -69,7 +69,7 @@
     vm.challengeBonus = tempChallengeBonus;
     vm.challengesCompleted = completedChallenges;
     vm.challengesUpcoming = upcomingChallenges;
-console.log(vm);
+    console.log(vm);
     vm.firstLogin = true;
   }
 })();

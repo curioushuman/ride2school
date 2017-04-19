@@ -32,9 +32,9 @@
     layoutService
   ) {
     var vm = this;
-// console.log(vm.challenge);
-// console.log(challenge);
-console.log(this.challenge);
+    // console.log(vm.challenge);
+    // console.log(challenge);
+    console.log(this.challenge);
     // legacy code that needs to be modified
     vm.showActiveKids = false;
     vm.badgeColour = 'warn';
