@@ -33,6 +33,10 @@
     var school = new schoolService.School();
     var schoolclass = new schoolclassService.Schoolclass();
 
+    var beginResume = {
+      show: true
+    };
+
     var service = {
       player: player,
       setPlayer: setPlayer,
@@ -43,7 +47,9 @@
       menu: menu,
       navigate: navigate,
       logout: logout,
-      reset: reset
+      reset: reset,
+      beginResume: beginResume,
+      toggleBeginResume: toggleBeginResume
     };
 
     return service;
@@ -73,11 +79,15 @@
     }
 
     function navigate(view, hash) {
+      // still needs some work on resume and begin
+      console.log(view);
       $mdSidenav('left').close();
       if (view) {
+        console.log('change view');
         $location.path('/' + view);
       }
       if (hash) {
+        console.log('change hash');
         $location.hash(hash);
         $anchorScroll();
       }
@@ -95,6 +105,17 @@
       sessionService.reset();
       authService.logout();
       $location.path('/');
+    }
+
+    function toggleBeginResume() {
+      beginResume.show = true;
+      if (
+        $location.path().indexOf('begin') > -1 ||
+        $location.path().indexOf('resume') > -1 ||
+        authService.isLoggedIn()
+      ) {
+        beginResume.show = false;
+      }
     }
   }
 })();

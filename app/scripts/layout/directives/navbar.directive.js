@@ -26,13 +26,11 @@
 
   NavbarController.$inject = [
     'authService',
-    'sessionService',
     'layoutService'
   ];
 
   function NavbarController(
     authService,
-    sessionService,
     layoutService
   ) {
     var vm = this;

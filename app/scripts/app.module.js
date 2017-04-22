@@ -78,13 +78,16 @@
       .backgroundPalette('grey');
   }
 
-  runFunction.$inject = ['$rootScope', '$location'];
+  runFunction.$inject = ['$rootScope', '$location', 'layoutService'];
 
-  function runFunction($rootScope, $location) {
+  function runFunction($rootScope, $location, layoutService) {
     $rootScope.$on('$routeChangeError', function(event, next, previous, error) {
       if (error === 'AUTH_REQUIRED') {
         $location.path('/');
       }
+    });
+    $rootScope.$on('$routeChangeSuccess', function(event, next, previous, error) {
+      layoutService.toggleBeginResume();
     });
   }
 })();
