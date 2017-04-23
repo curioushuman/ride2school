@@ -2,8 +2,7 @@
 div.r2s-play-dashboard(
   flex,
   layout='row',
-  layout-xs='column',
-  md-colors="::{backgroundColor: 'default-primary-hue-2'}"
+  layout-xs='column'
 )
 
   //- dashboard
@@ -12,14 +11,16 @@ div.r2s-play-dashboard(
     flex-xs,
     layout='column',
     flex-order-gt-xs='2',
-    flex-order-xs='1'
+    flex-order-xs='1',
+    md-colors="::{backgroundColor: 'default-primary-hue-2'}"
   )
 
     //- Happy or sad Earth
     div.r2s-play-dashboard-earth(
       layout='column',
       layout-align='center center'
-      layout-padding
+      layout-padding,
+      md-colors="::{backgroundColor: 'default-primary-hue-1'}"
     )
       div(hide, show-gt-sm)
         h2.md-display-1 Keep the world healthy
@@ -31,50 +32,70 @@ div.r2s-play-dashboard(
         width='179px'
       )
 
-    div(
-      layout='row',
-      layout-padding
-    )
-      div(flex='20', layout='column', layout-align='center center')
-        img(
-          flex,
-          ng-src='/images/active_kids.svg',
-          alt='Illustration of a child on a scooter, one on a bicycle, and one walking',
-          width='100%'
-        )
-      div(flex, layout='column', layout-align='start start')
-        h3.md-subhead Encourage active travellers
-        md-progress-linear.md-accent(md-mode='determinate', value='45')
+    md-toolbar.md-accent(layout-padding)
+      .md-toolbar-tools
+        h3 Name of school
+
+    md-toolbar.md-accent.md-hue-2(layout-padding)
+      .md-toolbar-tools(layout='row')
+        h3(flex='70') Active travel rate
+        div(flex='30', layout='column', layout-align='center center')
+          img.svg-flipped(
+            flex,
+            ng-src='/images/active_kids.svg',
+            alt='Illustration of a child on a scooter, one on a bicycle, and one walking',
+            width='100%'
+          )
+
+
+    //- div(
+    //-   layout='row',
+    //-   layout-padding
+    //- )
+    //-   div(flex='75', layout='column', layout-align='center start')
+    //-     h3.md-title Encourage active travellers
+      //- div(flex='25', layout='column', layout-align='center center')
+      //-   img.svg-flipped(
+      //-     flex,
+      //-     ng-src='/images/active_kids.svg',
+      //-     alt='Illustration of a child on a scooter, one on a bicycle, and one walking',
+      //-     width='100%'
+      //-   )
 
     div(
       layout='row',
       layout-padding
     )
-      div(flex='20', layout='column', layout-align='center center')
-        img(
-          flex,
-          ng-src='/images/more_trees.svg',
-          alt='Illustration of trees',
-          width='100%'
-        )
-      div(flex, layout='column', layout-align='start start')
-        h3.md-subhead More travellers means more trees
-        md-progress-linear.md-accent(md-mode='determinate', value='80')
+      div.chart(flex, id='chart_div')
+
+    md-toolbar.md-accent.md-hue-2(layout-padding)
+      .md-toolbar-tools(layout='row')
+        h3(flex='70') Trees vs C02
+        div(flex='30', layout='column', layout-align='center center')
+          img.svg-flipped(
+            flex,
+            ng-src='/images/active_kids.svg',
+            alt='Illustration of a child on a scooter, one on a bicycle, and one walking',
+            width='100%'
+          )
 
     div(
       layout='row',
+      layout-align='center center',
       layout-padding
     )
-      div(flex='20', layout='column', layout-align='center center')
-        //- img(
-          flex,
-          ng-src='/images/earth_04.svg',
-          alt='An illustration of a happy, healthy Earth'
-          width='100%'
-        //- )
-      div(flex, layout='column', layout-align='start start')
-        h3.md-subhead Travellers and trees means less CO2
-        md-progress-linear.md-warn(md-mode='determinate', value='60')
+      svg(width='90%', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink')
+        image.svg-scaled(x='0', y='0', width='90%', xlink:href='/images/trees-balloons.svg')
+
+      //- img.svg-scaled(
+      //-   flex,
+      //-   ng-src='/images/trees-balloons.svg',
+      //-   alt='Trees vs balloons scale',
+      //-   viewBox='0 0 100 100',
+      //-   width='100%'
+      //- )
+
+    div(flex, show-gt-xs)
 
   //- current month challenges and tasks
   div(
@@ -82,7 +103,8 @@ div.r2s-play-dashboard(
     flex-xs,
     layout='column',
     flex-order-gt-xs='1',
-    flex-order-xs='2'
+    flex-order-xs='2',
+    md-colors="::{backgroundColor: 'default-primary-hue-3'}"
   )
 
     div(
@@ -90,31 +112,31 @@ div.r2s-play-dashboard(
     )
       md-content(flex)
 
-        md-toolbar.md-primary.md-hue-2(layout-padding, ng-show='vm.firstLogin')
+        md-toolbar.md-primary.md-hue-3(layout-padding, ng-show='vm.firstLogin')
           .md-toolbar-tools
             md-button.md-fab.md-warn 1
             h3 Complete 1 challenge a month
 
-        md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary-hue-2'}")
-          p(ng-show='vm.firstLogin') That's all you need to do. Are you ready?
+        md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary-hue-3'}")
+          //- p(ng-show='vm.firstLogin') That's all you need to do. Are you ready?
           challenge-card(challenge='vm.challengeCurrent')
 
-        md-toolbar.md-primary.md-hue-2(layout-padding, ng-show='vm.firstLogin')
+        md-toolbar.md-primary.md-hue-3(layout-padding, ng-show='vm.firstLogin')
           .md-toolbar-tools
             md-button.md-fab.md-warn 2
             h3 Unlock BONUS challenges
 
-        md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary-hue-2'}")
-          p(ng-if='vm.firstLogin') If you complete your challenge early, you can take on a bonus challenge.
+        md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary-hue-3'}")
+          //- p(ng-if='vm.firstLogin') If you complete your challenge early, you can take on a bonus challenge.
           challenge-card(challenge='vm.challengeBonus')
 
-        md-toolbar.md-primary.md-hue-2(layout-padding, ng-show='vm.firstLogin')
+        md-toolbar.md-primary.md-hue-3(layout-padding, ng-show='vm.firstLogin')
           .md-toolbar-tools
             md-button.md-fab.md-warn 3
             h3 Count your active travellers
 
-        md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary-hue-2'}")
-          p(ng-show='vm.firstLogin') Once a month count how many new active travellers you have.
+        md-content(layout-padding, md-colors="::{backgroundColor: 'default-primary-hue-3'}")
+          //- p(ng-show='vm.firstLogin') Once a month count how many new active travellers you have.
           md-card
             md-card-title
               md-card-title-text

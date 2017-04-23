@@ -73,4 +73,108 @@
   }
 
   // Your custom JavaScript goes here
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawCharts);
+
+  function drawCharts() {
+    drawChartOne();
+    // drawChartTwo();
+  }
+
+  function resize () {
+    drawChartOne();
+  }
+  if (window.addEventListener) {
+      window.addEventListener('resize', resize);
+  }
+  else {
+      window.attachEvent('onresize', resize);
+  }
+
+  function drawChartOne() {
+    // var data = google.visualization.arrayToDataTable([
+    //   ['Year', 'Walk', 'Scoot', 'Bike', 'Car'],
+    //   ['May', 2, 3, 5, 20],
+    //   ['June', 6, 4, 5, 15],
+    //   ['July', 8, 5, 5, 12]
+    // ]);
+    var data = google.visualization.arrayToDataTable([
+      ['Year', 'Walk', 'Scoot', 'Bike', 'Car'],
+      ['Start', 2, 3, 5, 20],
+      ['May', 2, 3, 5, 20]
+    ]);
+
+    var options_fullStacked = {
+      isStacked: 'relative',
+      pointsVisible: true,
+      pointSize: 3,
+      backgroundColor: 'transparent',
+      chartArea: {
+        top: '5%',
+        left: '10%',
+        width: '68%',
+        height: '90%'
+      },
+      colors: ['#00C853', '#00E676', '#69F0AE', '#004D40'],
+      areaOpacity: 0.4,
+      height: 200,
+      legend: {
+        position: 'right',
+        textStyle: {
+          color: '#FFFFFF',
+          bold: true
+        }
+      },
+      hAxis: {
+        baselineColor: '#004D40',
+        textPosition: 'none'
+      },
+      vAxis: {
+        minValue: 0,
+        format: '##%',
+        textStyle: {
+          color: '#FFFFFF',
+          bold: true
+        },
+        ticks: [0, 0.25, 0.50, 0.75, 1.0],
+        textPosition: 'out'
+      }
+    };
+
+    var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+    chart.draw(data, options_fullStacked);
+  }
+
+  function drawChartTwo() {
+    var data = google.visualization.arrayToDataTable([
+      ['Year', 'Bicycle', 'Walking', 'Scooting', 'By car'],
+      ['Start', 0, 12, 8, 10],
+      ['Finish', 0, 12, 8, 10]
+    ]);
+
+    var options_fullStacked = {
+      isStacked: 'relative',
+      backgroundColor: 'transparent',
+      chartArea: {
+        top: 0,
+        left: 0
+      },
+      colors: ['#004D40', '#69F0AE', '#00E676', '#00C853'],
+      areaOpacity: 1.0,
+      height: 300,
+      legend: {position: 'none'},
+      hAxis: {
+        baselineColor: '#004D40',
+        textPosition: 'none'
+      },
+      vAxis: {
+        minValue: 0,
+        ticks: [],
+        textPosition: 'in'
+      }
+    };
+
+    var chart = new google.visualization.AreaChart(document.getElementById('chart_div_2'));
+    chart.draw(data, options_fullStacked);
+  }
 })();
